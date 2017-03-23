@@ -31,27 +31,27 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
-    @InjectView(R.id.et_username)
+    @BindView(R.id.et_username)
     EditText etUsername;
-    @InjectView(R.id.et_password)
+    @BindView(R.id.et_password)
     EditText etPassword;
-    @InjectView(R.id.bt_go)
+    @BindView(R.id.bt_go)
     Button btGo;
-    @InjectView(R.id.cv)
+    @BindView(R.id.cv)
     CardView cv;
-    @InjectView(R.id.fab)
+    @BindView(R.id.fab)
     FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
     }
 
