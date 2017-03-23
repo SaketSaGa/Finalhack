@@ -10,4 +10,8 @@
     <string name="repeat_password">Repeat Password</string>
     <string name="next">NEXT</string>
     <string name="register">REGISTER</string>
+
+    <string name="state_spinner_label">State</string>
+    <string name="district_spinner_label">District</string>
+    <string name="sector_spinner_label">Sector</string>
 </resources>
