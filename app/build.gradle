@@ -17,6 +17,7 @@
  */
 
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
 apply plugin: 'realm-android'
 
 android {
@@ -41,13 +42,22 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
+    compile('com.mikepenz:materialdrawer:5.8.2@aar') {
+        transitive = true
+    }
     compile 'com.android.support:appcompat-v7:25.3.0'
     compile 'com.android.support:cardview-v7:25.3.0'
+
+    compile 'com.google.firebase:firebase-auth:10.0.1'
+
+    compile 'com.firebaseui:firebase-ui-auth:1.2.0'
 
     compile 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
 
-    compile('com.mikepenz:materialdrawer:5.8.2@aar') {
-        transitive = true
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.6@aar') {
+        transitive = true;
     }
 }
+
+apply plugin: 'com.google.gms.google-services'

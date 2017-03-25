@@ -17,7 +17,10 @@
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.ssn.skillindia">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -40,6 +43,10 @@
             android:theme="@style/Translucent" />
 
         <activity android:name=".SearchTrainingCenterActivity" />
-    </application>
 
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="327685d013652e58a2cb3571746ced9f0a54aab3"
+            tools:replace="android:value" />
+    </application>
 </manifest>
