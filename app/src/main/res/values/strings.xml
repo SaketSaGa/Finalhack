@@ -35,4 +35,31 @@
     <string name="state_spinner_label">State</string>
     <string name="district_spinner_label">District</string>
     <string name="sector_spinner_label">Sector</string>
+
+    <string name="sign_in_cancelled">Sign in cancelled</string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="unknown_sign_in_response">Unknown response from Auth sign-in</string>
+    <string name="unknown_error">An unknown error occurred</string>
+
+    <string name="sign_out_failed">Sign out failed</string>
+    <string name="delete_account_failed">Delete account failed</string>
+
+    <string name="title_activity_hello">Hello.</string>
+    <string name="hello_activity_headline">Hello.</string>
+    <string name="hello_activity_terms">Terms of Use</string>
+    <string name="hello_activity_subhead">We just need a few quick things before getting you started.</string>
+    <string name="hello_activity_name">Name</string>
+    <string name="hello_activity_email">Email</string>
+    <string name="hello_activity_address">Address</string>
+    <string name="hello_activity_country">Country</string>
+    <string name="hello_activity_gender">Gender</string>
+    <string name="hello_activity_age">Age</string>
+    <string name="hello_activity_mobile">Mobile No.</string>
+    <string name="hello_activity_age_invalid">Please enter a valid age.</string>
+
+    <string name="hello_activity_share_data">Share anonymous data for research.</string>
+    <string name="hello_activity_hint_settings">You can change these in settings later.</string>
+    <string name="hello_activity_button_next">NEXT</string>
+    <string name="hello_activity_textview_tos">By using dropBuy, you are agreeing to the</string>
+    <string name="hello_activity_button_start">GET STARTED</string>
 </resources>

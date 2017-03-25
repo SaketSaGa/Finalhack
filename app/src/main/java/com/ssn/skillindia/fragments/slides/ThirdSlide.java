@@ -16,28 +16,19 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package com.ssn.skillindia;
+package com.ssn.skillindia.fragments.slides;
 
-import android.content.Context;
-import android.support.multidex.MultiDex;
-import android.support.multidex.MultiDexApplication;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import com.crashlytics.android.Crashlytics;
+import com.ssn.skillindia.R;
 
-import io.fabric.sdk.android.Fabric;
-
-public class SkillIndiaApplication extends MultiDexApplication {
-
+public class ThirdSlide extends Fragment {
     @Override
-    public void onCreate() {
-        super.onCreate();
-
-        Fabric.with(this, new Crashlytics());
-    }
-
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-        MultiDex.install(this);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.intro3, container, false);
     }
 }

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Skill India
+  ~ Copyright (C) 2017  e-LEMON-ators
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~  it under the terms of the GNU General Public License as published by
+  ~  the Free Software Foundation, either version 3 of the License, or
+  ~  (at your option) any later version.
+  ~
+  ~  This program is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  GNU General Public License for more details.
+  ~
+  ~  You should have received a copy of the GNU General Public License
+  ~  along with this program.  If not, see <http://www.gnu.org/licenses/>
+  -->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/hello_activity_mainframe"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="32dp"
+        android:paddingLeft="32dp"
+        android:paddingRight="32dp"
+        android:paddingTop="32dp">
+
+        <TextView
+            android:id="@+id/activity_hello_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="32dp"
+            android:text="@string/hello_activity_headline"
+            android:textColor="@color/skill_india_text_dark"
+            android:textSize="@dimen/abc_text_size_display_1_material" />
+
+        <TextView
+            android:id="@+id/activity_hello_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:text="@string/hello_activity_subhead"
+            android:textColor="@color/skill_india_text"
+            android:textSize="@dimen/abc_text_size_subhead_material" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp">
+
+            <EditText
+                android:id="@+id/activity_hello_name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/hello_activity_name"
+                android:inputType="textPersonName"
+                android:maxLines="1"
+                android:textSize="@dimen/abc_text_size_body_2_material" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp">
+
+            <EditText
+                android:id="@+id/activity_hello_email"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/hello_activity_email"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:textSize="@dimen/abc_text_size_body_2_material" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp">
+
+            <EditText
+                android:id="@+id/activity_hello_address"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/hello_activity_address"
+                android:inputType="textPostalAddress"
+                android:textSize="@dimen/abc_text_size_body_2_material" />
+        </android.support.design.widget.TextInputLayout>
+
+        <com.ssn.skillindia.LabelledSpinner
+            android:id="@+id/activity_hello_spinner_country"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            custom:labelText="@string/hello_activity_country"
+            custom:widgetColor="@color/colorAccent" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <EditText
+                    android:id="@+id/activity_hello_age"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:digits="0123456789"
+                    android:hint="@string/hello_activity_age"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:textSize="@dimen/abc_text_size_body_2_material" />
+            </android.support.design.widget.TextInputLayout>
+
+            <com.ssn.skillindia.LabelledSpinner
+                android:id="@+id/activity_hello_spinner_gender"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-17dp"
+                android:layout_weight="1"
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                custom:labelText="@string/hello_activity_gender"
+                custom:widgetColor="@color/colorAccent" />
+        </LinearLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp">
+
+            <EditText
+                android:id="@+id/activity_hello_mobile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/hello_activity_mobile"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:textSize="@dimen/abc_text_size_body_2_material" />
+        </android.support.design.widget.TextInputLayout>
+
+        <CheckBox
+            android:id="@+id/activity_hello_check_share"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:checked="true"
+            android:text="@string/hello_activity_share_data" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/hello_activity_hint_settings"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/hello_activity_textview_tos"
+            android:textColor="@color/skill_india_text"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/hello_activity_textview_terms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/hello_activity_terms"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/activity_hello_button_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="24dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableEnd="@drawable/ic_navigate_next_accent"
+            android:drawableRight="@drawable/ic_navigate_next_accent"
+            android:padding="8dp"
+            android:text="@string/hello_activity_button_start"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold" />
+    </LinearLayout>
+</ScrollView>

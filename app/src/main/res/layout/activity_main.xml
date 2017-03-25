@@ -16,14 +16,14 @@
   ~  along with this program.  If not, see <http://www.gnu.org/licenses/>
   -->
 
-<resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <color name="white">#FFFFFFFF</color>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!" />
 
-    <color name="skill_india_text">#323232</color>
-    <color name="skill_india_text_dark">#000000</color>
-    <color name="skill_india_text_light">#686E71</color>
-</resources>
+</LinearLayout>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><!--
+<!--
   ~ Skill India
   ~ Copyright (C) 2017  e-LEMON-ators
   ~
@@ -17,13 +17,9 @@
   -->
 
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-
-    <color name="white">#FFFFFFFF</color>
-
-    <color name="skill_india_text">#323232</color>
-    <color name="skill_india_text_dark">#000000</color>
-    <color name="skill_india_text_light">#686E71</color>
+    <string-array name="hello_activity_gender_list" translatable="false">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
 </resources>
