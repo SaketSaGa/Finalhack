@@ -16,11 +16,13 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package com.ssn.skillindia;
+package com.ssn.skillindia.activities;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+
+import com.ssn.skillindia.R;
 
 public class SearchTrainingCenterActivity extends AppCompatActivity {
 

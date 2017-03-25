@@ -19,12 +19,16 @@
 package com.ssn.skillindia;
 
 import android.content.Context;
+import android.os.StrictMode;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
 import com.crashlytics.android.Crashlytics;
+import com.facebook.stetho.Stetho;
+import com.uphyca.stetho_realm.RealmInspectorModulesProvider;
 
 import io.fabric.sdk.android.Fabric;
+import io.realm.Realm;
 
 public class SkillIndiaApplication extends MultiDexApplication {
 
@@ -33,6 +37,17 @@ public class SkillIndiaApplication extends MultiDexApplication {
         super.onCreate();
 
         Fabric.with(this, new Crashlytics());
+
+        if (BuildConfig.DEBUG) {
+            StrictMode.enableDefaults();
+
+            Stetho.initialize(Stetho.newInitializerBuilder(this)
+                    .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
+                    .enableWebKitInspector(RealmInspectorModulesProvider.builder(this).build())
+                    .build());
+        }
+
+        Realm.init(this);
     }
 
     @Override
