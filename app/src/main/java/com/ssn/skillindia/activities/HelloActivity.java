@@ -30,9 +30,6 @@ import android.util.Log;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -65,24 +62,12 @@ public class HelloActivity extends AppCompatActivity {
     TextView mobileTextView;
     @BindView(R.id.activity_hello_spinner_gender)
     LabelledSpinner genderSpinner;
-    @BindView(R.id.activity_hello_button_start)
-    Button startButton;
-    @BindView(R.id.activity_hello_title)
-    TextView activityHelloTitle;
-    @BindView(R.id.activity_hello_subtitle)
-    TextView activityHelloSubtitle;
     @BindView(R.id.activity_hello_spinner_state)
     LabelledSpinner stateSpinner;
     @BindView(R.id.activity_hello_spinner_district)
     LabelledSpinner districtSpinner;
-    @BindView(R.id.activity_hello_password)
-    EditText activityHelloPassword;
-    @BindView(R.id.activity_hello_check_share)
-    CheckBox activityHelloCheckShare;
-    @BindView(R.id.hello_activity_textview_terms)
-    TextView helloActivityTextviewTerms;
-    @BindView(R.id.hello_activity_mainframe)
-    ScrollView helloActivityMainframe;
+    @BindView(R.id.activity_hello_button_start)
+    Button startButton;
 
     private DatabaseReference databaseReference;
     private FirebaseUser currentUser;

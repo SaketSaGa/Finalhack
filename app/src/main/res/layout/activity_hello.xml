@@ -18,7 +18,6 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/hello_activity_mainframe"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:visibility="visible">
@@ -33,7 +32,6 @@
         android:paddingTop="32dp">
 
         <TextView
-            android:id="@+id/activity_hello_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="32dp"
@@ -42,7 +40,6 @@
             android:textSize="@dimen/abc_text_size_display_1_material" />
 
         <TextView
-            android:id="@+id/activity_hello_subtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="16dp"
@@ -147,7 +144,6 @@
         </android.support.design.widget.TextInputLayout>
 
         <CheckBox
-            android:id="@+id/activity_hello_check_share"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
@@ -170,7 +166,6 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/hello_activity_textview_terms"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"

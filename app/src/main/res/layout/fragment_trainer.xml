@@ -16,12 +16,17 @@
   ~  along with this program.  If not, see <http://www.gnu.org/licenses/>
   -->
 
-<resources>
-    <string name="facebook_application_id">1859458124314153</string>
-    <string name="facebook_login_protocol_scheme">fb1859458124314153</string>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
 
-    <string name="twitter_consumer_key" translatable="false">jKGOVUbShgtOo9KfXl02G1obY</string>
-    <string name="twitter_consumer_secret" translatable="false">MbdrgJwnKNtlufSNiFkCRxIF4GStrGyJCiXks0gF2svIK0Ar3D</string>
+    <TextView
+        android:id="@+id/section_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
-    <string name="mapbox_access_token" translatable="false">pk.eyJ1IjoiYWRpdGh5YTMyMSIsImEiOiJjajBxZG41a3gwMDFhMzJxdnlyOThnbml1In0.7_JmLdqq_P1bOnBXsKY30Q</string>
-</resources>
+</RelativeLayout>

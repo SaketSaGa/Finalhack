@@ -20,6 +20,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.ssn.skillindia">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -76,5 +78,7 @@
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorPrimary" />
+
+        <service android:name="com.mapbox.mapboxsdk.telemetry.TelemetryService" />
     </application>
 </manifest>
