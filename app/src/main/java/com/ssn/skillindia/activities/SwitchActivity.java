@@ -24,19 +24,18 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
-import android.widget.Spinner;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
+import com.mikepenz.materialdrawer.AccountHeader;
+import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
-import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
-import com.mikepenz.materialdrawer.model.SectionDrawerItem;
+import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.ssn.skillindia.R;
 import com.ssn.skillindia.fragments.CitizenFragment;
 import com.ssn.skillindia.fragments.TrainerFragment;
@@ -47,10 +46,8 @@ import butterknife.ButterKnife;
 
 public class SwitchActivity extends AppCompatActivity {
 
-    public static String[] types = {"Citizen", "Trainer", "Training Center"};
+    public static String[] types = {"Learner", "Trainer", "Training Center"};
 
-    @BindView(R.id.spinner)
-    Spinner spinner;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.appbar)
@@ -62,8 +59,11 @@ public class SwitchActivity extends AppCompatActivity {
     @BindView(R.id.main_content)
     RelativeLayout mainContent;
 
+    PrimaryDrawerItem item1, item2, item3, item4, item5, item6, item7, item8;
+
     private FirebaseAnalytics firebaseAnalytics;
-    private Drawer drawer;
+    private AccountHeader headerResult = null;
+    private Drawer drawer = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,60 +75,85 @@ public class SwitchActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
-        spinner.setAdapter(new SwitchViewPagerAdapter(toolbar.getContext(), types));
+        final IProfile profile1 = new ProfileDrawerItem().withName(types[0])
+                .withEmail("learner@gmail.com").withIcon(R.drawable.ic_learner);
+        final IProfile profile2 = new ProfileDrawerItem().withName(types[1])
+                .withEmail("trainer@github.com").withIcon(R.drawable.ic_trainer);
+        final IProfile profile3 = new ProfileDrawerItem().withName(types[2])
+                .withEmail("trainingpartner@outlook.com").withIcon(R.drawable.ic_training_center);
 
-        spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Fragment fragment;
-                switch (position) {
-                    case 0:
-                        fragment = new CitizenFragment();
-                        break;
-                    case 1:
-                        fragment = new TrainerFragment();
-                        break;
-                    case 2:
-                        fragment = new TrainingCenterFragment();
-                        break;
+        item1 = new PrimaryDrawerItem().withName(R.string.drawer_item_search_center).withIdentifier(0).withIcon(FontAwesome.Icon.faw_map);
+        item2 = new PrimaryDrawerItem().withName(R.string.drawer_item_search_courses).withIdentifier(1).withIcon(FontAwesome.Icon.faw_search);
+        item3 = new PrimaryDrawerItem().withName(R.string.drawer_item_world_competition).withIdentifier(2).withIcon(FontAwesome.Icon.faw_globe);
+        item4 = new PrimaryDrawerItem().withName(R.string.drawer_item_check_progress).withIdentifier(3).withIcon(FontAwesome.Icon.faw_tasks);
+        item5 = new PrimaryDrawerItem().withName(R.string.drawer_item_webinars).withIdentifier(4).withIcon(FontAwesome.Icon.faw_youtube);
+        item6 = new PrimaryDrawerItem().withName(R.string.drawer_item_register_pmkvy).withIdentifier(5).withIcon(FontAwesome.Icon.faw_sign_in);
+        item7 = new PrimaryDrawerItem().withName(R.string.drawer_item_report_issues).withIdentifier(6).withIcon(FontAwesome.Icon.faw_bug);
+        item8 = new PrimaryDrawerItem().withName(R.string.drawer_item_contact).withIdentifier(7).withIcon(FontAwesome.Icon.faw_phone);
 
-                    default:
-                        fragment = new CitizenFragment();
-                }
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.frame_container, fragment)
-                        .commit();
-                Bundle bundle = new Bundle();
-                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, String.valueOf(position));
-                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, types[position]);
-                bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "navigation");
-                firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
-            }
+        headerResult = new AccountHeaderBuilder()
+                .withActivity(this)
+                .withHeaderBackground(R.drawable.header)
+                .addProfiles(profile1, profile2, profile3)
+                .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
+                    @Override
+                    public boolean onProfileChanged(View view, IProfile profile, boolean current) {
+                        Fragment fragment;
+                        Bundle bundle = new Bundle();
+                        switch (profile.getName().toString()) {
+                            case "Learner":
+                                fragment = new CitizenFragment();
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, types[0]);
+                                break;
+                            case "Trainer":
+                                fragment = new TrainerFragment();
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, types[1]);
+                                break;
+                            case "Training Partner":
+                                fragment = new TrainingCenterFragment();
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, types[2]);
+                                break;
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
+                            default:
+                                fragment = new CitizenFragment();
+                        }
+
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.frame_container, fragment)
+                                .commit();
+                        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "navigation");
+                        firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+                        return true;
+                    }
+                })
+                .withSavedInstance(savedInstanceState)
+                .build();
 
         drawer = new DrawerBuilder(this)
                 .withRootView(drawerContainer)
                 .withToolbar(toolbar)
                 .withDisplayBelowStatusBar(false)
                 .withActionBarDrawerToggleAnimated(true)
-                .addDrawerItems(
-                        new PrimaryDrawerItem().withName(R.string.drawer_item_home).withIcon(FontAwesome.Icon.faw_home),
-                        new PrimaryDrawerItem().withName(R.string.drawer_item_free_play).withIcon(FontAwesome.Icon.faw_gamepad),
-                        new PrimaryDrawerItem().withName(R.string.drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye),
-                        new SectionDrawerItem().withName(R.string.drawer_item_section_header),
-                        new SecondaryDrawerItem().withName(R.string.drawer_item_settings).withIcon(FontAwesome.Icon.faw_cog),
-                        new SecondaryDrawerItem().withName(R.string.drawer_item_help).withIcon(FontAwesome.Icon.faw_question).withEnabled(false),
-                        new SecondaryDrawerItem().withName(R.string.drawer_item_open_source).withIcon(FontAwesome.Icon.faw_github),
-                        new SecondaryDrawerItem().withName(R.string.drawer_item_contact).withIcon(FontAwesome.Icon.faw_bullhorn)
-                )
+                .withAccountHeader(headerResult)
+                .addDrawerItems(item1, item2, item3, item4, item5, item6, item7, item8)
                 .withSavedInstance(savedInstanceState)
                 .build();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        drawer.saveInstanceState(outState);
+        outState = headerResult.saveInstanceState(outState);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawer != null && drawer.isDrawerOpen()) {
+            drawer.closeDrawer();
+        } else {
+            super.onBackPressed();
+        }
     }
 }

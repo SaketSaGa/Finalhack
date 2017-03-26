@@ -60,6 +60,7 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
 
     compile 'com.github.paolorotolo:appintro:4.1.0'
+    compile 'com.mikepenz:google-material-typeface:3.0.1.0.original@aar'
     compile 'com.mikepenz:fontawesome-typeface:4.6.0.3@aar'
     compile('com.mikepenz:materialdrawer:5.8.2@aar') {
         transitive = true
