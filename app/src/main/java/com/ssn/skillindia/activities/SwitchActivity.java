@@ -19,31 +19,57 @@
 package com.ssn.skillindia.activities;
 
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.mikepenz.fontawesome_typeface_library.FontAwesome;
+import com.mikepenz.materialdrawer.Drawer;
+import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
+import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
+import com.mikepenz.materialdrawer.model.SectionDrawerItem;
 import com.ssn.skillindia.R;
 import com.ssn.skillindia.fragments.CitizenFragment;
 import com.ssn.skillindia.fragments.TrainerFragment;
 import com.ssn.skillindia.fragments.TrainingCenterFragment;
 
-import static com.ssn.skillindia.R.id.container;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class SwitchActivity extends AppCompatActivity {
 
     public static String[] types = {"Citizen", "Trainer", "Training Center"};
+
+    @BindView(R.id.spinner)
+    Spinner spinner;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.appbar)
+    AppBarLayout appbar;
+    @BindView(R.id.frame_container)
+    FrameLayout frameContainer;
+    @BindView(R.id.drawer_container)
+    FrameLayout drawerContainer;
+    @BindView(R.id.main_content)
+    RelativeLayout mainContent;
+
     private FirebaseAnalytics firebaseAnalytics;
+    private Drawer drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_switch);
+        ButterKnife.bind(this);
 
         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
@@ -73,7 +99,7 @@ public class SwitchActivity extends AppCompatActivity {
                         fragment = new CitizenFragment();
                 }
                 getSupportFragmentManager().beginTransaction()
-                        .replace(container, fragment)
+                        .replace(R.id.frame_container, fragment)
                         .commit();
                 Bundle bundle = new Bundle();
                 bundle.putString(FirebaseAnalytics.Param.ITEM_ID, String.valueOf(position));
@@ -86,5 +112,23 @@ public class SwitchActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
+        drawer = new DrawerBuilder(this)
+                .withRootView(drawerContainer)
+                .withToolbar(toolbar)
+                .withDisplayBelowStatusBar(false)
+                .withActionBarDrawerToggleAnimated(true)
+                .addDrawerItems(
+                        new PrimaryDrawerItem().withName(R.string.drawer_item_home).withIcon(FontAwesome.Icon.faw_home),
+                        new PrimaryDrawerItem().withName(R.string.drawer_item_free_play).withIcon(FontAwesome.Icon.faw_gamepad),
+                        new PrimaryDrawerItem().withName(R.string.drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye),
+                        new SectionDrawerItem().withName(R.string.drawer_item_section_header),
+                        new SecondaryDrawerItem().withName(R.string.drawer_item_settings).withIcon(FontAwesome.Icon.faw_cog),
+                        new SecondaryDrawerItem().withName(R.string.drawer_item_help).withIcon(FontAwesome.Icon.faw_question).withEnabled(false),
+                        new SecondaryDrawerItem().withName(R.string.drawer_item_open_source).withIcon(FontAwesome.Icon.faw_github),
+                        new SecondaryDrawerItem().withName(R.string.drawer_item_contact).withIcon(FontAwesome.Icon.faw_bullhorn)
+                )
+                .withSavedInstance(savedInstanceState)
+                .build();
     }
 }
