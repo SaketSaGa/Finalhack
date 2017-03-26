@@ -71,35 +71,29 @@
             android:layout_marginTop="32dp">
 
             <EditText
-                android:id="@+id/activity_hello_email"
+                android:id="@+id/activity_hello_mobile"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="@string/hello_activity_email"
-                android:inputType="textEmailAddress"
+                android:hint="@string/hello_activity_mobile"
+                android:inputType="phone"
                 android:maxLines="1"
                 android:textSize="@dimen/abc_text_size_body_2_material" />
         </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp">
-
-            <EditText
-                android:id="@+id/activity_hello_address"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="@string/hello_activity_address"
-                android:inputType="textPostalAddress"
-                android:textSize="@dimen/abc_text_size_body_2_material" />
-        </android.support.design.widget.TextInputLayout>
-
-        <com.ssn.skillindia.LabelledSpinner
-            android:id="@+id/activity_hello_spinner_country"
+        <com.ssn.skillindia.ui.LabelledSpinner
+            android:id="@+id/activity_hello_spinner_state"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            custom:labelText="@string/hello_activity_country"
+            custom:labelText="@string/hello_activity_state"
+            custom:widgetColor="@color/colorAccent" />
+
+        <com.ssn.skillindia.ui.LabelledSpinner
+            android:id="@+id/activity_hello_spinner_district"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            custom:labelText="@string/hello_activity_district"
             custom:widgetColor="@color/colorAccent" />
 
         <LinearLayout
@@ -125,7 +119,7 @@
                     android:textSize="@dimen/abc_text_size_body_2_material" />
             </android.support.design.widget.TextInputLayout>
 
-            <com.ssn.skillindia.LabelledSpinner
+            <com.ssn.skillindia.ui.LabelledSpinner
                 android:id="@+id/activity_hello_spinner_gender"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -136,17 +130,18 @@
                 custom:widgetColor="@color/colorAccent" />
         </LinearLayout>
 
+
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp">
 
             <EditText
-                android:id="@+id/activity_hello_mobile"
+                android:id="@+id/activity_hello_email"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="@string/hello_activity_mobile"
-                android:inputType="phone"
+                android:hint="@string/hello_activity_email"
+                android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:textSize="@dimen/abc_text_size_body_2_material" />
         </android.support.design.widget.TextInputLayout>

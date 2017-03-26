@@ -16,7 +16,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package com.ssn.skillindia;
+package com.ssn.skillindia.ui;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -34,6 +34,8 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
+
+import com.ssn.skillindia.R;
 
 import java.util.List;
 

@@ -30,6 +30,9 @@ import android.util.Log;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,9 +45,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.ssn.skillindia.LabelledSpinner;
 import com.ssn.skillindia.R;
 import com.ssn.skillindia.model.User;
+import com.ssn.skillindia.ui.LabelledSpinner;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -56,20 +59,30 @@ public class HelloActivity extends AppCompatActivity {
     TextView nameTextView;
     @BindView(R.id.activity_hello_email)
     TextView emailTextView;
-    @BindView(R.id.activity_hello_address)
-    TextView addressTextView;
     @BindView(R.id.activity_hello_age)
     TextView ageTextView;
     @BindView(R.id.activity_hello_mobile)
     TextView mobileTextView;
-
-    @BindView(R.id.activity_hello_spinner_country)
-    LabelledSpinner countrySpinner;
     @BindView(R.id.activity_hello_spinner_gender)
     LabelledSpinner genderSpinner;
-
     @BindView(R.id.activity_hello_button_start)
     Button startButton;
+    @BindView(R.id.activity_hello_title)
+    TextView activityHelloTitle;
+    @BindView(R.id.activity_hello_subtitle)
+    TextView activityHelloSubtitle;
+    @BindView(R.id.activity_hello_spinner_state)
+    LabelledSpinner stateSpinner;
+    @BindView(R.id.activity_hello_spinner_district)
+    LabelledSpinner districtSpinner;
+    @BindView(R.id.activity_hello_password)
+    EditText activityHelloPassword;
+    @BindView(R.id.activity_hello_check_share)
+    CheckBox activityHelloCheckShare;
+    @BindView(R.id.hello_activity_textview_terms)
+    TextView helloActivityTextviewTerms;
+    @BindView(R.id.hello_activity_mainframe)
+    ScrollView helloActivityMainframe;
 
     private DatabaseReference databaseReference;
     private FirebaseUser currentUser;
@@ -93,6 +106,8 @@ public class HelloActivity extends AppCompatActivity {
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
         genderSpinner.setItemsArray(R.array.hello_activity_gender_list);
+        stateSpinner.setItemsArray(R.array.hello_activity_gender_list);
+        districtSpinner.setItemsArray(R.array.hello_activity_gender_list);
         initStartButton();
 
         populateProfile();
@@ -139,13 +154,15 @@ public class HelloActivity extends AppCompatActivity {
     }
 
     public void startMainView() {
-        User user = new User(currentUser.getUid(),
-                nameTextView.getText().toString(), emailTextView.getText().toString(),
-                addressTextView.getText().toString(),
-                countrySpinner.getSpinner().getSelectedItem().toString(),
-                Integer.parseInt(ageTextView.getText().toString()),
-                genderSpinner.getSpinner().getSelectedItem().toString(),
-                mobileTextView.getText().toString());
+        User user = new User();
+        user.setId(currentUser.getUid());
+        user.setName(nameTextView.getText().toString());
+        user.setEmail(emailTextView.getText().toString());
+        user.setState(stateSpinner.getSpinner().getSelectedItem().toString());
+        user.setDistrict(districtSpinner.getSpinner().getSelectedItem().toString());
+        user.setAge(ageTextView.getText().toString());
+        user.setGender(genderSpinner.getSpinner().getSelectedItem().toString());
+        user.setMobile(mobileTextView.getText().toString());
 
         SharedPreferences sharedPreferences = getSharedPreferences("user", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -172,10 +189,12 @@ public class HelloActivity extends AppCompatActivity {
                     User user = dataSnapshot.getValue(User.class);
                     nameTextView.setText(user.getName());
                     emailTextView.setText(user.getEmail());
-                    addressTextView.setText(user.getAddress());
-                    countrySpinner.getSpinner()
-                            .setSelection(((ArrayAdapter<String>) countrySpinner.getSpinner()
-                                    .getAdapter()).getPosition(user.getCountry()));
+                    stateSpinner.getSpinner()
+                            .setSelection(((ArrayAdapter<String>) stateSpinner.getSpinner()
+                                    .getAdapter()).getPosition(user.getState()));
+                    districtSpinner.getSpinner()
+                            .setSelection(((ArrayAdapter<String>) districtSpinner.getSpinner()
+                                    .getAdapter()).getPosition(user.getDistrict()));
                     ageTextView.setText(String.valueOf(user.getAge()));
                     genderSpinner.getSpinner()
                             .setSelection(((ArrayAdapter<String>) genderSpinner.getSpinner()

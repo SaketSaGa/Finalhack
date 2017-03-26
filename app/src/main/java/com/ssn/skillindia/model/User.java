@@ -23,9 +23,9 @@ public class User {
     private String id;
     private String name;
     private String email;
-    private String address;
-    private String country;
-    private int age;
+    private String state;
+    private String district;
+    private String age;
     private String gender;
     private String mobile;
 
@@ -33,13 +33,13 @@ public class User {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
 
-    public User(String id, String name, String email, String address, String country, int age,
+    public User(String id, String name, String email, String state, String district, String age,
                 String gender, String mobile) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.address = address;
-        this.country = country;
+        this.state = state;
+        this.district = district;
         this.age = age;
         this.gender = gender;
         this.mobile = mobile;
@@ -69,27 +69,27 @@ public class User {
         this.email = email;
     }
 
-    public String getAddress() {
-        return address;
+    public String getState() {
+        return state;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setState(String state) {
+        this.state = state;
     }
 
-    public String getCountry() {
-        return country;
+    public String getDistrict() {
+        return district;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setDistrict(String district) {
+        this.district = district;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
@@ -112,11 +112,12 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "name='" + name + '\'' +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", address='" + address + '\'' +
-                ", country='" + country + '\'' +
-                ", age=" + age +
+                ", state='" + state + '\'' +
+                ", district='" + district + '\'' +
+                ", age='" + age + '\'' +
                 ", gender='" + gender + '\'' +
                 ", mobile='" + mobile + '\'' +
                 '}';
