@@ -19,7 +19,9 @@
 package com.ssn.skillindia.fragments;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -27,6 +29,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.ssn.skillindia.R;
+import com.ssn.skillindia.adapters.CheckProgressPagerAdapter;
 import com.ssn.skillindia.adapters.TimeLineAdapter;
 import com.ssn.skillindia.model.CourseStatus;
 import com.ssn.skillindia.model.TimeLineModel;
@@ -39,6 +42,8 @@ public class CheckProgressFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private TimeLineAdapter mTimeLineAdapter;
     private List<TimeLineModel> mDataList = new ArrayList<>();
+    private CheckProgressPagerAdapter checkProgressPagerAdapter;
+    private ViewPager mViewPager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,7 +53,17 @@ public class CheckProgressFragment extends Fragment {
         mRecyclerView.setLayoutManager(getLinearLayoutManager());
         mRecyclerView.setHasFixedSize(true);
 
-        initView();
+
+        checkProgressPagerAdapter = new CheckProgressPagerAdapter(getActivity().getSupportFragmentManager());
+
+        mViewPager = (ViewPager) rootView.findViewById(R.id.container);
+        mViewPager.setAdapter(checkProgressPagerAdapter);
+        TabLayout tabLayout = (TabLayout) rootView.findViewById(R.id.check_progress_tabs);
+        tabLayout.setupWithViewPager(mViewPager);
+
+        setDataListItems();
+        mTimeLineAdapter = new TimeLineAdapter(mDataList);
+        mRecyclerView.setAdapter(mTimeLineAdapter);
 
         return rootView;
     }
@@ -57,21 +72,15 @@ public class CheckProgressFragment extends Fragment {
         return new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
     }
 
-    private void initView() {
-        setDataListItems();
-        mTimeLineAdapter = new TimeLineAdapter(mDataList);
-        mRecyclerView.setAdapter(mTimeLineAdapter);
-    }
-
     private void setDataListItems() {
-        mDataList.add(new TimeLineModel("Item successfully delivered", "", CourseStatus.COMPLETED));
-        mDataList.add(new TimeLineModel("Courier is out to delivery your order", "2017-02-12 08:00", CourseStatus.ACTIVE));
-        mDataList.add(new TimeLineModel("Item has reached courier facility at New Delhi", "2017-02-11 21:00", CourseStatus.INACTIVE));
-        mDataList.add(new TimeLineModel("Item has been given to the courier", "2017-02-11 18:00", CourseStatus.INACTIVE));
-        mDataList.add(new TimeLineModel("Item is packed and will dispatch soon", "2017-02-11 09:30", CourseStatus.INACTIVE));
-        mDataList.add(new TimeLineModel("Order is being readied for dispatch", "2017-02-11 08:00", CourseStatus.INACTIVE));
-        mDataList.add(new TimeLineModel("Order processing initiated", "2017-02-10 15:00", CourseStatus.INACTIVE));
-        mDataList.add(new TimeLineModel("Order confirmed by seller", "2017-02-10 14:30", CourseStatus.INACTIVE));
+        mDataList.add(new TimeLineModel("Basic of Information Technology", "", CourseStatus.COMPLETED));
+        mDataList.add(new TimeLineModel("Basic Principles of Programming", "2017-02-12 08:00", CourseStatus.ACTIVE));
+        mDataList.add(new TimeLineModel("C Programming Language", "2017-02-11 21:00", CourseStatus.INACTIVE));
+        mDataList.add(new TimeLineModel("Object Orientated Programming", "2017-02-11 18:00", CourseStatus.INACTIVE));
+        mDataList.add(new TimeLineModel("Writing HTML Code", "2017-02-11 09:30", CourseStatus.INACTIVE));
+        mDataList.add(new TimeLineModel("Data Structures using C++", "2017-02-11 08:00", CourseStatus.INACTIVE));
+        mDataList.add(new TimeLineModel("Visual Studio .NET", "2017-02-10 15:00", CourseStatus.INACTIVE));
+        mDataList.add(new TimeLineModel("Java J2EE", "2017-02-10 14:30", CourseStatus.INACTIVE));
         mDataList.add(new TimeLineModel("Order placed successfully", "2017-02-10 14:00", CourseStatus.INACTIVE));
     }
 }

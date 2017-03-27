@@ -22,10 +22,27 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+    <android.support.design.widget.TabLayout
+        android:id="@+id/check_progress_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:tabIndicatorColor="#FFF"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="#FFF"
+        app:tabTextColor="#DDD" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/check_progress_tabs"
         android:clipToPadding="false"
         android:padding="10dp" />
 

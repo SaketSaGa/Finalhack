@@ -75,7 +75,7 @@ public class SwitchActivity extends AppCompatActivity {
 
         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         final IProfile profile1 = new ProfileDrawerItem().withName(types[0])
@@ -146,6 +146,7 @@ public class SwitchActivity extends AppCompatActivity {
                             case 2:
                                 break;
                             case 3:
+                                toolbar.setTitle(getString(R.string.drawer_item_check_progress));
                                 bundle.putString(FirebaseAnalytics.Param.ITEM_NAME,
                                         getString(R.string.drawer_item_check_progress));
                                 switchFragment(new CheckProgressFragment(), bundle);
