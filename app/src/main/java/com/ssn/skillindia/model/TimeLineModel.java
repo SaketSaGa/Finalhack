@@ -23,6 +23,17 @@ import android.os.Parcelable;
 
 public class TimeLineModel implements Parcelable {
 
+    public static final Creator<TimeLineModel> CREATOR = new Creator<TimeLineModel>() {
+        @Override
+        public TimeLineModel createFromParcel(Parcel source) {
+            return new TimeLineModel(source);
+        }
+
+        @Override
+        public TimeLineModel[] newArray(int size) {
+            return new TimeLineModel[size];
+        }
+    };
     private String mMessage;
     private String mDate;
     private CourseStatus mStatus;
@@ -34,6 +45,13 @@ public class TimeLineModel implements Parcelable {
         this.mMessage = mMessage;
         this.mDate = mDate;
         this.mStatus = mStatus;
+    }
+
+    protected TimeLineModel(Parcel in) {
+        this.mMessage = in.readString();
+        this.mDate = in.readString();
+        int tmpMStatus = in.readInt();
+        this.mStatus = tmpMStatus == -1 ? null : CourseStatus.values()[tmpMStatus];
     }
 
     public String getMessage() {
@@ -71,23 +89,4 @@ public class TimeLineModel implements Parcelable {
         dest.writeString(this.mDate);
         dest.writeInt(this.mStatus == null ? -1 : this.mStatus.ordinal());
     }
-
-    protected TimeLineModel(Parcel in) {
-        this.mMessage = in.readString();
-        this.mDate = in.readString();
-        int tmpMStatus = in.readInt();
-        this.mStatus = tmpMStatus == -1 ? null : CourseStatus.values()[tmpMStatus];
-    }
-
-    public static final Creator<TimeLineModel> CREATOR = new Creator<TimeLineModel>() {
-        @Override
-        public TimeLineModel createFromParcel(Parcel source) {
-            return new TimeLineModel(source);
-        }
-
-        @Override
-        public TimeLineModel[] newArray(int size) {
-            return new TimeLineModel[size];
-        }
-    };
 }

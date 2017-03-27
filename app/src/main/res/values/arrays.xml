@@ -22,4 +22,16 @@
         <item>Female</item>
         <item>Other</item>
     </string-array>
+
+    <string-array name="hello_activity_state_list" translatable="false">
+        <item>Tamil Nadu</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="hello_activity_district_list" translatable="false">
+        <item>Madurai</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
 </resources>

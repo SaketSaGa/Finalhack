@@ -54,7 +54,7 @@ public class CheckProgressFragment extends Fragment {
     }
 
     private LinearLayoutManager getLinearLayoutManager() {
-            return new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+        return new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
     }
 
     private void initView() {

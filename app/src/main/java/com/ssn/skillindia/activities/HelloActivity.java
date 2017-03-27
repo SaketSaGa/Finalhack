@@ -91,8 +91,8 @@ public class HelloActivity extends AppCompatActivity {
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
         genderSpinner.setItemsArray(R.array.hello_activity_gender_list);
-        stateSpinner.setItemsArray(R.array.hello_activity_gender_list);
-        districtSpinner.setItemsArray(R.array.hello_activity_gender_list);
+        stateSpinner.setItemsArray(R.array.hello_activity_state_list);
+        districtSpinner.setItemsArray(R.array.hello_activity_district_list);
         initStartButton();
 
         populateProfile();
