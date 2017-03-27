@@ -35,8 +35,10 @@ import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.ssn.skillindia.R;
+import com.ssn.skillindia.fragments.CheckProgressFragment;
 import com.ssn.skillindia.fragments.CitizenFragment;
 import com.ssn.skillindia.fragments.TrainerFragment;
 import com.ssn.skillindia.fragments.TrainingCenterFragment;
@@ -118,12 +120,7 @@ public class SwitchActivity extends AppCompatActivity {
                             default:
                                 fragment = new CitizenFragment();
                         }
-
-                        getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.frame_container, fragment)
-                                .commit();
-                        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "navigation");
-                        firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+                        switchFragment(fragment, bundle);
                         return true;
                     }
                 })
@@ -137,6 +134,34 @@ public class SwitchActivity extends AppCompatActivity {
                 .withActionBarDrawerToggleAnimated(true)
                 .withAccountHeader(headerResult)
                 .addDrawerItems(item1, item2, item3, item4, item5, item6, item7, item8)
+                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                        Bundle bundle = new Bundle();
+                        switch ((int) drawerItem.getIdentifier()) {
+                            case 0:
+                                break;
+                            case 1:
+                                break;
+                            case 2:
+                                break;
+                            case 3:
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME,
+                                        getString(R.string.drawer_item_check_progress));
+                                switchFragment(new CheckProgressFragment(), bundle);
+                                break;
+                            case 4:
+                                break;
+                            case 5:
+                                break;
+                            case 6:
+                                break;
+                            case 7:
+                                break;
+                        }
+                        return false;
+                    }
+                })
                 .withSavedInstance(savedInstanceState)
                 .build();
     }
@@ -155,5 +180,13 @@ public class SwitchActivity extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    private void switchFragment(Fragment fragment, Bundle bundle) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frame_container, fragment)
+                .commit();
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "navigation");
+        firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
     }
 }
