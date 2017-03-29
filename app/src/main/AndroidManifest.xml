@@ -58,6 +58,10 @@
             android:label="@string/title_activity_switch"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <activity
+            android:name=".activities.TrainingCenterDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="327685d013652e58a2cb3571746ced9f0a54aab3"

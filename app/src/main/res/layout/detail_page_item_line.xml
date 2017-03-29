@@ -1,4 +1,4 @@
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Skill India
   ~ Copyright (C) 2017  e-LEMON-ators
   ~
@@ -16,14 +16,9 @@
   ~  along with this program.  If not, see <http://www.gnu.org/licenses/>
   -->
 
-<resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="fab_size_normal">100dp</dimen>
-    <dimen name="text_size">12sp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
-    <dimen name="appbar_padding_top">8dp</dimen>
-
-    <item name="body_1_spacing" format="float" type="dimen">1.2</item>
-</resources>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="1px"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:background="@color/detail_page_line" />

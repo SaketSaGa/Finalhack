@@ -19,6 +19,7 @@
 package com.ssn.skillindia.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +28,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ssn.skillindia.R;
+import com.ssn.skillindia.activities.TrainingCenterDetailActivity;
+import com.ssn.skillindia.activities.TrainingCenterDetailBaseActivity;
 import com.ssn.skillindia.model.TrainingCenter;
 
 import java.util.List;
@@ -61,8 +64,8 @@ public class TrainingCenterAdapter extends RecyclerView.Adapter<TrainingCenterAd
         viewHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //EventDetailBaseActivity.event = trainingCenter;
-                //context.startActivity(new Intent(context, EventDetailActivity.class).putExtra("theme", R.style.EventsTheme));
+                TrainingCenterDetailBaseActivity.trainingCenter = trainingCenter;
+                context.startActivity(new Intent(context, TrainingCenterDetailActivity.class));
             }
         });
 

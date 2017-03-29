@@ -28,4 +28,14 @@
     <color name="skill_india_text_light">#686E71</color>
 
     <color name="list_dropdown_divider_color">#92a3a3a3</color>
+
+    <color name="detail_page_card_background">#ffffff</color>
+    <color name="detail_page_card_shadow">#10000000</color>
+    <color name="detail_page_background">#f1f1f1</color>
+    <color name="detail_page_category_text_color">#757575</color>
+    <color name="detail_page_card_text_color">#424242</color>
+    <color name="detail_page_selected">#44000000</color>
+    <color name="detail_page_line">#9e9e9e</color>
+    <color name="detail_page_name_color">#424242</color>
+    <color name="detail_page_desc_color">#757575</color>
 </resources>

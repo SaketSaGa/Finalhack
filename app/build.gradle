@@ -66,6 +66,7 @@ dependencies {
     compile('com.mikepenz:materialdrawer:5.8.2@aar') {
         transitive = true
     }
+    compile 'me.drakeet.multitype:multitype:2.4.1'
     compile 'com.github.vipulasri:timelineview:1.0.5'
 
 
