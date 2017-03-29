@@ -83,4 +83,6 @@
 
     <string name="drawer_item_tenders">Tenders / RFPs</string>
     <string name="drawer_item_contribute_csr">Contribute to CSR Funds</string>
+
+    <string name="search_no_training_centers">No training centers found</string>
 </resources>

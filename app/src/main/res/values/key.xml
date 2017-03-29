@@ -27,4 +27,8 @@
 
     <string name="algolia_app_id">5SZ5WDHWN0</string>
     <string name="algolia_api_key">bfd35d50f9cda4fe55cb51c700451a36</string>
+
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
+        AIzaSyDoalRe_jRsFa8T9Eh6NTMQRScSGLOWQp0
+    </string>
 </resources>

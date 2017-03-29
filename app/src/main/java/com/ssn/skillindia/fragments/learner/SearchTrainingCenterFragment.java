@@ -27,6 +27,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.TextView;
 
 import com.ssn.skillindia.R;
 import com.ssn.skillindia.SkillIndiaApplication;
@@ -58,6 +59,8 @@ public class SearchTrainingCenterFragment extends Fragment {
     LabelledSpinner sectorSpinner;
     @BindView(R.id.training_centers_rv)
     RecyclerView trainingCentersRV;
+    @BindView(R.id.no_training_centers_tv)
+    TextView noTrainingCentersTV;
 
     private Unbinder unbinder;
     private Realm realm;
@@ -124,14 +127,22 @@ public class SearchTrainingCenterFragment extends Fragment {
     }
 
     private void setRecyclerView() {
-        RealmResults<TrainingCenter> eventRealmResults = realm.where(TrainingCenter.class)
+        RealmResults<TrainingCenter> centerRealmResults = realm.where(TrainingCenter.class)
                 .equalTo("state", stateSpinner.getSpinner().getSelectedItem().toString())
                 .equalTo("district", districtSpinner.getSpinner().getSelectedItem().toString())
                 .equalTo("sector", sectorSpinner.getSpinner().getSelectedItem().toString())
                 .findAll();
 
-        TrainingCenterAdapter adapter = new TrainingCenterAdapter(getActivity(), eventRealmResults);
-        trainingCentersRV.setAdapter(adapter);
-        trainingCentersRV.setLayoutManager(new LinearLayoutManager(getActivity()));
+        if (centerRealmResults.size() == 0) {
+            trainingCentersRV.setVisibility(View.GONE);
+            noTrainingCentersTV.setVisibility(View.VISIBLE);
+        } else {
+            trainingCentersRV.setVisibility(View.VISIBLE);
+            noTrainingCentersTV.setVisibility(View.GONE);
+
+            TrainingCenterAdapter adapter = new TrainingCenterAdapter(getActivity(), centerRealmResults);
+            trainingCentersRV.setAdapter(adapter);
+            trainingCentersRV.setLayoutManager(new LinearLayoutManager(getActivity()));
+        }
     }
 }

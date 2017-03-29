@@ -48,4 +48,12 @@
         android:id="@+id/training_centers_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/no_training_centers_tv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/search_no_training_centers"
+        android:visibility="gone" />
 </LinearLayout>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><!--
+<!--
   ~ Skill India
   ~ Copyright (C) 2017  e-LEMON-ators
   ~
@@ -16,19 +16,8 @@
   ~  along with this program.  If not, see <http://www.gnu.org/licenses/>
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:mapbox="http://schemas.android.com/apk/res-auto"
+<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/map"
+    android:name="com.google.android.gms.maps.SupportMapFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <com.mapbox.mapboxsdk.maps.MapView
-        android:id="@+id/mapView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        mapbox:center_latitude="40.73581"
-        mapbox:center_longitude="-73.99155"
-        mapbox:style_url="mapbox://styles/mapbox/streets-v9"
-        mapbox:zoom="11" />
-
-</LinearLayout>
+    android:layout_height="match_parent" />

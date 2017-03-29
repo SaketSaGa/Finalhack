@@ -76,7 +76,7 @@ public class TrainingCenterDetailActivity extends TrainingCenterDetailBaseActivi
                 break;
 
             case R.drawable.ic_map:
-                //startActivity(new Intent(TrainingCenterDetailActivity.this, MapsActivity.class).putExtra("location", event.getLocation()));
+                startActivity(new Intent(TrainingCenterDetailActivity.this, MapActivity.class));
                 break;
         }
     }

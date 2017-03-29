@@ -18,6 +18,7 @@
 
 package com.ssn.skillindia.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
 import android.support.annotation.DrawableRes;
@@ -142,7 +143,7 @@ public abstract class TrainingCenterDetailBaseActivity extends AppCompatActivity
                 onBackPressed();
                 break;
             case R.id.action_map:
-                //startActivity(new Intent(this, MapsActivity.class).putExtra("location", trainingCenter.getLocation()));
+                startActivity(new Intent(this, MapActivity.class));
                 break;
         }
 
