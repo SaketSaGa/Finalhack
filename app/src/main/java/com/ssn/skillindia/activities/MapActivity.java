@@ -19,6 +19,7 @@
 package com.ssn.skillindia.activities;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -38,14 +39,16 @@ import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.ssn.skillindia.R;
+import com.ssn.skillindia.SkillIndiaApplication;
+import com.ssn.skillindia.model.TrainingCenter;
 import com.ssn.skillindia.utils.LogHelper;
+import com.ssn.skillindia.utils.RealmHelper;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import io.realm.Realm;
+import io.realm.RealmResults;
 
-public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
+        GoogleMap.OnInfoWindowClickListener {
     public static final String[] PERMISSIONS = new String[]{Manifest.permission.ACCESS_FINE_LOCATION};
     private static final String TAG = LogHelper.makeLogTag(MapActivity.class);
     private static final int REQUEST_LOCATION_PERMISSION = 1;
@@ -54,44 +57,15 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     private SupportMapFragment mapFragment;
     private GoogleMap googleMap;
 
-    private Map<String, LatLng> stringToLatLngMap;
     private String location;
     private LatLngBounds SSN_COLLEGE = new LatLngBounds(new LatLng(12.748690, 80.188149),
             new LatLng(12.755693, 80.205421));
-    private LatLng MAIN_AUDITORIUM = new LatLng(12.753018, 80.200039);
-    private LatLng MAIN_STAGE = new LatLng(12.752338, 80.194252);
-    private LatLng MINI_AUDITORIUM = new LatLng(12.750640, 80.193585);
-    private LatLng ECE_SEMINAR_HALL = new LatLng(12.750743, 80.196205);
-    private LatLng CENTRAL_SEMINAR_HALL = new LatLng(12.750409, 80.196144);
-    private LatLng CSE_SEMINAR_HALL = new LatLng(12.751133, 80.197286);
-    private LatLng IT_SEMINAR_HALL = new LatLng(12.751133, 80.196877);
-    private LatLng IT_CLASSROOMS = new LatLng(12.751448, 80.196876);
-    private LatLng CSE_CLASSROOMS = new LatLng(12.751438, 80.197301);
-    private LatLng IT_LABS = new LatLng(12.751621, 80.196869);
-    private LatLng FOUNTAIN = new LatLng(12.751590, 80.195825);
-    private LatLng MECH_SEMINAR_HALL = new LatLng(12.751813, 80.194363);
-    private LatLng FOOD_STALL = new LatLng(12.750869, 80.197492);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
         location = getIntent().getStringExtra("location");
-
-        stringToLatLngMap = new HashMap<>();
-        stringToLatLngMap.put("Main Auditorium", MAIN_AUDITORIUM);
-        stringToLatLngMap.put("Main Stage", MAIN_STAGE);
-        stringToLatLngMap.put("Mini Auditorium", MINI_AUDITORIUM);
-        stringToLatLngMap.put("ECE Seminar Hall", ECE_SEMINAR_HALL);
-        stringToLatLngMap.put("Central Seminar Hall", CENTRAL_SEMINAR_HALL);
-        stringToLatLngMap.put("CSE Seminar Hall", CSE_SEMINAR_HALL);
-        stringToLatLngMap.put("IT Seminar Hall", IT_SEMINAR_HALL);
-        stringToLatLngMap.put("IT Classrooms", IT_CLASSROOMS);
-        stringToLatLngMap.put("CSE Classrooms", CSE_CLASSROOMS);
-        stringToLatLngMap.put("IT Labs", IT_LABS);
-        stringToLatLngMap.put("Fountain", FOUNTAIN);
-        stringToLatLngMap.put("Mech Seminar Hall", MECH_SEMINAR_HALL);
-        stringToLatLngMap.put("Food Stalls", FOOD_STALL);
 
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -102,7 +76,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     public void onMapReady(GoogleMap map) {
         googleMap = map;
         googleMap.setMyLocationEnabled(locationEnabled);
-        googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+        googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        googleMap.setOnInfoWindowClickListener(this);
 
         UiSettings uiSettings = googleMap.getUiSettings();
         uiSettings.setZoomControlsEnabled(true);
@@ -110,24 +85,29 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         uiSettings.setMyLocationButtonEnabled(true);
         uiSettings.setMapToolbarEnabled(true);
 
-        googleMap.setMinZoomPreference(15);
-        googleMap.setMaxZoomPreference(20);
+        // TODO
+        //googleMap.setLatLngBoundsForCameraTarget(SSN_COLLEGE);
 
-        googleMap.setLatLngBoundsForCameraTarget(SSN_COLLEGE);
+        SkillIndiaApplication skillIndiaApplication = (SkillIndiaApplication) getApplication();
+        RealmHelper realmHelper = skillIndiaApplication.getRealmHelper();
+        Realm realm = realmHelper.getRealmInstance();
+        RealmResults<TrainingCenter> realmResults = realm.where(TrainingCenter.class).findAll();
 
-        Set<Map.Entry<String, LatLng>> entries = stringToLatLngMap.entrySet();
-        Iterator iterator = entries.iterator();
-        while (iterator.hasNext()) {
-            Map.Entry<String, LatLng> entry = (Map.Entry) iterator.next();
-            googleMap.addMarker(new MarkerOptions()
-                    .position(entry.getValue()).title(entry.getKey()));
+        for (int i = 0; i < realmResults.size(); i++) {
+            try {
+                LatLng latLng = new LatLng(Double.parseDouble(realmResults.get(i).getLatitude()),
+                        Double.parseDouble(realmResults.get(i).getLongitude()));
+                Marker marker = googleMap.addMarker(new MarkerOptions()
+                        .position(latLng)
+                        .title(realmResults.get(i).getCenterName()));
+                marker.setTag(realmResults.get(i));
+            } catch (Exception e) {
+                LogHelper.e(TAG, e.toString());
+            }
         }
 
-        centerOnLocation();
-    }
-
-    private void centerOnLocation() {
-        moveCameraToPosition(stringToLatLngMap.get(location));
+        // TODO
+        //moveCameraToPosition(new LatLng());
     }
 
     private void moveCameraToPosition(LatLng position) {
@@ -175,5 +155,11 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+        TrainingCenterDetailBaseActivity.trainingCenter = (TrainingCenter) marker.getTag();
+        startActivity(new Intent(this, TrainingCenterDetailActivity.class));
     }
 }
