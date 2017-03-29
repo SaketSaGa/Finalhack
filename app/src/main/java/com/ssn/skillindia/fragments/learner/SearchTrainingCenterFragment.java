@@ -21,12 +21,16 @@ package com.ssn.skillindia.fragments.learner;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 
 import com.ssn.skillindia.R;
 import com.ssn.skillindia.SkillIndiaApplication;
+import com.ssn.skillindia.adapters.TrainingCenterAdapter;
 import com.ssn.skillindia.model.TrainingCenter;
 import com.ssn.skillindia.ui.LabelledSpinner;
 import com.ssn.skillindia.utils.LogHelper;
@@ -39,27 +43,30 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
 public class SearchTrainingCenterFragment extends Fragment {
 
     private static final String TAG = LogHelper.makeLogTag(SearchTrainingCenterFragment.class);
-
     @BindView(R.id.state_spinner)
     LabelledSpinner stateSpinner;
     @BindView(R.id.district_spinner)
     LabelledSpinner districtSpinner;
     @BindView(R.id.sector_spinner)
     LabelledSpinner sectorSpinner;
+    @BindView(R.id.training_centers_rv)
+    RecyclerView trainingCentersRV;
 
+    private Unbinder unbinder;
     private Realm realm;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_search_training_center, container, false);
-        ButterKnife.bind(this, rootView);
+        unbinder = ButterKnife.bind(this, rootView);
         return rootView;
     }
 
@@ -98,5 +105,33 @@ public class SearchTrainingCenterFragment extends Fragment {
         }
 
         spinner.setItemsArray(stringArrayList);
+        spinner.setOnItemChosenListener(new LabelledSpinner.OnItemChosenListener() {
+            @Override
+            public void onItemChosen(View labelledSpinner, AdapterView<?> adapterView, View itemView, int position, long id) {
+                setRecyclerView();
+            }
+
+            @Override
+            public void onNothingChosen(View labelledSpinner, AdapterView<?> adapterView) {
+            }
+        });
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
+
+    private void setRecyclerView() {
+        RealmResults<TrainingCenter> eventRealmResults = realm.where(TrainingCenter.class)
+                .equalTo("state", stateSpinner.getSpinner().getSelectedItem().toString())
+                .equalTo("district", districtSpinner.getSpinner().getSelectedItem().toString())
+                .equalTo("sector", sectorSpinner.getSpinner().getSelectedItem().toString())
+                .findAll();
+
+        TrainingCenterAdapter adapter = new TrainingCenterAdapter(getActivity(), eventRealmResults);
+        trainingCentersRV.setAdapter(adapter);
+        trainingCentersRV.setLayoutManager(new LinearLayoutManager(getActivity()));
     }
 }

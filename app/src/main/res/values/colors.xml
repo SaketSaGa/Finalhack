@@ -26,4 +26,6 @@
     <color name="skill_india_text">#323232</color>
     <color name="skill_india_text_dark">#000000</color>
     <color name="skill_india_text_light">#686E71</color>
+
+    <color name="list_dropdown_divider_color">#92a3a3a3</color>
 </resources>
