@@ -16,23 +16,11 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package com.ssn.skillindia.activities;
+package com.ssn.skillindia.utils;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+public class StringUtils {
 
-import com.ssn.skillindia.R;
-import com.ssn.skillindia.utils.LogHelper;
-
-public class SearchTrainingCenterActivity extends AppCompatActivity {
-
-    private static final String TAG = LogHelper.makeLogTag(SearchTrainingCenterActivity.class);
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_search_training_center);
+    public static String firstCharToUpperCase(String string) {
+        return Character.toUpperCase(string.charAt(0)) + string.substring(1);
     }
 }

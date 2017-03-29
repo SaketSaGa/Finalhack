@@ -18,7 +18,6 @@
 
 package com.ssn.skillindia.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
@@ -43,6 +42,7 @@ import com.ssn.skillindia.fragments.CheckProgressFragment;
 import com.ssn.skillindia.fragments.CitizenFragment;
 import com.ssn.skillindia.fragments.TrainerFragment;
 import com.ssn.skillindia.fragments.TrainingCenterFragment;
+import com.ssn.skillindia.fragments.learner.SearchTrainingCenterFragment;
 import com.ssn.skillindia.model.LocalJSONSource;
 
 import butterknife.BindView;
@@ -142,8 +142,10 @@ public class SwitchActivity extends AppCompatActivity {
                         Bundle bundle = new Bundle();
                         switch ((int) drawerItem.getIdentifier()) {
                             case 1:
-                                startActivity(new Intent(SwitchActivity.this,
-                                        SearchTrainingCenterActivity.class));
+                                toolbar.setTitle(getString(R.string.drawer_item_search_center));
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME,
+                                        getString(R.string.drawer_item_search_center));
+                                switchFragment(new SearchTrainingCenterFragment(), bundle);
                                 break;
                             case 2:
                                 break;
@@ -169,6 +171,8 @@ public class SwitchActivity extends AppCompatActivity {
                 })
                 .withSavedInstance(savedInstanceState)
                 .build();
+
+        drawer.deselect();
 
         new LocalJSONSource(this);
     }

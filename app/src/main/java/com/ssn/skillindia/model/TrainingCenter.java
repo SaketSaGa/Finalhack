@@ -19,30 +19,34 @@
 package com.ssn.skillindia.model;
 
 import io.realm.RealmObject;
+import io.realm.annotations.Index;
 import io.realm.annotations.PrimaryKey;
 
-public class Center extends RealmObject {
+public class TrainingCenter extends RealmObject {
 
     @PrimaryKey
     private long id;
     private String centerName;
     private String partnerName;
+    @Index
     private String sector;
     private String email;
     private String contactName;
     private String contactNumber;
     private String address;
+    @Index
     private String district;
+    @Index
     private String state;
     private String latitude;
     private String longitude;
 
-    public Center() {
+    public TrainingCenter() {
     }
 
-    public Center(long id, String centerName, String partnerName, String sector, String email,
-                  String contactName, String contactNumber, String address, String district,
-                  String state, String latitude, String longitude) {
+    public TrainingCenter(long id, String centerName, String partnerName, String sector, String email,
+                          String contactName, String contactNumber, String address, String district,
+                          String state, String latitude, String longitude) {
         this.id = id;
         this.centerName = centerName;
         this.partnerName = partnerName;
@@ -155,7 +159,7 @@ public class Center extends RealmObject {
 
     @Override
     public String toString() {
-        return "Center{" +
+        return "TrainingCenter{" +
                 "id=" + id +
                 ", centerName='" + centerName + '\'' +
                 ", partnerName='" + partnerName + '\'' +

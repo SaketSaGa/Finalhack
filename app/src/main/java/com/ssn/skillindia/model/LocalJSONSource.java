@@ -85,7 +85,7 @@ public class LocalJSONSource {
             Realm realm = skillIndiaApplication.getRealmHelper().getRealmInstance();
             realm.beginTransaction();
             try {
-                realm.createOrUpdateAllFromJson(Center.class, eventsJsonArray);
+                realm.createOrUpdateAllFromJson(TrainingCenter.class, eventsJsonArray);
                 realm.commitTransaction();
                 LogHelper.e(TAG, "TRY");
             } catch (Exception e) {
