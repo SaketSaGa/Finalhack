@@ -25,6 +25,7 @@ import android.support.multidex.MultiDexApplication;
 
 import com.crashlytics.android.Crashlytics;
 import com.facebook.stetho.Stetho;
+import com.ssn.skillindia.utils.RealmHelper;
 import com.uphyca.stetho_realm.RealmInspectorModulesProvider;
 
 import io.fabric.sdk.android.Fabric;
@@ -54,5 +55,9 @@ public class SkillIndiaApplication extends MultiDexApplication {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         MultiDex.install(this);
+    }
+
+    public RealmHelper getRealmHelper() {
+        return new RealmHelper(getApplicationContext());
     }
 }

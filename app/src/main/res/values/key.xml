@@ -24,4 +24,7 @@
     <string name="twitter_consumer_secret" translatable="false">MbdrgJwnKNtlufSNiFkCRxIF4GStrGyJCiXks0gF2svIK0Ar3D</string>
 
     <string name="mapbox_access_token" translatable="false">pk.eyJ1IjoiYWRpdGh5YTMyMSIsImEiOiJjajBxZG41a3gwMDFhMzJxdnlyOThnbml1In0.7_JmLdqq_P1bOnBXsKY30Q</string>
+
+    <string name="algolia_app_id">5SZ5WDHWN0</string>
+    <string name="algolia_api_key">bfd35d50f9cda4fe55cb51c700451a36</string>
 </resources>

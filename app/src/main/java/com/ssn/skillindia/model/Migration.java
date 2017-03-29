@@ -16,23 +16,14 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package com.ssn.skillindia.activities;
+package com.ssn.skillindia.model;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import io.realm.DynamicRealm;
+import io.realm.RealmMigration;
 
-import com.ssn.skillindia.R;
-import com.ssn.skillindia.utils.LogHelper;
-
-public class SearchTrainingCenterActivity extends AppCompatActivity {
-
-    private static final String TAG = LogHelper.makeLogTag(SearchTrainingCenterActivity.class);
+public class Migration implements RealmMigration {
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_search_training_center);
+    public void migrate(final DynamicRealm realm, long oldVersion, long newVersion) {
     }
 }

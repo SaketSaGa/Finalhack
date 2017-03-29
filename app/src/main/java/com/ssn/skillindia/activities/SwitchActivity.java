@@ -18,6 +18,7 @@
 
 package com.ssn.skillindia.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
@@ -42,6 +43,7 @@ import com.ssn.skillindia.fragments.CheckProgressFragment;
 import com.ssn.skillindia.fragments.CitizenFragment;
 import com.ssn.skillindia.fragments.TrainerFragment;
 import com.ssn.skillindia.fragments.TrainingCenterFragment;
+import com.ssn.skillindia.model.LocalJSONSource;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -85,14 +87,14 @@ public class SwitchActivity extends AppCompatActivity {
         final IProfile profile3 = new ProfileDrawerItem().withName(types[2])
                 .withEmail("trainingpartner@outlook.com").withIcon(R.drawable.ic_training_center);
 
-        item1 = new PrimaryDrawerItem().withName(R.string.drawer_item_search_center).withIdentifier(0).withIcon(FontAwesome.Icon.faw_map);
-        item2 = new PrimaryDrawerItem().withName(R.string.drawer_item_search_courses).withIdentifier(1).withIcon(FontAwesome.Icon.faw_search);
-        item3 = new PrimaryDrawerItem().withName(R.string.drawer_item_world_competition).withIdentifier(2).withIcon(FontAwesome.Icon.faw_globe);
-        item4 = new PrimaryDrawerItem().withName(R.string.drawer_item_check_progress).withIdentifier(3).withIcon(FontAwesome.Icon.faw_tasks);
-        item5 = new PrimaryDrawerItem().withName(R.string.drawer_item_webinars).withIdentifier(4).withIcon(FontAwesome.Icon.faw_youtube);
-        item6 = new PrimaryDrawerItem().withName(R.string.drawer_item_register_pmkvy).withIdentifier(5).withIcon(FontAwesome.Icon.faw_sign_in);
-        item7 = new PrimaryDrawerItem().withName(R.string.drawer_item_report_issues).withIdentifier(6).withIcon(FontAwesome.Icon.faw_bug);
-        item8 = new PrimaryDrawerItem().withName(R.string.drawer_item_contact).withIdentifier(7).withIcon(FontAwesome.Icon.faw_phone);
+        item1 = new PrimaryDrawerItem().withName(R.string.drawer_item_search_center).withIdentifier(1).withIcon(FontAwesome.Icon.faw_map);
+        item2 = new PrimaryDrawerItem().withName(R.string.drawer_item_search_courses).withIdentifier(2).withIcon(FontAwesome.Icon.faw_search);
+        item3 = new PrimaryDrawerItem().withName(R.string.drawer_item_world_competition).withIdentifier(3).withIcon(FontAwesome.Icon.faw_globe);
+        item4 = new PrimaryDrawerItem().withName(R.string.drawer_item_check_progress).withIdentifier(4).withIcon(FontAwesome.Icon.faw_tasks);
+        item5 = new PrimaryDrawerItem().withName(R.string.drawer_item_webinars).withIdentifier(5).withIcon(FontAwesome.Icon.faw_youtube);
+        item6 = new PrimaryDrawerItem().withName(R.string.drawer_item_register_pmkvy).withIdentifier(6).withIcon(FontAwesome.Icon.faw_sign_in);
+        item7 = new PrimaryDrawerItem().withName(R.string.drawer_item_report_issues).withIdentifier(7).withIcon(FontAwesome.Icon.faw_bug);
+        item8 = new PrimaryDrawerItem().withName(R.string.drawer_item_contact).withIdentifier(8).withIcon(FontAwesome.Icon.faw_phone);
 
         headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
@@ -139,19 +141,19 @@ public class SwitchActivity extends AppCompatActivity {
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                         Bundle bundle = new Bundle();
                         switch ((int) drawerItem.getIdentifier()) {
-                            case 0:
-                                break;
                             case 1:
+                                startActivity(new Intent(SwitchActivity.this,
+                                        SearchTrainingCenterActivity.class));
                                 break;
                             case 2:
                                 break;
                             case 3:
+                                break;
+                            case 4:
                                 toolbar.setTitle(getString(R.string.drawer_item_check_progress));
                                 bundle.putString(FirebaseAnalytics.Param.ITEM_NAME,
                                         getString(R.string.drawer_item_check_progress));
                                 switchFragment(new CheckProgressFragment(), bundle);
-                                break;
-                            case 4:
                                 break;
                             case 5:
                                 break;
@@ -159,12 +161,16 @@ public class SwitchActivity extends AppCompatActivity {
                                 break;
                             case 7:
                                 break;
+                            case 8:
+                                break;
                         }
                         return false;
                     }
                 })
                 .withSavedInstance(savedInstanceState)
                 .build();
+
+        new LocalJSONSource(this);
     }
 
     @Override
