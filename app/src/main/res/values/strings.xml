@@ -85,4 +85,23 @@
     <string name="drawer_item_contribute_csr">Contribute to CSR Funds</string>
 
     <string name="search_no_training_centers">No training centers found</string>
+
+    <string name="NAME">NAME</string>
+    <string name="TYPE">TYPE</string>
+    <string name="SECTOR_TARGETED">SECTOR TARGETED</string>
+    <string name="AMOUNT">AMOUNT</string>
+    <string name="EMAIL">EMAIL</string>
+    <string name="OBJECTIVE">OBJECTIVE</string>
+    <string name="CSR_SUBMIT">SUBMIT</string>
+
+
+    <string-array name="TOA">
+        <item>Bipartite</item>
+        <item>Tripartite</item>
+    </string-array>
+
+    <string-array name="sector">
+        <item>Agriculture</item>
+        <item>Banking and funding</item>
+    </string-array>
 </resources>
