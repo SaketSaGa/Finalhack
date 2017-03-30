@@ -29,7 +29,7 @@ import com.ssn.skillindia.R;
 
 import static com.ssn.skillindia.activities.SwitchActivity.types;
 
-public class CitizenFragment extends Fragment {
+public class LearnerFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

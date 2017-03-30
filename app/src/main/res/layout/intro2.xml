@@ -33,7 +33,7 @@
         android:gravity="center"
         android:paddingLeft="32dp"
         android:paddingRight="32dp"
-        android:text="Get What You Want Anytime, Anywhere"
+        android:text="Are you an avid learner ?"
         android:textColor="#ffffff"
         android:textSize="28sp" />
 
@@ -61,7 +61,7 @@
         android:gravity="center"
         android:paddingLeft="64dp"
         android:paddingRight="64dp"
-        android:text="And lets you order more!"
+        android:text="Then we've gor your back!"
         android:textColor="#ffffff"
         android:textSize="16sp" />
 

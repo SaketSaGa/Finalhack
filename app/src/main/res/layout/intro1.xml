@@ -25,31 +25,6 @@
     android:orientation="vertical">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="3"
-        android:fontFamily="sans-serif-thin"
-        android:gravity="center"
-        android:paddingLeft="32dp"
-        android:paddingRight="32dp"
-        android:text="Welcome to dropBuy."
-        android:textColor="#ffffff"
-        android:textSize="28sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="3"
-        android:gravity="center"
-        android:paddingLeft="64dp"
-        android:paddingRight="64dp"
-        android:text="Buy. Drop. Earn."
-        android:textColor="#ffffff"
-        android:textSize="16sp" />
-
-    <TextView
         android:layout_width="fill_parent"
         android:layout_height="64dp" />
 </LinearLayout>

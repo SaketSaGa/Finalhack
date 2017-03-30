@@ -39,18 +39,24 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.ssn.skillindia.R;
 import com.ssn.skillindia.fragments.CheckProgressFragment;
-import com.ssn.skillindia.fragments.CitizenFragment;
+import com.ssn.skillindia.fragments.LearnerFragment;
+import com.ssn.skillindia.fragments.PrivateSectorFragment;
 import com.ssn.skillindia.fragments.TrainerFragment;
-import com.ssn.skillindia.fragments.TrainingCenterFragment;
 import com.ssn.skillindia.fragments.learner.SearchTrainingCenterFragment;
 import com.ssn.skillindia.model.LocalJSONSource;
+import com.ssn.skillindia.utils.LogHelper;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class SwitchActivity extends AppCompatActivity {
 
-    public static String[] types = {"Learner", "Trainer", "Training Center"};
+    private static final String TAG = LogHelper.makeLogTag(SwitchActivity.class);
+    public static String[] types = {"Learner", "Trainer", "Private Sector"};
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -63,7 +69,10 @@ public class SwitchActivity extends AppCompatActivity {
     @BindView(R.id.main_content)
     RelativeLayout mainContent;
 
+    List<PrimaryDrawerItem> learnerItemList, trainerItemList, privateSectorItemList;
     PrimaryDrawerItem item1, item2, item3, item4, item5, item6, item7, item8;
+    PrimaryDrawerItem item11, item12, item13, item14, item15, item16;
+    PrimaryDrawerItem item21, item22, item23, item24, item25;
 
     private FirebaseAnalytics firebaseAnalytics;
     private AccountHeader headerResult = null;
@@ -85,7 +94,7 @@ public class SwitchActivity extends AppCompatActivity {
         final IProfile profile2 = new ProfileDrawerItem().withName(types[1])
                 .withEmail("trainer@github.com").withIcon(R.drawable.ic_trainer);
         final IProfile profile3 = new ProfileDrawerItem().withName(types[2])
-                .withEmail("trainingpartner@outlook.com").withIcon(R.drawable.ic_training_center);
+                .withEmail("private_sector@outlook.com").withIcon(R.drawable.ic_private_sector);
 
         item1 = new PrimaryDrawerItem().withName(R.string.drawer_item_search_center).withIdentifier(1).withIcon(FontAwesome.Icon.faw_map);
         item2 = new PrimaryDrawerItem().withName(R.string.drawer_item_search_courses).withIdentifier(2).withIcon(FontAwesome.Icon.faw_search);
@@ -95,6 +104,29 @@ public class SwitchActivity extends AppCompatActivity {
         item6 = new PrimaryDrawerItem().withName(R.string.drawer_item_register_pmkvy).withIdentifier(6).withIcon(FontAwesome.Icon.faw_sign_in);
         item7 = new PrimaryDrawerItem().withName(R.string.drawer_item_report_issues).withIdentifier(7).withIcon(FontAwesome.Icon.faw_bug);
         item8 = new PrimaryDrawerItem().withName(R.string.drawer_item_contact).withIdentifier(8).withIcon(FontAwesome.Icon.faw_phone);
+
+        item11 = new PrimaryDrawerItem().withName(R.string.drawer_item_search_center).withIdentifier(11).withIcon(FontAwesome.Icon.faw_map);
+        item12 = new PrimaryDrawerItem().withName(R.string.drawer_item_world_competition).withIdentifier(12).withIcon(FontAwesome.Icon.faw_globe);
+        item13 = new PrimaryDrawerItem().withName(R.string.drawer_item_register_nsdc).withIdentifier(13).withIcon(FontAwesome.Icon.faw_tasks);
+        item14 = new PrimaryDrawerItem().withName(R.string.drawer_item_upload_webinars).withIdentifier(14).withIcon(FontAwesome.Icon.faw_youtube);
+        item15 = new PrimaryDrawerItem().withName(R.string.drawer_item_report_issues).withIdentifier(15).withIcon(FontAwesome.Icon.faw_bug);
+        item16 = new PrimaryDrawerItem().withName(R.string.drawer_item_contact).withIdentifier(16).withIcon(FontAwesome.Icon.faw_phone);
+
+        item21 = new PrimaryDrawerItem().withName(R.string.drawer_item_register_nsdc).withIdentifier(21).withIcon(FontAwesome.Icon.faw_map);
+        item22 = new PrimaryDrawerItem().withName(R.string.drawer_item_tenders).withIdentifier(22).withIcon(FontAwesome.Icon.faw_search);
+        item23 = new PrimaryDrawerItem().withName(R.string.drawer_item_contribute_csr).withIdentifier(23).withIcon(FontAwesome.Icon.faw_globe);
+        item24 = new PrimaryDrawerItem().withName(R.string.drawer_item_report_issues).withIdentifier(24).withIcon(FontAwesome.Icon.faw_bug);
+        item25 = new PrimaryDrawerItem().withName(R.string.drawer_item_contact).withIdentifier(25).withIcon(FontAwesome.Icon.faw_phone);
+
+        PrimaryDrawerItem[] learnerItems = {item1, item2, item3, item4, item5, item6, item7, item8};
+        PrimaryDrawerItem[] trainerItems = {item11, item12, item13, item14, item15, item16};
+        PrimaryDrawerItem[] privateSectorItems = {item21, item22, item23, item24, item25};
+        learnerItemList = new ArrayList<>();
+        trainerItemList = new ArrayList<>();
+        privateSectorItemList = new ArrayList<>();
+        Collections.addAll(learnerItemList, learnerItems);
+        Collections.addAll(trainerItemList, trainerItems);
+        Collections.addAll(privateSectorItemList, privateSectorItems);
 
         headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
@@ -107,20 +139,26 @@ public class SwitchActivity extends AppCompatActivity {
                         Bundle bundle = new Bundle();
                         switch (profile.getName().toString()) {
                             case "Learner":
-                                fragment = new CitizenFragment();
+                                updateDrawerItems(learnerItemList);
+
+                                fragment = new LearnerFragment();
                                 bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, types[0]);
                                 break;
                             case "Trainer":
+                                updateDrawerItems(trainerItemList);
+
                                 fragment = new TrainerFragment();
                                 bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, types[1]);
                                 break;
-                            case "Training Partner":
-                                fragment = new TrainingCenterFragment();
+                            case "Private Sector":
+                                updateDrawerItems(privateSectorItemList);
+
+                                fragment = new PrivateSectorFragment();
                                 bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, types[2]);
                                 break;
 
                             default:
-                                fragment = new CitizenFragment();
+                                fragment = new LearnerFragment();
                         }
                         switchFragment(fragment, bundle);
                         return true;
@@ -199,5 +237,10 @@ public class SwitchActivity extends AppCompatActivity {
                 .commit();
         bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "navigation");
         firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+    }
+
+    private void updateDrawerItems(List<PrimaryDrawerItem> items) {
+        drawer.removeAllItems();
+        for (PrimaryDrawerItem item : items) drawer.addItem(item);
     }
 }
