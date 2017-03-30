@@ -1,7 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Skill India
+  ~ Copyright (C) 2017  e-LEMON-ators
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~  it under the terms of the GNU General Public License as published by
+  ~  the Free Software Foundation, either version 3 of the License, or
+  ~  (at your option) any later version.
+  ~
+  ~  This program is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  GNU General Public License for more details.
+  ~
+  ~  You should have received a copy of the GNU General Public License
+  ~  along with this program.  If not, see <http://www.gnu.org/licenses/>
+  -->
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -21,10 +36,6 @@
             android:layout_marginTop="7dp"
             android:text="Please fill in the details"
             android:textSize="16sp"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 
         <TextView
@@ -33,17 +44,14 @@
             android:layout_height="33dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="44dp"
+            android:layout_weight="0.03"
             android:text="@string/NAME"
-            android:textSize="16sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title"
-            android:layout_weight="0.03" />
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-
             android:layout_marginLeft="50dp"
             android:layout_marginRight="10dp"
             android:layout_marginStart="52dp"
@@ -51,11 +59,7 @@
             android:layout_weight="0.00"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text=""
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toRightOf="@+id/name_label"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title" />
+            android:text="" />
 
         <TextView
             android:id="@+id/type_label"
@@ -64,9 +68,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="47dp"
             android:text="@string/TYPE"
-            android:textSize="16sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name_label" />
+            android:textSize="16sp" />
 
         <Spinner
             android:id="@+id/type_spinner"
@@ -75,11 +77,7 @@
             android:layout_marginLeft="50dp"
             android:layout_marginRight="10dp"
             android:layout_marginStart="52dp"
-            android:layout_marginTop="35dp"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toRightOf="@+id/type_label"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name" />
+            android:layout_marginTop="35dp" />
 
 
         <TextView
@@ -89,10 +87,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="35dp"
             android:text="@string/SECTOR_TARGETED"
-
-            android:textSize="16sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/type_spinner" />
+            android:textSize="16sp" />
 
         <Spinner
             android:id="@+id/sector_spinner"
@@ -102,11 +97,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginStart="52dp"
             android:layout_marginTop="35dp"
-            android:layout_weight="0.05"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sector_label" />
+            android:layout_weight="0.05" />
 
         <TextView
             android:id="@+id/amt_label"
@@ -116,9 +107,7 @@
             android:layout_marginTop="47dp"
             android:layout_weight="0.08"
             android:text="@string/AMOUNT"
-            android:textSize="16sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sector_spinner" />
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/amount"
@@ -136,18 +125,17 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="47dp"
             android:text="@string/EMAIL"
-            android:textSize="16sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name_label" />
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/email"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="10dp"
             android:layout_width="284dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="10dp"
             android:ems="10"
             android:inputType="textEmailAddress" />
+
         <TextView
             android:id="@+id/objective"
             android:layout_width="wrap_content"
@@ -155,15 +143,14 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="47dp"
             android:text="@string/OBJECTIVE"
-            android:textSize="16sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name_label" />
+            android:textSize="16sp" />
+
         <EditText
             android:id="@+id/objective_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="10dp"
             android:ems="10"
             android:inputType="textMultiLine" />
 
@@ -174,9 +161,5 @@
             android:layout_height="match_parent"
             android:layout_marginEnd="50dp"
             android:text="@string/CSR_SUBMIT" />
-
-
     </LinearLayout>
-
 </ScrollView>
-
