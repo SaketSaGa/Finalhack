@@ -22,7 +22,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.ssn.skillindia.fragments.CheckProgressFragment;
+import com.ssn.skillindia.fragments.learner.CheckCourseProgressFragment;
 
 public class CheckProgressPagerAdapter extends FragmentPagerAdapter {
 
@@ -34,7 +34,7 @@ public class CheckProgressPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             default:
-                return new CheckProgressFragment();
+                return new CheckCourseProgressFragment();
         }
     }
 

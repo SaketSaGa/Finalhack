@@ -16,12 +16,10 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package com.ssn.skillindia.fragments;
+package com.ssn.skillindia.fragments.learner;
 
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -29,7 +27,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.ssn.skillindia.R;
-import com.ssn.skillindia.adapters.CheckProgressPagerAdapter;
 import com.ssn.skillindia.adapters.TimeLineAdapter;
 import com.ssn.skillindia.model.CourseStatus;
 import com.ssn.skillindia.model.TimeLineModel;
@@ -37,29 +34,19 @@ import com.ssn.skillindia.model.TimeLineModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CheckProgressFragment extends Fragment {
+public class CheckCourseProgressFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
     private TimeLineAdapter mTimeLineAdapter;
     private List<TimeLineModel> mDataList = new ArrayList<>();
-    private CheckProgressPagerAdapter checkProgressPagerAdapter;
-    private ViewPager mViewPager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_check_progress, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_check_course_progress, container, false);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(getLinearLayoutManager());
         mRecyclerView.setHasFixedSize(true);
-
-
-        checkProgressPagerAdapter = new CheckProgressPagerAdapter(getActivity().getSupportFragmentManager());
-
-        mViewPager = (ViewPager) rootView.findViewById(R.id.container);
-        mViewPager.setAdapter(checkProgressPagerAdapter);
-        TabLayout tabLayout = (TabLayout) rootView.findViewById(R.id.check_progress_tabs);
-        tabLayout.setupWithViewPager(mViewPager);
 
         setDataListItems();
         mTimeLineAdapter = new TimeLineAdapter(mDataList);
