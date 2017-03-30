@@ -24,18 +24,21 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.github.vipulasri.timelineview.TimelineView;
 import com.ssn.skillindia.R;
 import com.ssn.skillindia.model.CourseStatus;
 import com.ssn.skillindia.model.TimeLineModel;
 import com.ssn.skillindia.utils.DateTimeUtils;
+import com.ssn.skillindia.utils.LogHelper;
 import com.ssn.skillindia.utils.VectorDrawableUtils;
 
 import java.util.List;
 
-public class TimeLineAdapter extends RecyclerView.Adapter<TimeLineViewHolder> {
-
+public class TimeLineAdapter extends RecyclerView.Adapter<TimeLineAdapter.TimeLineViewHolder> {
+    private static final String TAG = LogHelper.makeLogTag(TimeLineAdapter.class);
     private List<TimeLineModel> mFeedList;
     private Context mContext;
     private LayoutInflater mLayoutInflater;
@@ -60,15 +63,18 @@ public class TimeLineAdapter extends RecyclerView.Adapter<TimeLineViewHolder> {
 
     @Override
     public void onBindViewHolder(TimeLineViewHolder holder, int position) {
-
-        TimeLineModel timeLineModel = mFeedList.get(position);
+        final int pos = position;
+        final TimeLineModel timeLineModel = mFeedList.get(position);
 
         if (timeLineModel.getStatus() == CourseStatus.INACTIVE) {
             holder.mTimelineView.setMarker(VectorDrawableUtils.getDrawable(mContext, R.drawable.ic_marker_inactive, android.R.color.darker_gray));
+            holder.checkImageView.setVisibility(View.GONE);
         } else if (timeLineModel.getStatus() == CourseStatus.ACTIVE) {
             holder.mTimelineView.setMarker(VectorDrawableUtils.getDrawable(mContext, R.drawable.ic_marker_active, R.color.colorPrimary));
+            holder.checkImageView.setVisibility(View.VISIBLE);
         } else {
             holder.mTimelineView.setMarker(ContextCompat.getDrawable(mContext, R.drawable.ic_marker), ContextCompat.getColor(mContext, R.color.colorPrimary));
+            holder.checkImageView.setVisibility(View.GONE);
         }
 
         if (!timeLineModel.getDate().isEmpty()) {
@@ -78,11 +84,45 @@ public class TimeLineAdapter extends RecyclerView.Adapter<TimeLineViewHolder> {
             holder.mDate.setVisibility(View.GONE);
 
         holder.mMessage.setText(timeLineModel.getMessage());
+
+        holder.checkImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LogHelper.e("CLICK", v.toString());
+                try {
+                    timeLineModel.setStatus(CourseStatus.COMPLETED);
+                    mFeedList.get(pos + 1).setStatus(CourseStatus.ACTIVE);
+                    notifyItemChanged(pos);
+                    notifyItemChanged(pos + 1);
+                } catch (Exception e) {
+                    LogHelper.e(TAG, e.toString());
+                }
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return (mFeedList != null ? mFeedList.size() : 0);
+    }
+
+    public class TimeLineViewHolder extends RecyclerView.ViewHolder {
+
+        TextView mDate;
+        TextView mMessage;
+        TimelineView mTimelineView;
+        ImageView checkImageView;
+
+        public TimeLineViewHolder(View itemView, int viewType) {
+            super(itemView);
+
+            mDate = (TextView) itemView.findViewById(R.id.text_timeline_date);
+            mMessage = (TextView) itemView.findViewById(R.id.text_timeline_title);
+            mTimelineView = (TimelineView) itemView.findViewById(R.id.time_marker);
+            checkImageView = (ImageView) itemView.findViewById(R.id.check_image_view);
+
+            mTimelineView.initLine(viewType);
+        }
     }
 
 }
