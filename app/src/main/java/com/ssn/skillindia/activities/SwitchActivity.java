@@ -43,6 +43,7 @@ import com.ssn.skillindia.fragments.PrivateSectorFragment;
 import com.ssn.skillindia.fragments.TrainerFragment;
 import com.ssn.skillindia.fragments.learner.CheckProgressFragment;
 import com.ssn.skillindia.fragments.learner.SearchTrainingCenterFragment;
+import com.ssn.skillindia.fragments.learner.WebinarsFragment;
 import com.ssn.skillindia.fragments.privateSector.CsrFragment;
 import com.ssn.skillindia.model.LocalJSONSource;
 import com.ssn.skillindia.utils.LogHelper;
@@ -197,6 +198,10 @@ public class SwitchActivity extends AppCompatActivity {
                                 switchFragment(new CheckProgressFragment(), bundle);
                                 break;
                             case 5:
+                                toolbar.setTitle(getString(R.string.drawer_item_webinars));
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME,
+                                        getString(R.string.drawer_item_webinars));
+                                switchFragment(new WebinarsFragment(), bundle);
                                 break;
                             case 6:
                                 break;

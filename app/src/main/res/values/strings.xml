@@ -19,6 +19,12 @@
 <resources>
     <string name="app_name">Skill India</string>
 
+    <string name="intro2_heading">Are you an avid learner?</string>
+    <string name="intro2_description">Then we\'ve got your back!</string>
+
+    <string name="intro3_heading">Wish to make a change?</string>
+    <string name="intro3_description">Come join hands with us!</string>
+
     <string name="login">LOGIN</string>
     <string name="name">Name</string>
     <string name="aadhaar">Aadhaar No</string>
@@ -94,7 +100,6 @@
     <string name="OBJECTIVE">OBJECTIVE</string>
     <string name="CSR_SUBMIT">SUBMIT</string>
 
-
     <string-array name="TOA">
         <item>Bipartite</item>
         <item>Tripartite</item>
@@ -104,4 +109,6 @@
         <item>Agriculture</item>
         <item>Banking and funding</item>
     </string-array>
+
+    <string name="error_player">There was an error initializing the YouTubePlayer (%1$s)</string>
 </resources>

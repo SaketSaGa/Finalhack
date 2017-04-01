@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        app:tabIndicatorColor="#FFF"
+        app:tabIndicatorColor="@color/accent"
         app:tabMode="scrollable"
         app:tabSelectedTextColor="#FFF"
         app:tabTextColor="#DDD" />

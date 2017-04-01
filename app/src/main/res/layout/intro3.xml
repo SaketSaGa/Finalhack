@@ -33,7 +33,7 @@
         android:gravity="center"
         android:paddingLeft="32dp"
         android:paddingRight="32dp"
-        android:text="Wish to make a change ?"
+        android:text="@string/intro3_heading"
         android:textColor="#ffffff"
         android:textSize="28sp" />
 
@@ -59,7 +59,7 @@
             android:gravity="center"
             android:paddingLeft="64dp"
             android:paddingRight="64dp"
-            android:text="Come join hands with us!"
+            android:text="@string/intro3_description"
             android:textColor="#ffffff"
             android:textSize="16sp" />
 
