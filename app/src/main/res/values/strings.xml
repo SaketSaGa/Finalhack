@@ -34,6 +34,8 @@
     <string name="dashboard_training_partner_setup">Setup a Training Partner account</string>
     <string name="dashboard_setup_register">Register</string>
 
+    <string name="drawer_item_log_out">Log Out</string>
+
     <string name="menu_help">Help</string>
     <string name="menu_map">Map</string>
 

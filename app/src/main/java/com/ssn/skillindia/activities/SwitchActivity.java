@@ -38,8 +38,10 @@ import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
+import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.roughike.bottombar.BottomBar;
@@ -65,7 +67,6 @@ import butterknife.ButterKnife;
 public class SwitchActivity extends AppCompatActivity {
 
     private static final String TAG = LogHelper.makeLogTag(SwitchActivity.class);
-    public static String[] TYPES = {"Learner", "Trainer", "Training Partner"};
     public static FirebaseAnalytics FIREBASE_ANALYTICS;
     public static String CURRENT_FRAGMENT;
     @BindView(R.id.toolbar)
@@ -87,7 +88,8 @@ public class SwitchActivity extends AppCompatActivity {
     private AccountHeader headerResult = null;
     private Drawer drawer = null;
     private String tab;
-    private SharedPreferences.Editor editor;
+    private SharedPreferences.Editor tabEditor;
+    private SharedPreferences.Editor userEditor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,20 +100,34 @@ public class SwitchActivity extends AppCompatActivity {
         FIREBASE_ANALYTICS = FirebaseAnalytics.getInstance(this);
         CURRENT_FRAGMENT = getString(R.string.dashboard);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("tab", MODE_PRIVATE);
-        editor = sharedPreferences.edit();
-        tab = sharedPreferences.getString("tab", "learner");
+        SharedPreferences tabSharedPreferences = getSharedPreferences("tab", MODE_PRIVATE);
+        final SharedPreferences userSharedPreferences = getSharedPreferences("user", MODE_PRIVATE);
+        tabEditor = tabSharedPreferences.edit();
+        tab = tabSharedPreferences.getString("tab", "learner");
         setBottomBarDefaultTab();
 
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        final IProfile profile1 = new ProfileDrawerItem().withName(TYPES[0])
-                .withEmail("learner@gmail.com").withIcon(R.drawable.ic_learner);
-        final IProfile profile2 = new ProfileDrawerItem().withName(TYPES[1])
-                .withEmail("trainer@github.com").withIcon(R.drawable.ic_trainer);
-        final IProfile profile3 = new ProfileDrawerItem().withName(TYPES[2])
-                .withEmail("training_partner@outlook.com").withIcon(R.drawable.ic_training_partner);
+        boolean p1, p2, p3;
+        p1 = userSharedPreferences.getBoolean("learner", false);
+        p2 = userSharedPreferences.getBoolean("trainer", false);
+        p3 = userSharedPreferences.getBoolean("training_partner", false);
+        IProfile profile1 = null, profile2 = null, profile3 = null;
+
+        final String learnerName, trainerName, trainingPartnerName;
+        learnerName = userSharedPreferences.getString("learner_name", "");
+        trainerName = userSharedPreferences.getString("trainer_name", "");
+        trainingPartnerName = userSharedPreferences.getString("training_partner_name", "");
+        if (p1)
+            profile1 = new ProfileDrawerItem().withName(userSharedPreferences.getString("learner_name", ""))
+                    .withEmail(userSharedPreferences.getString("learner_email", "")).withIcon(R.drawable.ic_learner);
+        if (p2)
+            profile2 = new ProfileDrawerItem().withName(userSharedPreferences.getString("trainer_name", ""))
+                    .withEmail(userSharedPreferences.getString("trainer_email", "")).withIcon(R.drawable.ic_trainer);
+        if (p3)
+            profile3 = new ProfileDrawerItem().withName(userSharedPreferences.getString("training_partner_name", ""))
+                    .withEmail(userSharedPreferences.getString("training_partner_email", "")).withIcon(R.drawable.ic_training_partner);
 
         item1 = new PrimaryDrawerItem().withName(R.string.drawer_item_search_courses).withIdentifier(1).withIcon(FontAwesome.Icon.faw_search);
         item2 = new PrimaryDrawerItem().withName(R.string.drawer_item_search_center).withIdentifier(2).withIcon(FontAwesome.Icon.faw_map);
@@ -134,9 +150,9 @@ public class SwitchActivity extends AppCompatActivity {
         item23 = new PrimaryDrawerItem().withName(R.string.drawer_item_enroll_learner_pmkvy).withIdentifier(23).withIcon(FontAwesome.Icon.faw_search);
         item24 = new PrimaryDrawerItem().withName(R.string.drawer_item_become_nsdc_partner).withIdentifier(24).withIcon(FontAwesome.Icon.faw_search);
 
-        PrimaryDrawerItem[] learnerItems = {item1, item2, item3, item4, item5, item6, item7, item8};
-        PrimaryDrawerItem[] trainerItems = {item11, item12, item13, item14, item15, item16};
-        PrimaryDrawerItem[] trainingPartnerItems = {item21, item22, item23, item24};
+        final PrimaryDrawerItem[] learnerItems = {item1, item2, item3, item4, item5, item6, item7, item8};
+        final PrimaryDrawerItem[] trainerItems = {item11, item12, item13, item14, item15, item16};
+        final PrimaryDrawerItem[] trainingPartnerItems = {item21, item22, item23, item24};
         learnerItemList = new ArrayList<>();
         trainerItemList = new ArrayList<>();
         trainingPartnerItemList = new ArrayList<>();
@@ -144,33 +160,35 @@ public class SwitchActivity extends AppCompatActivity {
         Collections.addAll(trainerItemList, trainerItems);
         Collections.addAll(trainingPartnerItemList, trainingPartnerItems);
 
-        headerResult = new AccountHeaderBuilder()
-                .withActivity(this)
+        AccountHeader.OnAccountHeaderListener onAccountHeaderListener = new AccountHeader.OnAccountHeaderListener() {
+            @Override
+            public boolean onProfileChanged(View view, IProfile profile, boolean current) {
+                CURRENT_FRAGMENT = getString(R.string.dashboard);
+                if (profile.getName().toString().equals(learnerName)) {
+                    updateDrawerItems(learnerItemList, getString(R.string.learner));
+                    switchFragment(new LearnerDashboardFragment(), getString(R.string.learner));
+                }
+                if (profile.getName().toString().equals(trainerName)) {
+                    updateDrawerItems(trainerItemList, getString(R.string.trainer));
+                    switchFragment(new TrainerDashboardFragment(), getString(R.string.trainer));
+                }
+                if (profile.getName().toString().equals(trainingPartnerName)) {
+                    updateDrawerItems(trainingPartnerItemList, getString(R.string.training_partner));
+                    switchFragment(new TrainingPartnerDashboardFragment(), getString(R.string.training_partner));
+                }
+                return true;
+            }
+        };
+
+        AccountHeaderBuilder accountHeaderBuilder = new AccountHeaderBuilder().withActivity(this)
                 .withHeaderBackground(R.drawable.header)
-                .addProfiles(profile1, profile2, profile3)
-                .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
-                    @Override
-                    public boolean onProfileChanged(View view, IProfile profile, boolean current) {
-                        CURRENT_FRAGMENT = getString(R.string.dashboard);
-                        switch (profile.getName().toString()) {
-                            case "Learner":
-                                updateDrawerItems(learnerItemList);
-                                switchFragment(new LearnerDashboardFragment(), getString(R.string.learner));
-                                break;
-                            case "Trainer":
-                                updateDrawerItems(trainerItemList);
-                                switchFragment(new TrainerDashboardFragment(), getString(R.string.trainer));
-                                break;
-                            case "Training Partner":
-                                updateDrawerItems(trainingPartnerItemList);
-                                switchFragment(new TrainingPartnerDashboardFragment(), getString(R.string.training_partner));
-                                break;
-                        }
-                        return true;
-                    }
-                })
-                .withSavedInstance(savedInstanceState)
-                .build();
+                .withOnAccountHeaderListener(onAccountHeaderListener)
+                .withSavedInstance(savedInstanceState);
+        if (profile1 != null) accountHeaderBuilder.addProfiles(profile1);
+        if (profile2 != null) accountHeaderBuilder.addProfiles(profile2);
+        if (profile3 != null) accountHeaderBuilder.addProfiles(profile3);
+
+        headerResult = accountHeaderBuilder.build();
 
         drawer = new DrawerBuilder(this)
                 .withRootView(drawerContainer)
@@ -178,7 +196,7 @@ public class SwitchActivity extends AppCompatActivity {
                 .withDisplayBelowStatusBar(false)
                 .withActionBarDrawerToggleAnimated(true)
                 .withAccountHeader(headerResult)
-                .addDrawerItems(item1, item2, item3, item4, item5, item6, item7)
+                .addDrawerItems(item1, item2, item3, item4, item5, item6, item7, item8)
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
@@ -209,6 +227,24 @@ public class SwitchActivity extends AppCompatActivity {
                                 break;
                             case 23:
                                 break;
+                            case 97:
+                                userEditor = userSharedPreferences.edit();
+                                userEditor.putBoolean("learner", false);
+                                userEditor.apply();
+                                recreate();
+                                break;
+                            case 98:
+                                userEditor = userSharedPreferences.edit();
+                                userEditor.putBoolean("trainer", false);
+                                userEditor.apply();
+                                recreate();
+                                break;
+                            case 99:
+                                userEditor = userSharedPreferences.edit();
+                                userEditor.putBoolean("training_partner", false);
+                                userEditor.apply();
+                                recreate();
+                                break;
                         }
                         return false;
                     }
@@ -226,20 +262,23 @@ public class SwitchActivity extends AppCompatActivity {
                 switch (tabId) {
                     case R.id.tab_learner:
                         tab = "learner";
-                        editor.putString("tab", "learner");
-                        editor.apply();
+                        tabEditor.putString("tab", "learner");
+                        tabEditor.apply();
+                        updateDrawerItems(learnerItemList, getString(R.string.learner));
                         switchFragment(new LearnerDashboardFragment(), getString(R.string.learner));
                         break;
                     case R.id.tab_trainer:
                         tab = "trainer";
-                        editor.putString("tab", "trainer");
-                        editor.apply();
+                        tabEditor.putString("tab", "trainer");
+                        tabEditor.apply();
+                        updateDrawerItems(trainerItemList, getString(R.string.trainer));
                         switchFragment(new TrainerDashboardFragment(), getString(R.string.trainer));
                         break;
                     case R.id.tab_training_partner:
                         tab = "training_partner";
-                        editor.putString("tab", "training_partner");
-                        editor.apply();
+                        tabEditor.putString("tab", "training_partner");
+                        tabEditor.apply();
+                        updateDrawerItems(trainingPartnerItemList, getString(R.string.training_partner));
                         switchFragment(new TrainingPartnerDashboardFragment(), getString(R.string.training_partner));
                         break;
                 }
@@ -325,9 +364,24 @@ public class SwitchActivity extends AppCompatActivity {
         FIREBASE_ANALYTICS.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
     }
 
-    private void updateDrawerItems(List<PrimaryDrawerItem> items) {
+    private void updateDrawerItems(List<PrimaryDrawerItem> items, String type) {
         drawer.removeAllItems();
         for (PrimaryDrawerItem item : items) drawer.addItem(item);
+        drawer.addItem(new DividerDrawerItem());
+        switch (type) {
+            case "Learner":
+                drawer.addItem(new SecondaryDrawerItem().withName(getString(R.string.drawer_item_log_out))
+                        .withIdentifier(97).withIcon(FontAwesome.Icon.faw_sign_out));
+                break;
+            case "Trainer":
+                drawer.addItem(new SecondaryDrawerItem().withName(getString(R.string.drawer_item_log_out))
+                        .withIdentifier(98).withIcon(FontAwesome.Icon.faw_sign_out));
+                break;
+            case "Training Partner":
+                drawer.addItem(new SecondaryDrawerItem().withName(getString(R.string.drawer_item_log_out))
+                        .withIdentifier(99).withIcon(FontAwesome.Icon.faw_sign_out));
+                break;
+        }
     }
 
     public void webinarsOnClick(View view) {
