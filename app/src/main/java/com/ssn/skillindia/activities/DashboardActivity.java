@@ -19,6 +19,7 @@
 package com.ssn.skillindia.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
@@ -46,21 +47,30 @@ public class DashboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
         ButterKnife.bind(this);
 
+        SharedPreferences sharedPreferences = getSharedPreferences("tab", MODE_PRIVATE);
+        final SharedPreferences.Editor editor = sharedPreferences.edit();
+
         learnerCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                editor.putString("tab", "learner");
+                editor.apply();
                 startActivity(new Intent(DashboardActivity.this, MainActivity.class));
             }
         });
         trainerCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                editor.putString("tab", "trainer");
+                editor.apply();
                 startActivity(new Intent(DashboardActivity.this, MainActivity.class));
             }
         });
         trainingPartnerCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                editor.putString("tab", "training_partner");
+                editor.apply();
                 startActivity(new Intent(DashboardActivity.this, MainActivity.class));
             }
         });

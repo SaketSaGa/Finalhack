@@ -84,6 +84,8 @@ public class SearchTrainingCenterFragment extends Fragment {
         setSpinner(stateSpinner, "state");
         setSpinner(districtSpinner, "district");
         setSpinner(sectorSpinner, "sector");
+
+        setRecyclerView();
     }
 
     private void setSpinner(LabelledSpinner spinner, String type) {

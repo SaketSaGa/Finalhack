@@ -19,6 +19,7 @@
 package com.ssn.skillindia.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.design.widget.AppBarLayout;
@@ -85,6 +86,8 @@ public class SwitchActivity extends AppCompatActivity {
     PrimaryDrawerItem item21, item22, item23, item24;
     private AccountHeader headerResult = null;
     private Drawer drawer = null;
+    private String tab;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +97,11 @@ public class SwitchActivity extends AppCompatActivity {
 
         FIREBASE_ANALYTICS = FirebaseAnalytics.getInstance(this);
         CURRENT_FRAGMENT = getString(R.string.dashboard);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("tab", MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        tab = sharedPreferences.getString("tab", "learner");
+        setBottomBarDefaultTab();
 
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -217,12 +225,21 @@ public class SwitchActivity extends AppCompatActivity {
             public void onTabSelected(@IdRes int tabId) {
                 switch (tabId) {
                     case R.id.tab_learner:
+                        tab = "learner";
+                        editor.putString("tab", "learner");
+                        editor.apply();
                         switchFragment(new LearnerDashboardFragment(), getString(R.string.learner));
                         break;
                     case R.id.tab_trainer:
+                        tab = "trainer";
+                        editor.putString("tab", "trainer");
+                        editor.apply();
                         switchFragment(new TrainerDashboardFragment(), getString(R.string.trainer));
                         break;
                     case R.id.tab_training_partner:
+                        tab = "training_partner";
+                        editor.putString("tab", "training_partner");
+                        editor.apply();
                         switchFragment(new TrainingPartnerDashboardFragment(), getString(R.string.training_partner));
                         break;
                 }
@@ -276,6 +293,14 @@ public class SwitchActivity extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
+        if (drawer != null && drawer.isDrawerOpen())
+            drawer.closeDrawer();
+        else if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            getSupportFragmentManager().popBackStack();
+            CURRENT_FRAGMENT = getString(R.string.dashboard);
+            setBottomBarDefaultTab();
+            bottomBar.setVisibility(View.VISIBLE);
+        } else super.onBackPressed();
     }
 
     private void switchFragment(Fragment fragment, String name) {
@@ -292,7 +317,9 @@ public class SwitchActivity extends AppCompatActivity {
         toolbar.setTitle(name);
         bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, name);
         getSupportFragmentManager().beginTransaction()
+                .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                 .replace(R.id.frame_container, fragment)
+                .addToBackStack(name)
                 .commit();
         bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "navigation");
         FIREBASE_ANALYTICS.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
@@ -317,5 +344,22 @@ public class SwitchActivity extends AppCompatActivity {
 
     public void scheduleOnClick(View view) {
         switchFragment(new ScheduleFragment(), getString(R.string.drawer_item_schedule));
+    }
+
+    private void setBottomBarDefaultTab() {
+        switch (tab) {
+            case "learner":
+                switchFragment(new LearnerDashboardFragment(), getString(R.string.learner));
+                bottomBar.setDefaultTab(R.id.tab_learner);
+                break;
+            case "trainer":
+                switchFragment(new TrainerDashboardFragment(), getString(R.string.trainer));
+                bottomBar.setDefaultTab(R.id.tab_trainer);
+                break;
+            case "training_partner":
+                switchFragment(new TrainingPartnerDashboardFragment(), getString(R.string.training_partner));
+                bottomBar.setDefaultTab(R.id.tab_training_partner);
+                break;
+        }
     }
 }
