@@ -47,10 +47,13 @@ import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 import com.ssn.skillindia.R;
+import com.ssn.skillindia.fragments.learner.AgricultureFragment;
+import com.ssn.skillindia.fragments.learner.AnimalHusbandry;
 import com.ssn.skillindia.fragments.learner.CheckProgressFragment;
 import com.ssn.skillindia.fragments.learner.LearnerDashboardFragment;
 import com.ssn.skillindia.fragments.learner.ScheduleFragment;
 import com.ssn.skillindia.fragments.learner.SearchTrainingCenterFragment;
+import com.ssn.skillindia.fragments.learner.SearchTrainingCourseFragment;
 import com.ssn.skillindia.fragments.learner.WebinarsFragment;
 import com.ssn.skillindia.fragments.trainer.TrainerDashboardFragment;
 import com.ssn.skillindia.fragments.trainingPartner.EnrollPmkvyFragment;
@@ -203,6 +206,8 @@ public class SwitchActivity extends AppCompatActivity {
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                         switch ((int) drawerItem.getIdentifier()) {
                             case 1:
+                                switchFragment(new SearchTrainingCourseFragment(),
+                                        getString(R.string.drawer_item_search_courses));
                                 break;
                             case 2:
                                 switchFragment(new SearchTrainingCenterFragment(),
@@ -393,6 +398,10 @@ public class SwitchActivity extends AppCompatActivity {
         switchFragment(new SearchTrainingCenterFragment(), getString(R.string.drawer_item_search_center));
     }
 
+    public void searchTrainingCourseOnClick(View view) {
+        switchFragment(new SearchTrainingCourseFragment(), getString(R.string.drawer_item_search_courses));
+    }
+
     public void checkProgressOnClick(View view) {
         switchFragment(new CheckProgressFragment(), getString(R.string.drawer_item_check_progress));
     }
@@ -401,10 +410,24 @@ public class SwitchActivity extends AppCompatActivity {
         switchFragment(new ScheduleFragment(), getString(R.string.drawer_item_schedule));
     }
 
+<<<<<<< Updated upstream
     public void enrollPmkvyOnClick(View view) {
         switchFragment(new EnrollPmkvyFragment(), getString(R.string.drawer_item_enroll_learner_pmkvy));
     }
 
+||||||| merged common ancestors
+=======
+    public void searchSectorAgriculture(View view) {
+        switchFragment(new AgricultureFragment(), getString(R.string.sector_agriculture_actionbar));
+    }
+
+    public void searchCourseAnimalHusbandry(View view) {
+        switchFragment(new AnimalHusbandry(), getString(R.string.course_animalhusbandry_actionbar));
+    }
+
+
+
+>>>>>>> Stashed changes
     private void setBottomBarDefaultTab() {
         switch (tab) {
             case "learner":
