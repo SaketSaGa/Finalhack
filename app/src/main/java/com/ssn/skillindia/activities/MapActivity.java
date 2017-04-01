@@ -64,6 +64,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
     private SupportMapFragment mapFragment;
     private GoogleMap googleMap;
     private Location location;
+    private LatLng latLng = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,9 +75,16 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
         mapFragment.getMapAsync(this);
         attemptEnableMyLocation();
 
-        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        Criteria criteria = new Criteria();
-        location = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, false));
+        Double lat = getIntent().getDoubleExtra("lat", 0);
+        Double lng = getIntent().getDoubleExtra("lng", 0);
+
+        if (lat == 0 || lng == 0) {
+            if (locationEnabled) {
+                LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+                Criteria criteria = new Criteria();
+                location = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, false));
+            }
+        } else latLng = new LatLng(lat, lng);
     }
 
     @Override
@@ -112,12 +120,14 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
             }
         }
 
-        moveCameraToPosition(new LatLng(location.getLatitude(), location.getLongitude()));
+        if (latLng != null) moveCameraToPosition(latLng);
+        else if (location == null) moveCameraToPosition(null);
+        else moveCameraToPosition(new LatLng(location.getLatitude(), location.getLongitude()));
     }
 
     private void moveCameraToPosition(LatLng position) {
         if (position == null)
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(INDIA_BOUNDS.getCenter(), 1));
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(INDIA_BOUNDS.getCenter(), 4));
         else {
             googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition.Builder()
                     .target(position).zoom(18).build()));

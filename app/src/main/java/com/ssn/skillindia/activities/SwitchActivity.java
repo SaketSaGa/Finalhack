@@ -18,6 +18,7 @@
 
 package com.ssn.skillindia.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
@@ -217,6 +218,12 @@ public class SwitchActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_map:
+                startActivity(new Intent(this, MapActivity.class));
+                break;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 

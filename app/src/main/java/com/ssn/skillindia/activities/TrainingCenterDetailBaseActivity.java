@@ -143,7 +143,10 @@ public abstract class TrainingCenterDetailBaseActivity extends AppCompatActivity
                 onBackPressed();
                 break;
             case R.id.action_map:
-                startActivity(new Intent(this, MapActivity.class));
+                Intent intent = new Intent(this, MapActivity.class)
+                        .putExtra("lat", Double.valueOf(trainingCenter.getLatitude()))
+                        .putExtra("lng", Double.valueOf(trainingCenter.getLongitude()));
+                startActivity(intent);
                 break;
         }
 

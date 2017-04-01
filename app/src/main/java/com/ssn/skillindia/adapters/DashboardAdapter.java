@@ -24,8 +24,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
@@ -106,13 +106,13 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        private FrameLayout cardView;
+        private LinearLayout cardView;
         private ImageView imageView;
         private TextView textView;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            cardView = (FrameLayout) itemView.findViewById(R.id.item_card);
+            cardView = (LinearLayout) itemView.findViewById(R.id.item_card);
             imageView = (ImageView) itemView.findViewById(R.id.item_icon);
             textView = (TextView) itemView.findViewById(R.id.item_name);
 
@@ -124,22 +124,11 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.View
             float scale = (parentHeight - textView.getHeight()) / (float) imageView.getHeight();
             imageView.setPivotX(imageView.getWidth() * 0.5f);
             imageView.setPivotY(0);
-            imageView.animate().scaleX(scale)
-                    .withEndAction(new Runnable() {
-                        @Override
-                        public void run() {
-                            textView.setVisibility(View.VISIBLE);
-                        }
-                    })
-                    .scaleY(scale).setDuration(200)
-                    .start();
+            imageView.animate().scaleX(scale).scaleY(scale).setDuration(200).start();
         }
 
         public void hideText() {
-            textView.setVisibility(View.INVISIBLE);
-            imageView.animate().scaleX(1f).scaleY(1f)
-                    .setDuration(200)
-                    .start();
+            imageView.animate().scaleX(1f).scaleY(1f).setDuration(200).start();
         }
 
         @Override
