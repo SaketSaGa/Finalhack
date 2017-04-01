@@ -53,6 +53,7 @@ import com.ssn.skillindia.fragments.learner.ScheduleFragment;
 import com.ssn.skillindia.fragments.learner.SearchTrainingCenterFragment;
 import com.ssn.skillindia.fragments.learner.WebinarsFragment;
 import com.ssn.skillindia.fragments.trainer.TrainerDashboardFragment;
+import com.ssn.skillindia.fragments.trainingPartner.EnrollPmkvyFragment;
 import com.ssn.skillindia.fragments.trainingPartner.TrainingPartnerDashboardFragment;
 import com.ssn.skillindia.model.LocalJSONSource;
 import com.ssn.skillindia.utils.LogHelper;
@@ -398,6 +399,10 @@ public class SwitchActivity extends AppCompatActivity {
 
     public void scheduleOnClick(View view) {
         switchFragment(new ScheduleFragment(), getString(R.string.drawer_item_schedule));
+    }
+
+    public void enrollPmkvyOnClick(View view) {
+        switchFragment(new EnrollPmkvyFragment(), getString(R.string.drawer_item_enroll_learner_pmkvy));
     }
 
     private void setBottomBarDefaultTab() {

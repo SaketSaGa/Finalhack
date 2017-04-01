@@ -68,6 +68,8 @@
 
         <activity android:name=".activities.MapActivity" />
 
+        <activity android:name=".activities.EnrollPmkvyDetailActivity" />
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="327685d013652e58a2cb3571746ced9f0a54aab3"

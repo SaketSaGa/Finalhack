@@ -99,7 +99,9 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:foreground="?selectableItemBackground"
+                android:onClick="enrollPmkvyOnClick">
 
                 <LinearLayout
                     android:layout_width="match_parent"

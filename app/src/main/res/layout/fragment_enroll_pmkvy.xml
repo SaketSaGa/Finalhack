@@ -1,0 +1,1087 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Skill India
+  ~ Copyright (C) 2017  e-LEMON-ators
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~  it under the terms of the GNU General Public License as published by
+  ~  the Free Software Foundation, either version 3 of the License, or
+  ~  (at your option) any later version.
+  ~
+  ~  This program is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  GNU General Public License for more details.
+  ~
+  ~  You should have received a copy of the GNU General Public License
+  ~  along with this program.  If not, see <http://www.gnu.org/licenses/>
+  -->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.karthik.cardview.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/linear1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="4dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp">
+
+
+                        <TextView
+                            android:id="@+id/fname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="7dp"
+                            android:paddingRight="5dp"
+                            android:paddingTop="5dp"
+                            android:text="Vikram Aditya"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/lname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_toEndOf="@+id/aadharid"
+                            android:paddingBottom="5dp"
+                            android:paddingRight="5dp"
+                            android:paddingTop="5dp"
+
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/dob_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/fname"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="12dp"
+                            android:paddingTop="2dp"
+                            android:src="@drawable/ic_calendar" />
+
+                        <TextView
+                            android:id="@+id/dob"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_below="@+id/fname"
+                            android:layout_toRightOf="@id/dob_icon"
+
+                            android:paddingBottom="3dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+
+                            android:paddingTop="3dp"
+                            android:text="22-02-1997" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/email_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/dob_icon"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="12dp"
+
+                            android:paddingTop="2dp"
+                            android:src="@drawable/ic_envelope" />
+
+                        <TextView
+                            android:id="@+id/email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/dob"
+                            android:layout_toRightOf="@+id/email_icon"
+                            android:paddingBottom="3dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:paddingTop="3dp"
+                            android:text="vikram22@gmail.com" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/phone_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/email_icon"
+                            android:paddingLeft="4dp"
+                            android:paddingRight="11dp"
+                            android:paddingTop="2dp"
+                            android:src="@drawable/ic_smartphone" />
+
+
+                        <TextView
+                            android:id="@+id/phoneno"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/email"
+                            android:layout_toRightOf="@+id/phone_icon"
+                            android:paddingBottom="3dp"
+                            android:paddingLeft="5dp"
+
+                            android:paddingRight="5dp"
+                            android:paddingTop="3dp"
+                            android:text="+(91) 8056169474" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="5dp">
+
+                        <ImageView
+                            android:id="@+id/aadhar_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_below="@+id/phone_icon"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="9dp"
+                            android:paddingTop="2dp"
+                            android:src="@drawable/ic_id_card" />
+
+                        <TextView
+                            android:id="@+id/aadharid"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/phoneno"
+                            android:layout_toRightOf="@+id/aadhar_icon"
+                            android:paddingBottom="3dp"
+
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:paddingTop="3dp"
+                            android:text="4444 0002 3344" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/button1"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.github.zagum.switchicon.SwitchIconView
+                        android:id="@+id/switchIconView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="8dp"
+                        app:si_animation_duration="500"
+                        app:si_disabled_alpha=".5"
+                        app:si_disabled_color="#b7b7b7"
+                        app:si_enabled="false"
+                        app:si_no_dash="true"
+                        app:si_tint_color="#2ecc71"
+                        app:srcCompat="@drawable/ic_checked" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:id="@+id/linear2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="4dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp">
+
+
+                        <TextView
+                            android:id="@+id/fname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="7dp"
+                            android:paddingRight="5dp"
+                            android:paddingTop="5dp"
+                            android:text="Suresh Varma"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/lname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_toEndOf="@+id/aadharid"
+                            android:paddingBottom="5dp"
+                            android:paddingRight="5dp"
+                            android:paddingTop="5dp"
+
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/dob_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/fname"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="12dp"
+                            android:paddingTop="2dp"
+                            android:src="@drawable/ic_calendar" />
+
+                        <TextView
+                            android:id="@+id/dob"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_below="@+id/fname"
+                            android:layout_toRightOf="@id/dob_icon"
+
+                            android:paddingBottom="3dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+
+                            android:paddingTop="3dp"
+                            android:text="03-02-1995" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/email_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/dob_icon"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="12dp"
+
+                            android:paddingTop="2dp"
+                            android:src="@drawable/ic_envelope" />
+
+                        <TextView
+                            android:id="@+id/email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/dob"
+                            android:layout_toRightOf="@+id/email_icon"
+                            android:paddingBottom="3dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:paddingTop="3dp"
+                            android:text="sureshv03@gmail.com" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/phone_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/email_icon"
+                            android:paddingLeft="4dp"
+                            android:paddingRight="11dp"
+                            android:paddingTop="2dp"
+                            android:src="@drawable/ic_smartphone" />
+
+
+                        <TextView
+                            android:id="@+id/phoneno"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/email"
+                            android:layout_toRightOf="@+id/phone_icon"
+                            android:paddingBottom="3dp"
+                            android:paddingLeft="5dp"
+
+                            android:paddingRight="5dp"
+                            android:paddingTop="3dp"
+                            android:text="+(91) 9940149615" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="5dp">
+
+                        <ImageView
+                            android:id="@+id/aadhar_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_below="@+id/phone_icon"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="9dp"
+                            android:paddingTop="2dp"
+                            android:src="@drawable/ic_id_card" />
+
+                        <TextView
+                            android:id="@+id/aadharid"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/phoneno"
+                            android:layout_toRightOf="@+id/aadhar_icon"
+                            android:paddingBottom="3dp"
+
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:paddingTop="3dp"
+                            android:text="5564 3312 3333" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/button2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.github.zagum.switchicon.SwitchIconView
+                        android:id="@+id/switchIconView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="8dp"
+                        app:si_animation_duration="500"
+                        app:si_disabled_alpha=".5"
+                        app:si_disabled_color="#b7b7b7"
+                        app:si_enabled="false"
+                        app:si_no_dash="true"
+                        app:si_tint_color="#2ecc71"
+                        app:srcCompat="@drawable/ic_checked" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:id="@+id/linear3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="4dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp">
+
+
+                        <TextView
+                            android:id="@+id/fname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="7dp"
+                            android:paddingRight="5dp"
+                            android:paddingTop="5dp"
+                            android:text="Manish Chandra"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/lname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_toEndOf="@+id/aadharid"
+                            android:paddingBottom="5dp"
+                            android:paddingRight="5dp"
+                            android:paddingTop="5dp"
+
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/dob_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/fname"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="12dp"
+                            android:paddingTop="2dp"
+                            android:src="@drawable/ic_calendar" />
+
+                        <TextView
+                            android:id="@+id/dob"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_below="@+id/fname"
+                            android:layout_toRightOf="@id/dob_icon"
+
+                            android:paddingBottom="3dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+
+                            android:paddingTop="3dp"
+                            android:text="27-05-1997" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/email_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/dob_icon"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="12dp"
+
+                            android:paddingTop="2dp"
+                            android:src="@drawable/ic_envelope" />
+
+                        <TextView
+                            android:id="@+id/email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/dob"
+                            android:layout_toRightOf="@+id/email_icon"
+                            android:paddingBottom="3dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:paddingTop="3dp"
+                            android:text="manishchandra27@gmail.com" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/phone_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/email_icon"
+                            android:paddingLeft="4dp"
+                            android:paddingRight="11dp"
+                            android:paddingTop="2dp"
+                            android:src="@drawable/ic_smartphone" />
+
+
+                        <TextView
+                            android:id="@+id/phoneno"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/email"
+                            android:layout_toRightOf="@+id/phone_icon"
+                            android:paddingBottom="3dp"
+                            android:paddingLeft="5dp"
+
+                            android:paddingRight="5dp"
+                            android:paddingTop="3dp"
+                            android:text="+(91) 7299669474" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="5dp">
+
+                        <ImageView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_below="@+id/phone_icon"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="9dp"
+                            android:paddingTop="2dp"
+                            android:src="@drawable/ic_id_card" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/phoneno"
+                            android:layout_toRightOf="@+id/aadhar_icon"
+                            android:paddingBottom="3dp"
+
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:paddingTop="3dp"
+                            android:text="4214 8876 5509" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/button3"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.github.zagum.switchicon.SwitchIconView
+                        android:id="@+id/switchIconView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="8dp"
+                        app:si_animation_duration="500"
+                        app:si_disabled_alpha=".5"
+                        app:si_disabled_color="#b7b7b7"
+                        app:si_enabled="false"
+                        app:si_no_dash="true"
+                        app:si_tint_color="#2ecc71"
+                        app:srcCompat="@drawable/ic_checked" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/linear4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="4dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp">
+
+
+                        <TextView
+                            android:id="@+id/fname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="7dp"
+                            android:paddingRight="5dp"
+                            android:paddingTop="5dp"
+                            android:text="Gopinath Mani"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/lname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_toEndOf="@+id/aadharid"
+                            android:paddingBottom="5dp"
+                            android:paddingRight="5dp"
+                            android:paddingTop="5dp"
+
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/dob_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/fname"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="12dp"
+                            android:paddingTop="2dp"
+                            android:src="@drawable/ic_calendar" />
+
+                        <TextView
+                            android:id="@+id/dob"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_below="@+id/fname"
+                            android:layout_toRightOf="@id/dob_icon"
+
+                            android:paddingBottom="3dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+
+                            android:paddingTop="3dp"
+                            android:text="05-01-1998" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/email_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/dob_icon"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="12dp"
+
+                            android:paddingTop="2dp"
+                            android:src="@drawable/ic_envelope" />
+
+                        <TextView
+                            android:id="@+id/email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/dob"
+                            android:layout_toRightOf="@+id/email_icon"
+                            android:paddingBottom="3dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:paddingTop="3dp"
+                            android:text="gopinath_mani@gmail.com" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/phone_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/email_icon"
+                            android:paddingLeft="4dp"
+                            android:paddingRight="11dp"
+                            android:paddingTop="2dp"
+                            android:src="@drawable/ic_smartphone" />
+
+
+                        <TextView
+                            android:id="@+id/phoneno"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/email"
+                            android:layout_toRightOf="@+id/phone_icon"
+                            android:paddingBottom="3dp"
+                            android:paddingLeft="5dp"
+
+                            android:paddingRight="5dp"
+                            android:paddingTop="3dp"
+                            android:text="+(91) 9750162866" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="5dp">
+
+                        <ImageView
+                            android:id="@+id/aadhar_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_below="@+id/phone_icon"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="9dp"
+                            android:paddingTop="2dp"
+                            android:src="@drawable/ic_id_card" />
+
+                        <TextView
+                            android:id="@+id/aadharid"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/phoneno"
+                            android:layout_toRightOf="@+id/aadhar_icon"
+                            android:paddingBottom="3dp"
+
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:paddingTop="3dp"
+                            android:text="4588 7865 3333" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/button4"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.github.zagum.switchicon.SwitchIconView
+                        android:id="@+id/switchIconView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="8dp"
+                        app:si_animation_duration="500"
+                        app:si_disabled_alpha=".5"
+                        app:si_disabled_color="#b7b7b7"
+                        app:si_enabled="false"
+                        app:si_no_dash="true"
+                        app:si_tint_color="#2ecc71"
+                        app:srcCompat="@drawable/ic_checked" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/linear5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="4dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp">
+
+
+                        <TextView
+                            android:id="@+id/fname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="7dp"
+                            android:paddingRight="5dp"
+                            android:paddingTop="5dp"
+                            android:text="Chaaran S"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/lname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_toEndOf="@+id/aadharid"
+                            android:paddingBottom="5dp"
+                            android:paddingRight="5dp"
+                            android:paddingTop="5dp"
+
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/dob_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/fname"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="12dp"
+                            android:paddingTop="2dp"
+                            android:src="@drawable/ic_calendar" />
+
+                        <TextView
+                            android:id="@+id/dob"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_below="@+id/fname"
+                            android:layout_toRightOf="@id/dob_icon"
+
+                            android:paddingBottom="3dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+
+                            android:paddingTop="3dp"
+                            android:text="22-02-1991" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/email_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/dob_icon"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="12dp"
+
+                            android:paddingTop="2dp"
+                            android:src="@drawable/ic_envelope" />
+
+                        <TextView
+                            android:id="@+id/email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/dob"
+                            android:layout_toRightOf="@+id/email_icon"
+                            android:paddingBottom="3dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:paddingTop="3dp"
+                            android:text="vikram22@gmail.com" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/phone_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/email_icon"
+                            android:paddingLeft="4dp"
+                            android:paddingRight="11dp"
+                            android:paddingTop="2dp"
+                            android:src="@drawable/ic_smartphone" />
+
+
+                        <TextView
+                            android:id="@+id/phoneno"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/email"
+                            android:layout_toRightOf="@+id/phone_icon"
+                            android:paddingBottom="3dp"
+                            android:paddingLeft="5dp"
+
+                            android:paddingRight="5dp"
+                            android:paddingTop="3dp"
+                            android:text="+(91) 9887654861" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="5dp">
+
+                        <ImageView
+                            android:id="@+id/aadhar_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_below="@+id/phone_icon"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="9dp"
+                            android:paddingTop="2dp"
+                            android:src="@drawable/ic_id_card" />
+
+                        <TextView
+                            android:id="@+id/aadharid"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/phoneno"
+                            android:layout_toRightOf="@+id/aadhar_icon"
+                            android:paddingBottom="3dp"
+
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:paddingTop="3dp"
+                            android:text="5534 6643 8765" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/button5"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.github.zagum.switchicon.SwitchIconView
+                        android:id="@+id/switchIconView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="8dp"
+                        app:si_animation_duration="500"
+                        app:si_disabled_alpha=".5"
+                        app:si_disabled_color="#b7b7b7"
+                        app:si_enabled="false"
+                        app:si_no_dash="true"
+                        app:si_tint_color="#2ecc71"
+                        app:srcCompat="@drawable/ic_checked" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="8dp"
+            android:orientation="horizontal"
+            android:paddingTop="5dp">
+
+            <Button
+                android:id="@+id/prevbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="?selectableItemBackground"
+                android:text="Previous"
+                android:textColor="@color/colorAccent" />
+
+            <Button
+                android:id="@+id/nextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="?selectableItemBackground"
+                android:text="Next"
+                android:textColor="@color/colorAccent" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,66 @@
+<!--
+  ~ Skill India
+  ~ Copyright (C) 2017  e-LEMON-ators
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~  it under the terms of the GNU General Public License as published by
+  ~  the Free Software Foundation, either version 3 of the License, or
+  ~  (at your option) any later version.
+  ~
+  ~  This program is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  GNU General Public License for more details.
+  ~
+  ~  You should have received a copy of the GNU General Public License
+  ~  along with this program.  If not, see <http://www.gnu.org/licenses/>
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="18dp"
+    android:height="18dp"
+    android:viewportHeight="395.636"
+    android:viewportWidth="395.636">
+    <path
+        android:fillColor="#FDBF5E"
+        android:pathData="M6.2,61.8h383.3v272.6h-383.3z" />
+    <path
+        android:fillColor="#193651"
+        android:pathData="M395.6,340H0V55.7h395.6V340zM12.3,327.6h370.9V68H12.3V327.6z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M30.9,86.6h333.8v223.2h-333.8z" />
+    <path
+        android:fillColor="#193651"
+        android:pathData="M232.4,263.4h12.3v12.3h-12.3z" />
+    <path
+        android:fillColor="#193651"
+        android:pathData="M272,263.4h12.3v12.3h-12.3z" />
+    <path
+        android:fillColor="#193651"
+        android:pathData="M312.2,263.4h12.3v12.3h-12.3z" />
+    <path
+        android:fillColor="#193651"
+        android:pathData="M230.6,223.2h95.8v12.3h-95.8z" />
+    <path
+        android:fillColor="#193651"
+        android:pathData="M230.6,189.2h95.8v12.3h-95.8z" />
+    <path
+        android:fillColor="#193651"
+        android:pathData="M230.6,155.2h95.8v12.3h-95.8z" />
+    <path
+        android:fillColor="#193651"
+        android:pathData="M230.6,121.8h95.8v12.3h-95.8z" />
+    <path
+        android:fillColor="#2EA2DB"
+        android:pathData="M69.2,116.2h124.3v143.5h-124.3z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M131.7,155.2m-26,0a26,26 0,1 1,52 0a26,26 0,1 1,-52 0" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M180.5,246v-24.8c0,-10.5 -8.7,-19.1 -19.1,-19.1h-60c-10.5,0 -19.1,8.7 -19.1,19.1v24.8H180.5z" />
+    <path
+        android:fillColor="#193651"
+        android:pathData="M93.3,273.3h76v12.3h-76z" />
+</vector>
