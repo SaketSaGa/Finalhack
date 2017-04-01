@@ -49,8 +49,8 @@ import com.ssn.skillindia.fragments.learner.LearnerDashboardFragment;
 import com.ssn.skillindia.fragments.learner.ScheduleFragment;
 import com.ssn.skillindia.fragments.learner.SearchTrainingCenterFragment;
 import com.ssn.skillindia.fragments.learner.WebinarsFragment;
-import com.ssn.skillindia.fragments.trainingPartner.TrainingPartnerDashboardFragment;
 import com.ssn.skillindia.fragments.trainer.TrainerDashboardFragment;
+import com.ssn.skillindia.fragments.trainingPartner.TrainingPartnerDashboardFragment;
 import com.ssn.skillindia.model.LocalJSONSource;
 import com.ssn.skillindia.utils.LogHelper;
 
