@@ -38,11 +38,12 @@ public class EnrollPmkvyDetailActivity extends Activity {
         setContentView(R.layout.activity_enroll_pmkvy_detail);
     }
 
-    public void displaymessage(View
-                                       v) {
+    public void displaymessage(View v) {
         Context context = getApplicationContext();
         Toast.makeText(context, "Details sent for further processing", Toast.LENGTH_SHORT).show();
     }
 
-
+    public void previousOnClick(View view) {
+        onBackPressed();
+    }
 }

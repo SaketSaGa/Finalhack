@@ -410,13 +410,10 @@ public class SwitchActivity extends AppCompatActivity {
         switchFragment(new ScheduleFragment(), getString(R.string.drawer_item_schedule));
     }
 
-<<<<<<< Updated upstream
     public void enrollPmkvyOnClick(View view) {
         switchFragment(new EnrollPmkvyFragment(), getString(R.string.drawer_item_enroll_learner_pmkvy));
     }
 
-||||||| merged common ancestors
-=======
     public void searchSectorAgriculture(View view) {
         switchFragment(new AgricultureFragment(), getString(R.string.sector_agriculture_actionbar));
     }
@@ -425,9 +422,6 @@ public class SwitchActivity extends AppCompatActivity {
         switchFragment(new AnimalHusbandry(), getString(R.string.course_animalhusbandry_actionbar));
     }
 
-
-
->>>>>>> Stashed changes
     private void setBottomBarDefaultTab() {
         switch (tab) {
             case "learner":

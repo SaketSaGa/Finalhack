@@ -34,7 +34,7 @@ import com.ssn.skillindia.activities.EnrollPmkvyDetailActivity;
 
 public class EnrollPmkvyFragment extends Fragment {
 
-    Button Nextpage_button;
+    Button Nextpage_button, prevbutton;
     private SwitchIconView switchIcon1;
     private SwitchIconView switchIcon2;
     private SwitchIconView switchIcon3;
@@ -63,6 +63,7 @@ public class EnrollPmkvyFragment extends Fragment {
         switchIcon5 = (SwitchIconView) view.findViewById(R.id.switchIconView5);
 
         Nextpage_button = (Button) view.findViewById(R.id.nextButton);
+        prevbutton = (Button) view.findViewById(R.id.prevbutton);
 
         button1 = view.findViewById(R.id.button1);
         button2 = view.findViewById(R.id.button2);
@@ -70,11 +71,16 @@ public class EnrollPmkvyFragment extends Fragment {
         button4 = view.findViewById(R.id.button4);
         button5 = view.findViewById(R.id.button5);
 
-
         Nextpage_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), EnrollPmkvyDetailActivity.class));
+            }
+        });
+        prevbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().onBackPressed();
             }
         });
 

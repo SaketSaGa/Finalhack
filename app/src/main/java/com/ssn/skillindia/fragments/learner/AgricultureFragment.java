@@ -1,36 +1,37 @@
+/*
+ * Skill India
+ * Copyright (C) 2017  e-LEMON-ators
+ *
+ * This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>
+ */
+
 package com.ssn.skillindia.fragments.learner;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.TextView;
 
 import com.ssn.skillindia.R;
-import com.ssn.skillindia.SkillIndiaApplication;
-import com.ssn.skillindia.adapters.TrainingCenterAdapter;
-import com.ssn.skillindia.model.TrainingCenter;
-import com.ssn.skillindia.ui.LabelledSpinner;
-import com.ssn.skillindia.utils.LogHelper;
-import com.ssn.skillindia.utils.RealmHelper;
-import com.ssn.skillindia.utils.StringUtils;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import io.realm.Realm;
-import io.realm.RealmResults;
 
-public class AgricultureFragment extends Fragment{
+public class AgricultureFragment extends Fragment {
 
     private Unbinder unbinder;
     private Realm realm;
