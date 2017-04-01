@@ -30,7 +30,7 @@
         title="Trainer" />
 
     <tab
-        barColorWhenSelected="@color/colorAccent"
+        barColorWhenSelected="#7B1FA2"
         icon="@drawable/ic_private_sector"
         id="@+id/tab_private_sector"
         title="Private Sector" />
