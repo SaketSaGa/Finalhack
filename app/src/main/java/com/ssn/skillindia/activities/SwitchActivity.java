@@ -20,6 +20,7 @@ package com.ssn.skillindia.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -40,12 +41,15 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
+import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.OnTabSelectListener;
 import com.ssn.skillindia.R;
-import com.ssn.skillindia.fragments.DashboardFragment;
 import com.ssn.skillindia.fragments.learner.CheckProgressFragment;
+import com.ssn.skillindia.fragments.learner.LearnerDashboardFragment;
 import com.ssn.skillindia.fragments.learner.SearchTrainingCenterFragment;
 import com.ssn.skillindia.fragments.learner.WebinarsFragment;
-import com.ssn.skillindia.fragments.privateSector.CsrFragment;
+import com.ssn.skillindia.fragments.privateSector.PrivateSectorDashboardFragment;
+import com.ssn.skillindia.fragments.trainer.TrainerDashboardFragment;
 import com.ssn.skillindia.model.LocalJSONSource;
 import com.ssn.skillindia.utils.LogHelper;
 
@@ -72,10 +76,12 @@ public class SwitchActivity extends AppCompatActivity {
     FrameLayout drawerContainer;
     @BindView(R.id.main_content)
     RelativeLayout mainContent;
+    @BindView(R.id.bottom_bar)
+    BottomBar bottomBar;
     List<PrimaryDrawerItem> learnerItemList, trainerItemList, privateSectorItemList;
-    PrimaryDrawerItem item1, item2, item3, item4, item5, item6, item7, item8;
+    PrimaryDrawerItem item1, item2, item3, item4, item5, item6, item7;
     PrimaryDrawerItem item11, item12, item13, item14, item15, item16;
-    PrimaryDrawerItem item21, item22, item23, item24, item25;
+    PrimaryDrawerItem item21, item22, item23, item24;
     private AccountHeader headerResult = null;
     private Drawer drawer = null;
 
@@ -98,31 +104,29 @@ public class SwitchActivity extends AppCompatActivity {
         final IProfile profile3 = new ProfileDrawerItem().withName(TYPES[2])
                 .withEmail("private_sector@outlook.com").withIcon(R.drawable.ic_private_sector);
 
-        item1 = new PrimaryDrawerItem().withName(R.string.drawer_item_search_center).withIdentifier(1).withIcon(FontAwesome.Icon.faw_map);
-        item2 = new PrimaryDrawerItem().withName(R.string.drawer_item_search_courses).withIdentifier(2).withIcon(FontAwesome.Icon.faw_search);
-        item3 = new PrimaryDrawerItem().withName(R.string.drawer_item_world_competition).withIdentifier(3).withIcon(FontAwesome.Icon.faw_globe);
+        item1 = new PrimaryDrawerItem().withName(R.string.drawer_item_search_courses).withIdentifier(1).withIcon(FontAwesome.Icon.faw_search);
+        item2 = new PrimaryDrawerItem().withName(R.string.drawer_item_search_center).withIdentifier(2).withIcon(FontAwesome.Icon.faw_map);
+        item3 = new PrimaryDrawerItem().withName(R.string.drawer_item_webinars).withIdentifier(3).withIcon(FontAwesome.Icon.faw_youtube);
         item4 = new PrimaryDrawerItem().withName(R.string.drawer_item_check_progress).withIdentifier(4).withIcon(FontAwesome.Icon.faw_tasks);
-        item5 = new PrimaryDrawerItem().withName(R.string.drawer_item_webinars).withIdentifier(5).withIcon(FontAwesome.Icon.faw_youtube);
-        item6 = new PrimaryDrawerItem().withName(R.string.drawer_item_register_pmkvy).withIdentifier(6).withIcon(FontAwesome.Icon.faw_sign_in);
-        item7 = new PrimaryDrawerItem().withName(R.string.drawer_item_report_issues).withIdentifier(7).withIcon(FontAwesome.Icon.faw_bug);
-        item8 = new PrimaryDrawerItem().withName(R.string.drawer_item_contact).withIdentifier(8).withIcon(FontAwesome.Icon.faw_phone);
+        item5 = new PrimaryDrawerItem().withName(R.string.drawer_item_world_competition).withIdentifier(5).withIcon(FontAwesome.Icon.faw_globe);
+        item6 = new PrimaryDrawerItem().withName(R.string.drawer_item_report_issues).withIdentifier(6).withIcon(FontAwesome.Icon.faw_bug);
+        item7 = new PrimaryDrawerItem().withName(R.string.drawer_item_contact_trainer).withIdentifier(7).withIcon(FontAwesome.Icon.faw_phone);
 
         item11 = new PrimaryDrawerItem().withName(R.string.drawer_item_search_center).withIdentifier(11).withIcon(FontAwesome.Icon.faw_map);
-        item12 = new PrimaryDrawerItem().withName(R.string.drawer_item_world_competition).withIdentifier(12).withIcon(FontAwesome.Icon.faw_globe);
-        item13 = new PrimaryDrawerItem().withName(R.string.drawer_item_register_nsdc).withIdentifier(13).withIcon(FontAwesome.Icon.faw_tasks);
-        item14 = new PrimaryDrawerItem().withName(R.string.drawer_item_upload_webinars).withIdentifier(14).withIcon(FontAwesome.Icon.faw_youtube);
-        item15 = new PrimaryDrawerItem().withName(R.string.drawer_item_report_issues).withIdentifier(15).withIcon(FontAwesome.Icon.faw_bug);
-        item16 = new PrimaryDrawerItem().withName(R.string.drawer_item_contact).withIdentifier(16).withIcon(FontAwesome.Icon.faw_phone);
+        item12 = new PrimaryDrawerItem().withName(R.string.drawer_item_upload_webinars).withIdentifier(12).withIcon(FontAwesome.Icon.faw_youtube);
+        item13 = new PrimaryDrawerItem().withName(R.string.drawer_item_contact_training_center).withIdentifier(13).withIcon(FontAwesome.Icon.faw_phone);
+        item14 = new PrimaryDrawerItem().withName(R.string.drawer_item_update_skill_set).withIdentifier(14).withIcon(FontAwesome.Icon.faw_phone);
+        item15 = new PrimaryDrawerItem().withName(R.string.drawer_item_world_competition).withIdentifier(15).withIcon(FontAwesome.Icon.faw_globe);
+        item16 = new PrimaryDrawerItem().withName(R.string.drawer_item_report_issues).withIdentifier(16).withIcon(FontAwesome.Icon.faw_bug);
 
-        item21 = new PrimaryDrawerItem().withName(R.string.drawer_item_register_nsdc).withIdentifier(21).withIcon(FontAwesome.Icon.faw_map);
-        item22 = new PrimaryDrawerItem().withName(R.string.drawer_item_tenders).withIdentifier(22).withIcon(FontAwesome.Icon.faw_search);
-        item23 = new PrimaryDrawerItem().withName(R.string.drawer_item_contribute_csr).withIdentifier(23).withIcon(FontAwesome.Icon.faw_globe);
-        item24 = new PrimaryDrawerItem().withName(R.string.drawer_item_report_issues).withIdentifier(24).withIcon(FontAwesome.Icon.faw_bug);
-        item25 = new PrimaryDrawerItem().withName(R.string.drawer_item_contact).withIdentifier(25).withIcon(FontAwesome.Icon.faw_phone);
+        item21 = new PrimaryDrawerItem().withName(R.string.drawer_item_setup_training_center).withIdentifier(21).withIcon(FontAwesome.Icon.faw_search);
+        item22 = new PrimaryDrawerItem().withName(R.string.drawer_item_manage_trainers).withIdentifier(22).withIcon(FontAwesome.Icon.faw_search);
+        item23 = new PrimaryDrawerItem().withName(R.string.drawer_item_enroll_learner_pmkvy).withIdentifier(23).withIcon(FontAwesome.Icon.faw_search);
+        item24 = new PrimaryDrawerItem().withName(R.string.drawer_item_become_nsdc_partner).withIdentifier(24).withIcon(FontAwesome.Icon.faw_search);
 
-        PrimaryDrawerItem[] learnerItems = {item1, item2, item3, item4, item5, item6, item7, item8};
+        PrimaryDrawerItem[] learnerItems = {item1, item2, item3, item4, item5, item6, item7};
         PrimaryDrawerItem[] trainerItems = {item11, item12, item13, item14, item15, item16};
-        PrimaryDrawerItem[] privateSectorItems = {item21, item22, item23, item24, item25};
+        PrimaryDrawerItem[] privateSectorItems = {item21, item22, item23, item24};
         learnerItemList = new ArrayList<>();
         trainerItemList = new ArrayList<>();
         privateSectorItemList = new ArrayList<>();
@@ -153,7 +157,7 @@ public class SwitchActivity extends AppCompatActivity {
                                 bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, TYPES[2]);
                                 break;
                         }
-                        switchFragment(new DashboardFragment(), getString(R.string.app_name));
+                        switchFragment(new LearnerDashboardFragment(), getString(R.string.app_name));
                         return true;
                     }
                 })
@@ -166,7 +170,7 @@ public class SwitchActivity extends AppCompatActivity {
                 .withDisplayBelowStatusBar(false)
                 .withActionBarDrawerToggleAnimated(true)
                 .withAccountHeader(headerResult)
-                .addDrawerItems(item1, item2, item3, item4, item5, item6, item7, item8)
+                .addDrawerItems(item1, item2, item3, item4, item5, item6, item7)
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
@@ -194,8 +198,8 @@ public class SwitchActivity extends AppCompatActivity {
                             case 8:
                                 break;
                             case 23:
-                                switchFragment(new CsrFragment(),
-                                        getString(R.string.drawer_item_contribute_csr));
+                                // TODO
+                                //switchFragment(new CsrFragment(), getString(R.string.drawer_item_contribute_csr));
                                 break;
                         }
                         return false;
@@ -206,8 +210,25 @@ public class SwitchActivity extends AppCompatActivity {
 
         drawer.deselect();
 
-        switchFragment(new DashboardFragment(), getString(R.string.app_name));
+        switchFragment(new LearnerDashboardFragment(), getString(R.string.app_name));
         new LocalJSONSource(this);
+
+        bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
+            @Override
+            public void onTabSelected(@IdRes int tabId) {
+                switch (tabId) {
+                    case R.id.tab_learner:
+                        switchFragment(new LearnerDashboardFragment(), getString(R.string.learner));
+                        break;
+                    case R.id.tab_trainer:
+                        switchFragment(new TrainerDashboardFragment(), getString(R.string.trainer));
+                        break;
+                    case R.id.tab_private_sector:
+                        switchFragment(new PrivateSectorDashboardFragment(), getString(R.string.private_sector));
+                        break;
+                }
+            }
+        });
     }
 
     @Override

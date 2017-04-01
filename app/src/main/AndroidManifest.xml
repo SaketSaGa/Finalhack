@@ -56,7 +56,7 @@
         <activity
             android:name=".activities.SwitchActivity"
             android:label="@string/title_activity_switch"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.TransNav" />
 
         <activity
             android:name=".activities.TrainingCenterDetailActivity"
