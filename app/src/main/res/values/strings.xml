@@ -109,15 +109,15 @@
 
     <string name="search_no_training_centers">No training centers found</string>
 
-    <string name="NAME">NAME</string>
-    <string name="TYPE">TYPE</string>
-    <string name="SECTOR_TARGETED">SECTOR TARGETED</string>
-    <string name="AMOUNT">AMOUNT</string>
-    <string name="EMAIL">EMAIL</string>
-    <string name="OBJECTIVE">OBJECTIVE</string>
-    <string name="CSR_SUBMIT">SUBMIT</string>
+    <string name="name_organization">Name of Organization</string>
+    <string name="type_of_agreement">Type of Agreement</string>
+    <string name="sector_targeted">Sector Targeted</string>
+    <string name="amount">Amount</string>
+    <string name="EMAIL">Email</string>
+    <string name="objective">Objective</string>
+    <string name="csr_submit">SUBMIT</string>
 
-    <string-array name="TOA">
+    <string-array name="type_of_agreement">
         <item>Bipartite</item>
         <item>Tripartite</item>
     </string-array>

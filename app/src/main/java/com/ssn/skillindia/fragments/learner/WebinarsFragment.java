@@ -121,6 +121,23 @@ public final class WebinarsFragment extends android.support.v4.app.Fragment impl
 
         videoBox = view.findViewById(R.id.video_box);
         closeButton = view.findViewById(R.id.close_button);
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listFragment.getListView().clearChoices();
+                listFragment.getListView().requestLayout();
+                videoFragment.pause();
+                ViewPropertyAnimator animator = videoBox.animate()
+                        .translationYBy(videoBox.getHeight())
+                        .setDuration(ANIMATION_DURATION_MILLIS);
+                runOnAnimationEnd(animator, new Runnable() {
+                    @Override
+                    public void run() {
+                        videoBox.setVisibility(View.INVISIBLE);
+                    }
+                });
+            }
+        });
 
         videoBox.setVisibility(View.INVISIBLE);
 
@@ -186,21 +203,6 @@ public final class WebinarsFragment extends android.support.v4.app.Fragment impl
             setLayoutSizeAndGravity(videoBox, videoWidth, WRAP_CONTENT,
                     Gravity.RIGHT | Gravity.CENTER_VERTICAL);
         }
-    }
-
-    public void onClickClose(@SuppressWarnings("unused") View view) {
-        listFragment.getListView().clearChoices();
-        listFragment.getListView().requestLayout();
-        videoFragment.pause();
-        ViewPropertyAnimator animator = videoBox.animate()
-                .translationYBy(videoBox.getHeight())
-                .setDuration(ANIMATION_DURATION_MILLIS);
-        runOnAnimationEnd(animator, new Runnable() {
-            @Override
-            public void run() {
-                videoBox.setVisibility(View.INVISIBLE);
-            }
-        });
     }
 
     @TargetApi(16)
