@@ -44,7 +44,7 @@ public class DashboardFragment extends Fragment implements
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_weather, container, false);
+        return inflater.inflate(R.layout.fragment_dashboard, container, false);
     }
 
     @Override
@@ -57,7 +57,7 @@ public class DashboardFragment extends Fragment implements
                 new DashboardItem("New York", R.mipmap.ic_launcher),
                 new DashboardItem("Rome", R.mipmap.ic_launcher),
                 new DashboardItem("London", R.mipmap.ic_launcher),
-                new DashboardItem("Washington", R.drawable.ic_launcher_web));
+                new DashboardItem("Washington", R.mipmap.ic_launcher));
 
         learnerPicker = (DiscreteScrollView) view.findViewById(R.id.learner_picker);
         trainerPicker = (DiscreteScrollView) view.findViewById(R.id.trainer_picker);
