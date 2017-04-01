@@ -22,19 +22,24 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.ssn.skillindia.fragments.learner.CheckCourseProgressFragment;
+import com.ssn.skillindia.fragments.learner.MapFragment;
+import com.ssn.skillindia.fragments.learner.SearchTrainingCenterFragment;
 
-public class CheckProgressPagerAdapter extends FragmentPagerAdapter {
+public class SearchTrainingCenterPagerAdapter extends FragmentPagerAdapter {
 
-    public CheckProgressPagerAdapter(FragmentManager fm) {
+    public SearchTrainingCenterPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 
     @Override
     public Fragment getItem(int position) {
         switch (position) {
+            case 0:
+                return new SearchTrainingCenterFragment();
+            case 1:
+                return new MapFragment();
             default:
-                return new CheckCourseProgressFragment();
+                return new SearchTrainingCenterFragment();
         }
     }
 
@@ -47,9 +52,9 @@ public class CheckProgressPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position) {
             case 0:
-                return "IT FOR NON-ENGINEERS";
+                return "LIST";
             case 1:
-                return "COMPUTER HARDWARE TECHNICIAN";
+                return "MAP";
         }
         return null;
     }

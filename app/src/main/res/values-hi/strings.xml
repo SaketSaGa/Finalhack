@@ -1,0 +1,159 @@
+<!--
+  ~ Skill India
+  ~ Copyright (C) 2017  e-LEMON-ators
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~  it under the terms of the GNU General Public License as published by
+  ~  the Free Software Foundation, either version 3 of the License, or
+  ~  (at your option) any later version.
+  ~
+  ~  This program is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  GNU General Public License for more details.
+  ~
+  ~  You should have received a copy of the GNU General Public License
+  ~  along with this program.  If not, see <http://www.gnu.org/licenses/>
+  --><resources>
+    <string name="app_name">"कौशल भारत"</string>
+
+    <string name="dashboard">"डैशबोर्ड"</string>
+    <string name="learner">"सिखाने वाला"</string>
+    <string name="trainer">"प्रशिक्षक/ प्रशिक्षक"</string>
+    <string name="training_partner">"प्रशिक्षण साथी"</string>
+
+    <string name="learner_description">"पाठ्यक्रम में नामांकन के लिए और अपने कौशल का विकास"</string>
+    <string name="trainer_description">"पाठ्यक्रम में नामांकन के लिए और अपने कौशल का विकास"</string>
+    <string name="training_partner_description">"पाठ्यक्रम में नामांकन के लिए और अपने कौशल का विकास"</string>
+    <string name="contribute_csr_description">"पाठ्यक्रम में नामांकन के लिए और अपने कौशल का विकास"</string>
+
+    <string name="dashboard_learner_setup">"सेटअप एक शिक्षार्थी खाता"</string>
+    <string name="dashboard_trainer_setup">"सेटअप एक ट्रेनर खाता"</string>
+    <string name="dashboard_training_partner_setup">"सेटअप एक प्रशिक्षण सहयोगी खाता"</string>
+    <string name="dashboard_setup_register">"पंजीकृत करें  "</string>
+
+    <string name="drawer_item_log_out">"लॉग आउट करें"</string>
+
+    <string name="menu_help">"मदद  "</string>
+    <string name="menu_map">"नक्शा"</string>
+
+    <string name="intro2_heading">"क्या आप एक उत्साही शिक्षार्थी हैं?"</string>
+    <string name="intro2_description">"फिर हम अपनी पीठ मिल गया है!"</string>
+
+    <string name="intro3_heading">"परिवर्तन करने के लिए करना चाहते हैं?"</string>
+    <string name="intro3_description">"हमारे साथ हाथ मिलाने आ जाओ!"</string>
+
+    <string name="login">"लॉग इन करें"</string>
+    <string name="name">"नाम"</string>
+    <string name="aadhaar">"आधार नहीं"</string>
+    <string name="department">"विभाग"</string>
+    <string name="year">"वर्ष"</string>
+    <string name="email">"ईमेल"</string>
+    <string name="mobile">"मोबाइल"</string>
+    <string name="password">"पासवर्ड"</string>
+    <string name="forgot_your_password">"अपना पासवर्ड भूल गए?"</string>
+    <string name="go">"जाएँ"</string>
+    <string name="repeat_password">"पासवर्ड दोहराएं"</string>
+    <string name="register">"रजिस्टर"</string>
+
+    <string name="state_spinner_label">" राज्य"</string>
+    <string name="district_spinner_label">"ज़िला"</string>
+    <string name="sector_spinner_label">"सेक्टर"</string>
+
+    <string name="sign_in_cancelled">"रद्द में साइन इन करें"</string>
+    <string name="no_internet_connection">"कोई इंटरनेट कनेक्शन नहीं"</string>
+    <string name="unknown_sign_in_response">"प्रमाणीकरण साइन-इन की ओर से अज्ञात प्रतिक्रिया"</string>
+    <string name="unknown_error">"एक अज्ञात ग़लती हुई"</string>
+
+    <string name="sign_out_failed">"प्रस्थान करें विफल रहा है"</string>
+    <string name="delete_account_failed">"खाता हटाना विफल रहा है"</string>
+
+    <string name="title_activity_hello">"नमस्ते!"</string>
+    <string name="hello_activity_headline">"नमस्ते!"</string>
+    <string name="hello_activity_terms">"उपयोग संबंधी शर्तें"</string>
+    <string name="hello_activity_subhead">"हम बस आप शुरू करने से पहले कुछ जल्दी चीजों की जरूरत है।"</string>
+    <string name="hello_activity_type">"खाते का प्रकार"</string>
+    <string name="hello_activity_name">"नाम"</string>
+    <string name="hello_activity_mobile">"मोबाइल नंबर"</string>
+    <string name="hello_activity_address">"पता"</string>
+    <string name="hello_activity_state">" राज्य"</string>
+    <string name="hello_activity_district">"ज़िला"</string>
+    <string name="hello_activity_gender">"लिंग "</string>
+    <string name="hello_activity_age">"आयु "</string>
+    <string name="hello_activity_email">"ईमेल"</string>
+    <string name="hello_activity_password">"पासवर्ड"</string>
+    <string name="hello_activity_age_invalid">"एक वैध उम्र दर्ज करें।"</string>
+
+    <string name="hello_activity_share_data">"अनुसंधान के लिए अनाम डेटा साझा करें।"</string>
+    <string name="hello_activity_hint_settings">"आप बाद में सेटिंग में इन बदल सकते हैं।"</string>
+    <string name="hello_activity_button_next">"अगला"</string>
+    <string name="hello_activity_textview_tos">"कौशल भारत का उपयोग करके आप करने के लिए सहमत हो रहे हैं"</string>
+    <string name="hello_activity_button_start">"शुरू हो जाओ"</string>
+
+    <string name="title_activity_switch">"SwitchActivity"</string>
+    <string name="action_settings">"सेटिंग्स"</string>
+
+    <string name="drawer_item_search_courses">"खोजें प्रशिक्षण पाठ्यक्रम"</string>
+    <string name="drawer_item_search_center">"खोजें प्रशिक्षण केन्द्र"</string>
+    <string name="drawer_item_webinars">"वेब संगोष्ठियाँ"</string>
+    <string name="drawer_item_check_progress">"प्रगति जांचें"</string>
+    <string name="drawer_item_schedule">"अनुसूची देखें"</string>
+    <string name="drawer_item_world_competition">"विश्व कौशल प्रतियोगिता"</string>
+    <string name="drawer_item_report_issues">"समस्याओं की रिपोर्ट करें"</string>
+    <string name="drawer_item_contact_trainer">"संपर्क ट्रेनर"</string>
+
+    <string name="drawer_item_upload_webinars">"अपलोड वेबिनार"</string>
+    <string name="drawer_item_contact_training_center">"संपर्क प्रशिक्षण केन्द्र"</string>
+    <string name="drawer_item_update_skill_set">"कौशल अद्यतन सेट"</string>
+
+    <string name="drawer_item_setup_training_center">"सेटअप प्रशिक्षण केन्द्र"</string>
+    <string name="drawer_item_manage_trainers">"प्रशिक्षकों की व्यवस्था करें"</string>
+    <string name="drawer_item_enroll_learner_pmkvy">"PMKVY तहत लर्नर नामांकन करें"</string>
+    <string name="drawer_item_become_nsdc_partner">"एक एनएसडीसी भागीदार बनें"</string>
+
+    <string name="drawer_item_contribute_csr">"सीएसआर फंड योगदान"</string>
+
+    <string name="search_no_training_centers">"कोई प्रशिक्षण केन्द्रों पाया"</string>
+
+    <string name="name_organization">"संगठन का नाम"</string>
+    <string name="type_of_agreement">"समझौते के प्रकार"</string>
+    <string name="sector_targeted">"सेक्टर लक्षित"</string>
+    <string name="amount">" राशि"</string>
+    <string name="EMAIL">"ईमेल"</string>
+    <string name="objective">"उद्देश्य"</string>
+    <string name="csr_submit">"जमा करें"</string>
+
+    <string-array name="type_of_agreement">
+        <item>"द्विपक्षीय"</item>
+        <item>"त्रिपक्षीय"</item>
+    </string-array>
+
+    <string-array name="sector">
+        <item>"कृषि"</item>
+        <item>"बैंकिंग और वित्त पोषण"</item>
+    </string-array>
+
+    <string name="error_player">"YouTubePlayer (आरंभ करने में त्रुटि हुई %1$s )"</string>
+
+    <string name="sector_agriculture">"कृषि"</string>
+    <string name="sector_auto">"ऑटो और ऑटो अवयव"</string>
+    <string name="sector_furniture">"फर्नीचर और सामान"</string>
+    <string name="sector_gems">"रत्न और आभूषण"</string>
+    <string name="sector_handloom">"हथकरघा एवं हस्तशिल्प"</string>
+    <string name="sector_media">"मीडिया और मनोरंजन"</string>
+    <string name="sector_plumbing">"नलसाजी"</string>
+    <string name="sector_softskill">"शीतल कौशल और अंग्रेजी संचार"</string>
+    <string name="sector_telecom">"दूरसंचार"</string>
+    <string name="sector_textile">"वस्त्र और कपड़े"</string>
+
+    <string name="course_animalhusbandry">"पशु-पालन"</string>
+    <string name="course_beekeeper">"मधुमक्खी कीपर"</string>
+    <string name="course_cottoncultivator">"कपास कल्टीवेटर"</string>
+    <string name="course_paddyfarmer">"पैडी फ़ार्मर"</string>
+    <string name="course_poultryfarming">"Poultry Farming"</string>
+    <string name="course_dairyworker">"डेयरी कार्यकर्ता"</string>
+
+    <string name="sector_agriculture_actionbar">"कृषि पाठ्यक्रम"</string>
+    <string name="course_animalhusbandry_actionbar">"पशुपालन कोर्स"</string>
+
+</resources>

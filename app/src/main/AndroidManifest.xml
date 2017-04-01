@@ -60,6 +60,7 @@
         <activity
             android:name=".activities.SwitchActivity"
             android:label="@string/title_activity_switch"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.TransNav" />
 
         <activity

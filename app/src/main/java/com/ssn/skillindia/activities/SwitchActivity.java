@@ -52,7 +52,7 @@ import com.ssn.skillindia.fragments.learner.AnimalHusbandry;
 import com.ssn.skillindia.fragments.learner.CheckProgressFragment;
 import com.ssn.skillindia.fragments.learner.LearnerDashboardFragment;
 import com.ssn.skillindia.fragments.learner.ScheduleFragment;
-import com.ssn.skillindia.fragments.learner.SearchTrainingCenterFragment;
+import com.ssn.skillindia.fragments.learner.SearchTrainingCenterTabFragment;
 import com.ssn.skillindia.fragments.learner.SearchTrainingCourseFragment;
 import com.ssn.skillindia.fragments.learner.WebinarsFragment;
 import com.ssn.skillindia.fragments.trainer.TrainerDashboardFragment;
@@ -210,7 +210,7 @@ public class SwitchActivity extends AppCompatActivity {
                                         getString(R.string.drawer_item_search_courses));
                                 break;
                             case 2:
-                                switchFragment(new SearchTrainingCenterFragment(),
+                                switchFragment(new SearchTrainingCenterTabFragment(),
                                         getString(R.string.drawer_item_search_center));
                                 break;
                             case 3:
@@ -395,7 +395,7 @@ public class SwitchActivity extends AppCompatActivity {
     }
 
     public void searchTrainingCenterOnClick(View view) {
-        switchFragment(new SearchTrainingCenterFragment(), getString(R.string.drawer_item_search_center));
+        switchFragment(new SearchTrainingCenterTabFragment(), getString(R.string.drawer_item_search_center));
     }
 
     public void searchTrainingCourseOnClick(View view) {
