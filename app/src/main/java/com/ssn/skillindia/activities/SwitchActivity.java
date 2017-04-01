@@ -80,7 +80,7 @@ public class SwitchActivity extends AppCompatActivity {
     @BindView(R.id.bottom_bar)
     BottomBar bottomBar;
     List<PrimaryDrawerItem> learnerItemList, trainerItemList, trainingPartnerItemList;
-    PrimaryDrawerItem item1, item2, item3, item4, item5, item6, item7;
+    PrimaryDrawerItem item1, item2, item3, item4, item5, item6, item7, item8;
     PrimaryDrawerItem item11, item12, item13, item14, item15, item16;
     PrimaryDrawerItem item21, item22, item23, item24;
     private AccountHeader headerResult = null;
@@ -110,8 +110,9 @@ public class SwitchActivity extends AppCompatActivity {
         item3 = new PrimaryDrawerItem().withName(R.string.drawer_item_webinars).withIdentifier(3).withIcon(FontAwesome.Icon.faw_youtube);
         item4 = new PrimaryDrawerItem().withName(R.string.drawer_item_check_progress).withIdentifier(4).withIcon(FontAwesome.Icon.faw_tasks);
         item5 = new PrimaryDrawerItem().withName(R.string.drawer_item_world_competition).withIdentifier(5).withIcon(FontAwesome.Icon.faw_globe);
-        item6 = new PrimaryDrawerItem().withName(R.string.drawer_item_report_issues).withIdentifier(6).withIcon(FontAwesome.Icon.faw_bug);
-        item7 = new PrimaryDrawerItem().withName(R.string.drawer_item_contact_trainer).withIdentifier(7).withIcon(FontAwesome.Icon.faw_phone);
+        item6 = new PrimaryDrawerItem().withName(R.string.drawer_item_schedule).withIdentifier(6).withIcon(FontAwesome.Icon.faw_calendar);
+        item7 = new PrimaryDrawerItem().withName(R.string.drawer_item_report_issues).withIdentifier(7).withIcon(FontAwesome.Icon.faw_bug);
+        item8 = new PrimaryDrawerItem().withName(R.string.drawer_item_contact_trainer).withIdentifier(8).withIcon(FontAwesome.Icon.faw_phone);
 
         item11 = new PrimaryDrawerItem().withName(R.string.drawer_item_search_center).withIdentifier(11).withIcon(FontAwesome.Icon.faw_map);
         item12 = new PrimaryDrawerItem().withName(R.string.drawer_item_upload_webinars).withIdentifier(12).withIcon(FontAwesome.Icon.faw_youtube);
@@ -125,7 +126,7 @@ public class SwitchActivity extends AppCompatActivity {
         item23 = new PrimaryDrawerItem().withName(R.string.drawer_item_enroll_learner_pmkvy).withIdentifier(23).withIcon(FontAwesome.Icon.faw_search);
         item24 = new PrimaryDrawerItem().withName(R.string.drawer_item_become_nsdc_partner).withIdentifier(24).withIcon(FontAwesome.Icon.faw_search);
 
-        PrimaryDrawerItem[] learnerItems = {item1, item2, item3, item4, item5, item6, item7};
+        PrimaryDrawerItem[] learnerItems = {item1, item2, item3, item4, item5, item6, item7, item8};
         PrimaryDrawerItem[] trainerItems = {item11, item12, item13, item14, item15, item16};
         PrimaryDrawerItem[] trainingPartnerItems = {item21, item22, item23, item24};
         learnerItemList = new ArrayList<>();
@@ -175,30 +176,30 @@ public class SwitchActivity extends AppCompatActivity {
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                         switch ((int) drawerItem.getIdentifier()) {
                             case 1:
+                                break;
+                            case 2:
                                 switchFragment(new SearchTrainingCenterFragment(),
                                         getString(R.string.drawer_item_search_center));
                                 break;
-                            case 2:
-                                break;
                             case 3:
+                                switchFragment(new WebinarsFragment(),
+                                        getString(R.string.drawer_item_webinars));
                                 break;
                             case 4:
                                 switchFragment(new CheckProgressFragment(),
                                         getString(R.string.drawer_item_check_progress));
                                 break;
                             case 5:
-                                switchFragment(new WebinarsFragment(),
-                                        getString(R.string.drawer_item_webinars));
                                 break;
                             case 6:
+                                switchFragment(new ScheduleFragment(),
+                                        getString(R.string.drawer_item_check_progress));
                                 break;
                             case 7:
                                 break;
                             case 8:
                                 break;
                             case 23:
-                                // TODO
-                                //switchFragment(new CsrActivity(), getString(R.string.drawer_item_contribute_csr));
                                 break;
                         }
                         return false;
@@ -308,6 +309,10 @@ public class SwitchActivity extends AppCompatActivity {
 
     public void searchTrainingCenterOnClick(View view) {
         switchFragment(new SearchTrainingCenterFragment(), getString(R.string.drawer_item_search_center));
+    }
+
+    public void checkProgressOnClick(View view) {
+        switchFragment(new CheckProgressFragment(), getString(R.string.drawer_item_check_progress));
     }
 
     public void scheduleOnClick(View view) {
