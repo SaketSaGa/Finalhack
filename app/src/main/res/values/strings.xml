@@ -136,4 +136,26 @@
     </string-array>
 
     <string name="error_player">There was an error initializing the YouTubePlayer (%1$s)</string>
+
+    <string name="sector_agriculture">Agriculture</string>
+    <string name="sector_auto">Auto and Auto Components</string>
+    <string name="sector_furniture">Furniture and Furnishings</string>
+    <string name="sector_gems">Gems and Jewellery</string>
+    <string name="sector_handloom">Handloom and Handicrafts</string>
+    <string name="sector_media">Media and Entertainment</string>
+    <string name="sector_plumbing">Plumbing</string>
+    <string name="sector_softskill">Soft Skill and English Communication</string>
+    <string name="sector_telecom">Telecom</string>
+    <string name="sector_textile">Textile and Clothing</string>
+
+    <string name="course_animalhusbandry">Animal Husbandry</string>
+    <string name="course_beekeeper">Bee Keeper</string>
+    <string name="course_cottoncultivator">Cotton Cultivator</string>
+    <string name="course_paddyfarmer">Paddy Farmer</string>
+    <string name="course_poultryfarming">Poultry Farming</string>
+    <string name="course_dairyworker">Dairy Worker</string>
+
+    <string name="sector_agriculture_actionbar">Agriculture Courses</string>
+    <string name="course_animalhusbandry_actionbar">Animal Husbandry Course</string>
+
 </resources>
