@@ -18,12 +18,15 @@
 
 package com.ssn.skillindia.fragments.trainer;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.ssn.skillindia.R;
 
@@ -32,6 +35,21 @@ public class TrainerDashboardFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_dashboard_trainer, container, false);
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("user", Context.MODE_PRIVATE);
+        if (sharedPreferences.getBoolean("trainer", false))
+            return inflater.inflate(R.layout.fragment_dashboard_trainer, container, false);
+        else return inflater.inflate(R.layout.fragment_dashboard_setup, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        try {
+            TextView textView = (TextView) view.findViewById(R.id.setup_tv);
+            textView.setText(getString(R.string.trainer));
+        } catch (Exception e) {
+            //
+        }
     }
 }

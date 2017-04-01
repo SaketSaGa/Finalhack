@@ -68,6 +68,8 @@ public class HelloActivity extends AppCompatActivity {
     LabelledSpinner districtSpinner;
     @BindView(R.id.activity_hello_button_start)
     Button startButton;
+    @BindView(R.id.activity_hello_spinner_type)
+    LabelledSpinner typeSpinner;
 
     private DatabaseReference databaseReference;
     private FirebaseUser currentUser;
@@ -90,6 +92,7 @@ public class HelloActivity extends AppCompatActivity {
         // Prevent SoftKeyboard to pop up on start
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
+        typeSpinner.setItemsArray(R.array.hello_activity_type_list);
         genderSpinner.setItemsArray(R.array.hello_activity_gender_list);
         stateSpinner.setItemsArray(R.array.hello_activity_state_list);
         districtSpinner.setItemsArray(R.array.hello_activity_district_list);
@@ -139,6 +142,9 @@ public class HelloActivity extends AppCompatActivity {
     }
 
     public void startMainView() {
+        SharedPreferences sharedPreferences = getSharedPreferences("user", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
         User user = new User();
         user.setId(currentUser.getUid());
         user.setName(nameTextView.getText().toString());
@@ -148,11 +154,37 @@ public class HelloActivity extends AppCompatActivity {
         user.setAge(ageTextView.getText().toString());
         user.setGender(genderSpinner.getSpinner().getSelectedItem().toString());
         user.setMobile(mobileTextView.getText().toString());
-
-        SharedPreferences sharedPreferences = getSharedPreferences("user", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("name", nameTextView.getText().toString());
-        editor.putString("email", emailTextView.getText().toString());
+        String type = typeSpinner.getSpinner().getSelectedItem().toString();
+        if (type.equals(getString(R.string.learner))) {
+            user.setLearner(true);
+            user.setTrainer(sharedPreferences.getBoolean("trainer", false));
+            user.setTrainingPartner(sharedPreferences.getBoolean("training_partner", false));
+            editor.putString("learner_name", nameTextView.getText().toString());
+            editor.putString("learner_email", emailTextView.getText().toString());
+            editor.putBoolean("learner", true);
+            editor.putBoolean("trainer", sharedPreferences.getBoolean("trainer", false));
+            editor.putBoolean("training_partner", sharedPreferences.getBoolean("training_partner", false));
+        }
+        if (type.equals(getString(R.string.trainer))) {
+            user.setLearner(sharedPreferences.getBoolean("learner", false));
+            user.setTrainer(true);
+            user.setTrainingPartner(sharedPreferences.getBoolean("training_partner", false));
+            editor.putString("trainer_name", nameTextView.getText().toString());
+            editor.putString("trainer_email", emailTextView.getText().toString());
+            editor.putBoolean("learner", sharedPreferences.getBoolean("learner", false));
+            editor.putBoolean("trainer", true);
+            editor.putBoolean("training_partner", sharedPreferences.getBoolean("training_partner", false));
+        }
+        if (type.equals(getString(R.string.training_partner))) {
+            user.setLearner(sharedPreferences.getBoolean("learner", false));
+            user.setTrainer(sharedPreferences.getBoolean("trainer", false));
+            user.setTrainingPartner(true);
+            editor.putString("training_partner_name", nameTextView.getText().toString());
+            editor.putString("training_partner_email", emailTextView.getText().toString());
+            editor.putBoolean("learner", sharedPreferences.getBoolean("learner", false));
+            editor.putBoolean("trainer", sharedPreferences.getBoolean("trainer", false));
+            editor.putBoolean("training_partner", true);
+        }
         editor.apply();
 
         databaseReference.child("users").child(currentUser.getUid()).setValue(user);

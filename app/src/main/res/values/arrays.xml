@@ -17,6 +17,12 @@
   -->
 
 <resources>
+    <string-array name="hello_activity_type_list" translatable="false">
+        <item>@string/learner</item>
+        <item>@string/trainer</item>
+        <item>@string/training_partner</item>
+    </string-array>
+
     <string-array name="hello_activity_gender_list" translatable="false">
         <item>Male</item>
         <item>Female</item>

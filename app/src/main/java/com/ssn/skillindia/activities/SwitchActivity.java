@@ -362,4 +362,8 @@ public class SwitchActivity extends AppCompatActivity {
                 break;
         }
     }
+
+    public void setupOnClick(View view) {
+        startActivity(new Intent(this, HelloActivity.class));
+    }
 }

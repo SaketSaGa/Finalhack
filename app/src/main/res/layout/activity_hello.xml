@@ -43,6 +43,14 @@
             android:textColor="@color/skill_india_text"
             android:textSize="@dimen/abc_text_size_subhead_material" />
 
+        <com.ssn.skillindia.ui.LabelledSpinner
+            android:id="@+id/activity_hello_spinner_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            custom:labelText="@string/hello_activity_type"
+            custom:widgetColor="@color/colorAccent" />
+
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

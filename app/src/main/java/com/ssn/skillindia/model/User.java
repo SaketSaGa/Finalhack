@@ -28,13 +28,17 @@ public class User {
     private String age;
     private String gender;
     private String mobile;
+    private boolean learner;
+    private boolean trainer;
+    private boolean trainingPartner;
 
     public User() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
 
     public User(String id, String name, String email, String state, String district, String age,
-                String gender, String mobile) {
+                String gender, String mobile, boolean learner, boolean trainer,
+                boolean trainingPartner) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -43,6 +47,9 @@ public class User {
         this.age = age;
         this.gender = gender;
         this.mobile = mobile;
+        this.learner = learner;
+        this.trainer = trainer;
+        this.trainingPartner = trainingPartner;
     }
 
     public String getId() {
@@ -109,6 +116,30 @@ public class User {
         this.mobile = mobile;
     }
 
+    public boolean isLearner() {
+        return learner;
+    }
+
+    public void setLearner(boolean learner) {
+        this.learner = learner;
+    }
+
+    public boolean isTrainer() {
+        return trainer;
+    }
+
+    public void setTrainer(boolean trainer) {
+        this.trainer = trainer;
+    }
+
+    public boolean isTrainingPartner() {
+        return trainingPartner;
+    }
+
+    public void setTrainingPartner(boolean trainingPartner) {
+        this.trainingPartner = trainingPartner;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -120,6 +151,9 @@ public class User {
                 ", age='" + age + '\'' +
                 ", gender='" + gender + '\'' +
                 ", mobile='" + mobile + '\'' +
+                ", learner=" + learner +
+                ", trainer=" + trainer +
+                ", trainingPartner=" + trainingPartner +
                 '}';
     }
 }

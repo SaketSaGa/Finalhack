@@ -29,6 +29,11 @@
     <string name="training_partner_description">Enroll into courses and develop your skills</string>
     <string name="contribute_csr_description">Enroll into courses and develop your skills</string>
 
+    <string name="dashboard_learner_setup">Setup a Learner account</string>
+    <string name="dashboard_trainer_setup">Setup a Trainer account</string>
+    <string name="dashboard_training_partner_setup">Setup a Training Partner account</string>
+    <string name="dashboard_setup_register">Register</string>
+
     <string name="menu_help">Help</string>
     <string name="menu_map">Map</string>
 
@@ -67,6 +72,7 @@
     <string name="hello_activity_headline">Hello.</string>
     <string name="hello_activity_terms">Terms of Use</string>
     <string name="hello_activity_subhead">We just need a few quick things before getting you started.</string>
+    <string name="hello_activity_type">Type of Account</string>
     <string name="hello_activity_name">Name</string>
     <string name="hello_activity_mobile">Mobile No.</string>
     <string name="hello_activity_address">Address</string>
