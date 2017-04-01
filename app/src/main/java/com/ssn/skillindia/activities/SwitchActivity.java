@@ -46,6 +46,7 @@ import com.roughike.bottombar.OnTabSelectListener;
 import com.ssn.skillindia.R;
 import com.ssn.skillindia.fragments.learner.CheckProgressFragment;
 import com.ssn.skillindia.fragments.learner.LearnerDashboardFragment;
+import com.ssn.skillindia.fragments.learner.ScheduleFragment;
 import com.ssn.skillindia.fragments.learner.SearchTrainingCenterFragment;
 import com.ssn.skillindia.fragments.learner.WebinarsFragment;
 import com.ssn.skillindia.fragments.privateSector.PrivateSectorDashboardFragment;
@@ -157,7 +158,7 @@ public class SwitchActivity extends AppCompatActivity {
                                 bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, TYPES[2]);
                                 break;
                         }
-                        switchFragment(new LearnerDashboardFragment(), getString(R.string.app_name));
+                        switchFragment(new LearnerDashboardFragment(), getString(R.string.dashboard));
                         return true;
                     }
                 })
@@ -210,7 +211,7 @@ public class SwitchActivity extends AppCompatActivity {
 
         drawer.deselect();
 
-        switchFragment(new LearnerDashboardFragment(), getString(R.string.app_name));
+        switchFragment(new LearnerDashboardFragment(), getString(R.string.dashboard));
         new LocalJSONSource(this);
 
         bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
@@ -218,13 +219,13 @@ public class SwitchActivity extends AppCompatActivity {
             public void onTabSelected(@IdRes int tabId) {
                 switch (tabId) {
                     case R.id.tab_learner:
-                        switchFragment(new LearnerDashboardFragment(), getString(R.string.learner));
+                        switchFragment(new LearnerDashboardFragment(), getString(R.string.dashboard));
                         break;
                     case R.id.tab_trainer:
-                        switchFragment(new TrainerDashboardFragment(), getString(R.string.trainer));
+                        switchFragment(new TrainerDashboardFragment(), getString(R.string.dashboard));
                         break;
                     case R.id.tab_private_sector:
-                        switchFragment(new PrivateSectorDashboardFragment(), getString(R.string.private_sector));
+                        switchFragment(new PrivateSectorDashboardFragment(), getString(R.string.dashboard));
                         break;
                 }
             }
@@ -283,6 +284,10 @@ public class SwitchActivity extends AppCompatActivity {
         CURRENT_FRAGMENT = name;
         invalidateOptionsMenu();
 
+        if (CURRENT_FRAGMENT.equals(getString(R.string.dashboard)))
+            bottomBar.setVisibility(View.VISIBLE);
+        else bottomBar.setVisibility(View.GONE);
+
         Bundle bundle = new Bundle();
         toolbar.setTitle(name);
         bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, name);
@@ -296,5 +301,9 @@ public class SwitchActivity extends AppCompatActivity {
     private void updateDrawerItems(List<PrimaryDrawerItem> items) {
         drawer.removeAllItems();
         for (PrimaryDrawerItem item : items) drawer.addItem(item);
+    }
+
+    public void scheduleOnClick(View view) {
+        switchFragment(new ScheduleFragment(), getString(R.string.drawer_item_schedule));
     }
 }

@@ -57,35 +57,35 @@ public class LocalJSONSource {
             JSONObject jsonObject = new JSONObject(stringBuilder.toString());
             JSONArray eventsJsonArray = jsonObject.getJSONArray("centers");
 
-            // TODO: Algolia Search
-            /*Client client = new Client(context.getString(R.string.algolia_app_id),
-                    context.getString(R.string.algolia_api_key));
-
-            Index index = client.initIndex("centers");
-            for (int i = 0; i < eventsJsonArray.length(); i++) {
-                index.addObjectAsync((JSONObject) eventsJsonArray.get(i), null);
-            }
-
-            CompletionHandler completionHandler = new CompletionHandler() {
-                @Override
-                public void requestCompleted(JSONObject content, AlgoliaException error) {
-                    try {
-                        LogHelper.e(TAG, content.toString());
-                    } catch (Exception e) {
-                        LogHelper.e(TAG, error.toString());
-                    }
-                }
-            };
-            index.searchAsync(new Query("delhi"), completionHandler);
-            index.searchAsync(new Query("delih"), completionHandler);
-            index.searchAsync(new Query("in"), completionHandler);
-            index.searchAsync(new Query("ni"), completionHandler);*/
-
             SkillIndiaApplication skillIndiaApplication = (SkillIndiaApplication) context.getApplicationContext();
             Realm realm = skillIndiaApplication.getRealmHelper().getRealmInstance();
             realm.beginTransaction();
             try {
                 realm.createOrUpdateAllFromJson(TrainingCenter.class, eventsJsonArray);
+                realm.commitTransaction();
+                LogHelper.e(TAG, "TRY");
+            } catch (Exception e) {
+                LogHelper.e(TAG, "IO : ", e);
+                realm.cancelTransaction();
+            } finally {
+                if (inputStream != null) {
+                    inputStream.close();
+                }
+            }
+
+            inputStream = context.getAssets().open("events.json");
+            bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            stringBuilder = new StringBuilder();
+            while ((line = bufferedReader.readLine()) != null) {
+                stringBuilder.append(line);
+            }
+
+            jsonObject = new JSONObject(stringBuilder.toString());
+            eventsJsonArray = jsonObject.getJSONArray("events");
+
+            realm.beginTransaction();
+            try {
+                realm.createOrUpdateAllFromJson(Event.class, eventsJsonArray);
                 realm.commitTransaction();
                 LogHelper.e(TAG, "TRY");
             } catch (Exception e) {

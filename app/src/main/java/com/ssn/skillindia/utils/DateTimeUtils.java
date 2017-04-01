@@ -22,6 +22,7 @@ import android.text.format.DateUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -57,5 +58,11 @@ public class DateTimeUtils {
             e.printStackTrace();
             return "";
         }
+    }
+
+    public static Calendar dateToCalendar(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar;
     }
 }

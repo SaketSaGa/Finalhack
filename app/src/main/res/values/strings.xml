@@ -86,6 +86,7 @@
     <string name="drawer_item_search_center">Search Training Center</string>
     <string name="drawer_item_webinars">Webinars</string>
     <string name="drawer_item_check_progress">Check Progress</string>
+    <string name="drawer_item_schedule">View Schedule</string>
     <string name="drawer_item_world_competition">World Skills Competition</string>
     <string name="drawer_item_report_issues">Report Issues</string>
     <string name="drawer_item_contact_trainer">Contact Trainer</string>
