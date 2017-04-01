@@ -74,7 +74,7 @@ public class DashboardFragment extends Fragment implements
 
         List<DashboardItem> trainerItems = Arrays.asList(
                 new DashboardItem(getString(R.string.drawer_item_search_center),
-                        getActivity().getResources().getDrawable(R.drawable.ic_map)),
+                        getActivity().getResources().getDrawable(R.drawable.ic_map_faw)),
                 new DashboardItem(getString(R.string.drawer_item_world_competition),
                         getActivity().getResources().getDrawable(R.drawable.ic_globe)),
                 new DashboardItem(getString(R.string.drawer_item_register_nsdc),
