@@ -132,7 +132,7 @@ public abstract class TrainingCenterDetailBaseActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_training_center_detail, menu);
+        getMenuInflater().inflate(R.menu.menu_training_center, menu);
         return true;
     }
 

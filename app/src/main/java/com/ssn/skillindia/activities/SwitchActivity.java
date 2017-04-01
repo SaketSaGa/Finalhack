@@ -23,6 +23,8 @@ import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
@@ -39,7 +41,6 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.ssn.skillindia.R;
 import com.ssn.skillindia.fragments.DashboardFragment;
-import com.ssn.skillindia.fragments.LearnerFragment;
 import com.ssn.skillindia.fragments.learner.CheckProgressFragment;
 import com.ssn.skillindia.fragments.learner.SearchTrainingCenterFragment;
 import com.ssn.skillindia.fragments.learner.WebinarsFragment;
@@ -57,8 +58,9 @@ import butterknife.ButterKnife;
 public class SwitchActivity extends AppCompatActivity {
 
     private static final String TAG = LogHelper.makeLogTag(SwitchActivity.class);
-    public static String[] types = {"Learner", "Trainer", "Private Sector"};
-
+    public static String[] TYPES = {"Learner", "Trainer", "Private Sector"};
+    public static FirebaseAnalytics FIREBASE_ANALYTICS;
+    public static String CURRENT_FRAGMENT;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.appbar)
@@ -69,13 +71,10 @@ public class SwitchActivity extends AppCompatActivity {
     FrameLayout drawerContainer;
     @BindView(R.id.main_content)
     RelativeLayout mainContent;
-
     List<PrimaryDrawerItem> learnerItemList, trainerItemList, privateSectorItemList;
     PrimaryDrawerItem item1, item2, item3, item4, item5, item6, item7, item8;
     PrimaryDrawerItem item11, item12, item13, item14, item15, item16;
     PrimaryDrawerItem item21, item22, item23, item24, item25;
-
-    private FirebaseAnalytics firebaseAnalytics;
     private AccountHeader headerResult = null;
     private Drawer drawer = null;
 
@@ -85,16 +84,17 @@ public class SwitchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_switch);
         ButterKnife.bind(this);
 
-        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        FIREBASE_ANALYTICS = FirebaseAnalytics.getInstance(this);
+        CURRENT_FRAGMENT = getString(R.string.dashboard);
 
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        final IProfile profile1 = new ProfileDrawerItem().withName(types[0])
+        final IProfile profile1 = new ProfileDrawerItem().withName(TYPES[0])
                 .withEmail("learner@gmail.com").withIcon(R.drawable.ic_learner);
-        final IProfile profile2 = new ProfileDrawerItem().withName(types[1])
+        final IProfile profile2 = new ProfileDrawerItem().withName(TYPES[1])
                 .withEmail("trainer@github.com").withIcon(R.drawable.ic_trainer);
-        final IProfile profile3 = new ProfileDrawerItem().withName(types[2])
+        final IProfile profile3 = new ProfileDrawerItem().withName(TYPES[2])
                 .withEmail("private_sector@outlook.com").withIcon(R.drawable.ic_private_sector);
 
         item1 = new PrimaryDrawerItem().withName(R.string.drawer_item_search_center).withIdentifier(1).withIcon(FontAwesome.Icon.faw_map);
@@ -136,25 +136,23 @@ public class SwitchActivity extends AppCompatActivity {
                 .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
                     @Override
                     public boolean onProfileChanged(View view, IProfile profile, boolean current) {
-                        Fragment fragment;
                         Bundle bundle = new Bundle();
+                        CURRENT_FRAGMENT = getString(R.string.dashboard);
                         switch (profile.getName().toString()) {
                             case "Learner":
                                 updateDrawerItems(learnerItemList);
-                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, types[0]);
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, TYPES[0]);
                                 break;
                             case "Trainer":
                                 updateDrawerItems(trainerItemList);
-                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, types[1]);
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, TYPES[1]);
                                 break;
                             case "Private Sector":
                                 updateDrawerItems(privateSectorItemList);
-                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, types[2]);
+                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, TYPES[2]);
                                 break;
-
-                            default:
-                                fragment = new LearnerFragment();
                         }
+                        switchFragment(new DashboardFragment(), getString(R.string.app_name));
                         return true;
                     }
                 })
@@ -171,29 +169,22 @@ public class SwitchActivity extends AppCompatActivity {
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-                        Bundle bundle = new Bundle();
                         switch ((int) drawerItem.getIdentifier()) {
                             case 1:
-                                toolbar.setTitle(getString(R.string.drawer_item_search_center));
-                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME,
+                                switchFragment(new SearchTrainingCenterFragment(),
                                         getString(R.string.drawer_item_search_center));
-                                switchFragment(new SearchTrainingCenterFragment(), bundle);
                                 break;
                             case 2:
                                 break;
                             case 3:
                                 break;
                             case 4:
-                                toolbar.setTitle(getString(R.string.drawer_item_check_progress));
-                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME,
+                                switchFragment(new CheckProgressFragment(),
                                         getString(R.string.drawer_item_check_progress));
-                                switchFragment(new CheckProgressFragment(), bundle);
                                 break;
                             case 5:
-                                toolbar.setTitle(getString(R.string.drawer_item_webinars));
-                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME,
+                                switchFragment(new WebinarsFragment(),
                                         getString(R.string.drawer_item_webinars));
-                                switchFragment(new WebinarsFragment(), bundle);
                                 break;
                             case 6:
                                 break;
@@ -202,10 +193,8 @@ public class SwitchActivity extends AppCompatActivity {
                             case 8:
                                 break;
                             case 23:
-                                toolbar.setTitle(getString(R.string.drawer_item_contribute_csr));
-                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME,
+                                switchFragment(new CsrFragment(),
                                         getString(R.string.drawer_item_contribute_csr));
-                                switchFragment(new CsrFragment(), bundle);
                                 break;
                         }
                         return false;
@@ -216,8 +205,34 @@ public class SwitchActivity extends AppCompatActivity {
 
         drawer.deselect();
 
-        switchFragment(new DashboardFragment(), new Bundle());
+        switchFragment(new DashboardFragment(), getString(R.string.app_name));
         new LocalJSONSource(this);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_dashboard, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        menu.clear();
+        switch (CURRENT_FRAGMENT) {
+            case "Dashboard":
+                getMenuInflater().inflate(R.menu.menu_dashboard, menu);
+                break;
+            case "Search Training Center":
+                getMenuInflater().inflate(R.menu.menu_training_center, menu);
+                break;
+        }
+
+        return super.onPrepareOptionsMenu(menu);
     }
 
     @Override
@@ -236,12 +251,18 @@ public class SwitchActivity extends AppCompatActivity {
         }
     }
 
-    private void switchFragment(Fragment fragment, Bundle bundle) {
+    private void switchFragment(Fragment fragment, String name) {
+        CURRENT_FRAGMENT = name;
+        invalidateOptionsMenu();
+
+        Bundle bundle = new Bundle();
+        toolbar.setTitle(name);
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, name);
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frame_container, fragment)
                 .commit();
         bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "navigation");
-        firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+        FIREBASE_ANALYTICS.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
     }
 
     private void updateDrawerItems(List<PrimaryDrawerItem> items) {

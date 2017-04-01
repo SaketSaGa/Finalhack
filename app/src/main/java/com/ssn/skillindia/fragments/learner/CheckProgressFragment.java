@@ -40,7 +40,7 @@ public class CheckProgressFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_check_progress, container, false);
         checkProgressPagerAdapter = new CheckProgressPagerAdapter(getActivity().getSupportFragmentManager());
 
-        mViewPager = (ViewPager) rootView.findViewById(R.id.container);
+        mViewPager = (ViewPager) rootView.findViewById(R.id.item_card);
         mViewPager.setAdapter(checkProgressPagerAdapter);
         TabLayout tabLayout = (TabLayout) rootView.findViewById(R.id.check_progress_tabs);
         tabLayout.setupWithViewPager(mViewPager);

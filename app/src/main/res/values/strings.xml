@@ -19,9 +19,13 @@
 <resources>
     <string name="app_name">Skill India</string>
 
+    <string name="dashboard">Dashboard</string>
     <string name="learner">Learner</string>
     <string name="trainer">Trainer</string>
     <string name="private_sector">Private Sector</string>
+
+    <string name="menu_help">Help</string>
+    <string name="menu_map">Map</string>
 
     <string name="intro2_heading">Are you an avid learner?</string>
     <string name="intro2_description">Then we\'ve got your back!</string>

@@ -18,7 +18,6 @@
 
 package com.ssn.skillindia.fragments;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -27,9 +26,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mikepenz.fontawesome_typeface_library.FontAwesome;
-import com.mikepenz.iconics.IconicsDrawable;
 import com.ssn.skillindia.R;
+import com.ssn.skillindia.activities.SwitchActivity;
 import com.ssn.skillindia.adapters.DashboardAdapter;
 import com.ssn.skillindia.model.DashboardItem;
 import com.yarolegovich.discretescrollview.DiscreteScrollView;
@@ -58,66 +56,47 @@ public class DashboardFragment extends Fragment implements
 
         List<DashboardItem> learnerItems = Arrays.asList(
                 new DashboardItem(getString(R.string.drawer_item_search_center),
-                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_map)
-                                .color(iconColor).sizeDp(48)),
+                        getActivity().getResources().getDrawable(R.drawable.ic_map_faw)),
                 new DashboardItem(getString(R.string.drawer_item_search_courses),
-                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_search)
-                                .color(iconColor).sizeDp(48)),
+                        getActivity().getResources().getDrawable(R.drawable.ic_search)),
                 new DashboardItem(getString(R.string.drawer_item_world_competition),
-                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_globe)
-                                .color(iconColor).sizeDp(48)),
+                        getActivity().getResources().getDrawable(R.drawable.ic_globe)),
                 new DashboardItem(getString(R.string.drawer_item_check_progress),
-                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_tasks)
-                                .color(iconColor).sizeDp(48)),
+                        getActivity().getResources().getDrawable(R.drawable.ic_tasks_list)),
                 new DashboardItem(getString(R.string.drawer_item_webinars),
-                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_youtube)
-                                .color(Color.parseColor("#FF0000")).sizeDp(48)),
+                        getActivity().getResources().getDrawable(R.drawable.ic_youtube)),
                 new DashboardItem(getString(R.string.drawer_item_register_pmkvy),
-                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_sign_in)
-                                .color(iconColor).sizeDp(48)),
+                        getActivity().getResources().getDrawable(R.drawable.ic_sign_in)),
                 new DashboardItem(getString(R.string.drawer_item_report_issues),
-                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_bug)
-                                .color(iconColor).sizeDp(48)),
+                        getActivity().getResources().getDrawable(R.drawable.ic_bug)),
                 new DashboardItem(getString(R.string.drawer_item_contact),
-                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_phone)
-                                .color(iconColor).sizeDp(48)));
+                        getActivity().getResources().getDrawable(R.drawable.ic_telephone)));
 
         List<DashboardItem> trainerItems = Arrays.asList(
                 new DashboardItem(getString(R.string.drawer_item_search_center),
-                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_map)
-                                .color(iconColor).sizeDp(48)),
+                        getActivity().getResources().getDrawable(R.drawable.ic_map)),
                 new DashboardItem(getString(R.string.drawer_item_world_competition),
-                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_globe)
-                                .color(iconColor).sizeDp(48)),
+                        getActivity().getResources().getDrawable(R.drawable.ic_globe)),
                 new DashboardItem(getString(R.string.drawer_item_register_nsdc),
-                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_sign_in)
-                                .color(iconColor).sizeDp(48)),
+                        getActivity().getResources().getDrawable(R.drawable.ic_sign_in)),
                 new DashboardItem(getString(R.string.drawer_item_upload_webinars),
-                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_upload)
-                                .color(iconColor).sizeDp(48)),
+                        getActivity().getResources().getDrawable(R.drawable.ic_upload)),
                 new DashboardItem(getString(R.string.drawer_item_report_issues),
-                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_bug)
-                                .color(iconColor).sizeDp(48)),
+                        getActivity().getResources().getDrawable(R.drawable.ic_bug)),
                 new DashboardItem(getString(R.string.drawer_item_contact),
-                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_phone)
-                                .color(iconColor).sizeDp(48)));
+                        getActivity().getResources().getDrawable(R.drawable.ic_telephone)));
 
         List<DashboardItem> privateSectorItems = Arrays.asList(
                 new DashboardItem(getString(R.string.drawer_item_register_nsdc),
-                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_map)
-                                .color(iconColor).sizeDp(48)),
+                        getActivity().getResources().getDrawable(R.drawable.ic_map_faw)),
                 new DashboardItem(getString(R.string.drawer_item_tenders),
-                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_search)
-                                .color(iconColor).sizeDp(48)),
+                        getActivity().getResources().getDrawable(R.drawable.ic_search)),
                 new DashboardItem(getString(R.string.drawer_item_contribute_csr),
-                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_money)
-                                .color(iconColor).sizeDp(48)),
+                        getActivity().getResources().getDrawable(R.drawable.ic_money)),
                 new DashboardItem(getString(R.string.drawer_item_report_issues),
-                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_bug)
-                                .color(iconColor).sizeDp(48)),
+                        getActivity().getResources().getDrawable(R.drawable.ic_bug)),
                 new DashboardItem(getString(R.string.drawer_item_contact),
-                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_phone)
-                                .color(iconColor).sizeDp(48)));
+                        getActivity().getResources().getDrawable(R.drawable.ic_telephone)));
 
         learnerPicker = (DiscreteScrollView) view.findViewById(R.id.learner_picker);
         trainerPicker = (DiscreteScrollView) view.findViewById(R.id.trainer_picker);
@@ -149,7 +128,7 @@ public class DashboardFragment extends Fragment implements
 
     private void setupDiscreteScrollView(DiscreteScrollView discreteScrollView,
                                          List<DashboardItem> dashboardItems) {
-        discreteScrollView.setAdapter(new DashboardAdapter(dashboardItems));
+        discreteScrollView.setAdapter(new DashboardAdapter((SwitchActivity) getActivity(), dashboardItems));
         discreteScrollView.setOnItemChangedListener(this);
         discreteScrollView.setScrollStateChangeListener(this);
         discreteScrollView.scrollToPosition(2);

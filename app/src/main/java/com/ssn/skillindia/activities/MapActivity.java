@@ -19,8 +19,12 @@
 package com.ssn.skillindia.activities;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -47,29 +51,32 @@ import com.ssn.skillindia.utils.RealmHelper;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
+import static com.ssn.skillindia.R.id.map;
+
 public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
         GoogleMap.OnInfoWindowClickListener {
     public static final String[] PERMISSIONS = new String[]{Manifest.permission.ACCESS_FINE_LOCATION};
     private static final String TAG = LogHelper.makeLogTag(MapActivity.class);
     private static final int REQUEST_LOCATION_PERMISSION = 1;
+    private final LatLngBounds INDIA_BOUNDS = new LatLngBounds(new LatLng(6.651116, 67.505225),
+            new LatLng(38.914665, 98.088975));
     private boolean locationEnabled = false;
-
     private SupportMapFragment mapFragment;
     private GoogleMap googleMap;
-
-    private String location;
-    private LatLngBounds SSN_COLLEGE = new LatLngBounds(new LatLng(12.748690, 80.188149),
-            new LatLng(12.755693, 80.205421));
+    private Location location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
-        location = getIntent().getStringExtra("location");
 
-        mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(map);
         mapFragment.getMapAsync(this);
         attemptEnableMyLocation();
+
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        Criteria criteria = new Criteria();
+        location = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, false));
     }
 
     @Override
@@ -85,8 +92,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
         uiSettings.setMyLocationButtonEnabled(true);
         uiSettings.setMapToolbarEnabled(true);
 
-        // TODO
-        //googleMap.setLatLngBoundsForCameraTarget(SSN_COLLEGE);
+        googleMap.setLatLngBoundsForCameraTarget(INDIA_BOUNDS);
 
         SkillIndiaApplication skillIndiaApplication = (SkillIndiaApplication) getApplication();
         RealmHelper realmHelper = skillIndiaApplication.getRealmHelper();
@@ -106,18 +112,13 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
             }
         }
 
-        // TODO
-        //moveCameraToPosition(new LatLng());
+        moveCameraToPosition(new LatLng(location.getLatitude(), location.getLongitude()));
     }
 
     private void moveCameraToPosition(LatLng position) {
         if (position == null)
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(SSN_COLLEGE.getCenter(), 17));
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(INDIA_BOUNDS.getCenter(), 1));
         else {
-            Marker marker = googleMap.addMarker(new MarkerOptions()
-                    .position(position)
-                    .title(location));
-            marker.showInfoWindow();
             googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition.Builder()
                     .target(position).zoom(18).build()));
         }

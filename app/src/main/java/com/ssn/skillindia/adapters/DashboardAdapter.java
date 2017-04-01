@@ -18,24 +18,35 @@
 
 package com.ssn.skillindia.adapters;
 
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.ssn.skillindia.R;
+import com.ssn.skillindia.activities.SwitchActivity;
+import com.ssn.skillindia.fragments.DashboardFragment;
+import com.ssn.skillindia.fragments.learner.SearchTrainingCenterFragment;
 import com.ssn.skillindia.model.DashboardItem;
 
 import java.util.List;
+
+import static com.ssn.skillindia.activities.SwitchActivity.FIREBASE_ANALYTICS;
 
 public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.ViewHolder> {
 
     private RecyclerView parentRecycler;
     private List<DashboardItem> data;
+    private SwitchActivity switchActivity;
 
-    public DashboardAdapter(List<DashboardItem> data) {
+    public DashboardAdapter(SwitchActivity switchActivity, List<DashboardItem> data) {
+        this.switchActivity = switchActivity;
         this.data = data;
     }
 
@@ -54,9 +65,24 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.View
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        DashboardItem dashboardItem = data.get(position);
+        final DashboardItem dashboardItem = data.get(position);
         holder.imageView.setImageDrawable(dashboardItem.getIcon());
         holder.textView.setText(dashboardItem.getName());
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (dashboardItem.getName()) {
+                    case "Search Training Center":
+                        switchFragment(new SearchTrainingCenterFragment(),
+                                switchActivity.getString(R.string.drawer_item_search_center));
+                        break;
+
+                    default:
+                        switchFragment(new DashboardFragment(),
+                                switchActivity.getString(R.string.dashboard));
+                }
+            }
+        });
     }
 
     @Override
@@ -64,17 +90,33 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.View
         return data.size();
     }
 
+    private void switchFragment(Fragment fragment, String name) {
+        SwitchActivity.CURRENT_FRAGMENT = name;
+        switchActivity.invalidateOptionsMenu();
+
+        Bundle bundle = new Bundle();
+        switchActivity.getSupportActionBar().setTitle(name);
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, name);
+        switchActivity.getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frame_container, fragment)
+                .commit();
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "navigation");
+        FIREBASE_ANALYTICS.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
+        private FrameLayout cardView;
         private ImageView imageView;
         private TextView textView;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            imageView = (ImageView) itemView.findViewById(R.id.city_image);
-            textView = (TextView) itemView.findViewById(R.id.city_name);
+            cardView = (FrameLayout) itemView.findViewById(R.id.item_card);
+            imageView = (ImageView) itemView.findViewById(R.id.item_icon);
+            textView = (TextView) itemView.findViewById(R.id.item_name);
 
-            itemView.findViewById(R.id.container).setOnClickListener(this);
+            itemView.findViewById(R.id.item_card).setOnClickListener(this);
         }
 
         public void showText() {
