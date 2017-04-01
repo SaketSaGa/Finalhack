@@ -18,6 +18,7 @@
 
 package com.ssn.skillindia.fragments.learner;
 
+import android.graphics.Color;
 import android.graphics.RectF;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -71,8 +72,7 @@ public class ScheduleFragment extends Fragment implements WeekView.EventClickLis
         SkillIndiaApplication skillIndiaApplication = (SkillIndiaApplication) getApplicationContext();
         RealmHelper realmHelper = skillIndiaApplication.getRealmHelper();
         Realm realm = realmHelper.getRealmInstance();
-        eventRealmResults = realm.where(Event.class)
-                .equalTo("type", "ELC").findAll();
+        eventRealmResults = realm.where(Event.class).equalTo("type", "ELC").findAll();
 
         weekView = (WeekView) view.findViewById(R.id.weekView);
         weekView.setOnEventClickListener(this);
@@ -122,7 +122,7 @@ public class ScheduleFragment extends Fragment implements WeekView.EventClickLis
                 Calendar endTime = dateToCalendar(date);
                 WeekViewEvent weekViewEvent = new WeekViewEvent(event.getId(), event.getName(),
                         startTime, endTime);
-                weekViewEvent.setColor(getActivity().getResources().getColor(R.color.primary));
+                weekViewEvent.setColor(Color.parseColor(getColorForType(event.getType())));
                 weekViewEvent.setLocation("\n" + event.getLocation());
                 events.add(weekViewEvent);
             } catch (Exception e) {
@@ -156,5 +156,27 @@ public class ScheduleFragment extends Fragment implements WeekView.EventClickLis
                 event.getStartTime().get(Calendar.MONTH) == month - 1) ||
                 (event.getEndTime().get(Calendar.YEAR) == year &&
                         event.getEndTime().get(Calendar.MONTH) == month - 1);
+    }
+
+    private String getColorForType(String type) {
+        switch (type) {
+            case "null":
+                return "#F2B300";
+            case "ELC":
+                return "#CC66FF";
+            case "Saaral":
+                return "#5B9BD5";
+            case "Music":
+                return "#548235";
+            case "Variety":
+                return "#3F51B5";
+            case "Dance":
+                return "#FF6600";
+            case "Quiz":
+                return "#C6E0B4";
+
+            default:
+                return "#F2B300";
+        }
     }
 }

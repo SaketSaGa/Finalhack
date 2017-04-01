@@ -16,7 +16,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package com.ssn.skillindia.fragments.privateSector;
+package com.ssn.skillindia.fragments.trainingPartner;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -27,11 +27,11 @@ import android.view.ViewGroup;
 
 import com.ssn.skillindia.R;
 
-public class PrivateSectorDashboardFragment extends Fragment {
+public class TrainingPartnerDashboardFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_dashboard_private_sector, container, false);
+        return inflater.inflate(R.layout.fragment_dashboard_training_partner, container, false);
     }
 }

@@ -49,7 +49,7 @@ import com.ssn.skillindia.fragments.learner.LearnerDashboardFragment;
 import com.ssn.skillindia.fragments.learner.ScheduleFragment;
 import com.ssn.skillindia.fragments.learner.SearchTrainingCenterFragment;
 import com.ssn.skillindia.fragments.learner.WebinarsFragment;
-import com.ssn.skillindia.fragments.privateSector.PrivateSectorDashboardFragment;
+import com.ssn.skillindia.fragments.trainingPartner.TrainingPartnerDashboardFragment;
 import com.ssn.skillindia.fragments.trainer.TrainerDashboardFragment;
 import com.ssn.skillindia.model.LocalJSONSource;
 import com.ssn.skillindia.utils.LogHelper;
@@ -64,7 +64,7 @@ import butterknife.ButterKnife;
 public class SwitchActivity extends AppCompatActivity {
 
     private static final String TAG = LogHelper.makeLogTag(SwitchActivity.class);
-    public static String[] TYPES = {"Learner", "Trainer", "Private Sector"};
+    public static String[] TYPES = {"Learner", "Trainer", "Training Partner"};
     public static FirebaseAnalytics FIREBASE_ANALYTICS;
     public static String CURRENT_FRAGMENT;
     @BindView(R.id.toolbar)
@@ -79,7 +79,7 @@ public class SwitchActivity extends AppCompatActivity {
     RelativeLayout mainContent;
     @BindView(R.id.bottom_bar)
     BottomBar bottomBar;
-    List<PrimaryDrawerItem> learnerItemList, trainerItemList, privateSectorItemList;
+    List<PrimaryDrawerItem> learnerItemList, trainerItemList, trainingPartnerItemList;
     PrimaryDrawerItem item1, item2, item3, item4, item5, item6, item7;
     PrimaryDrawerItem item11, item12, item13, item14, item15, item16;
     PrimaryDrawerItem item21, item22, item23, item24;
@@ -103,7 +103,7 @@ public class SwitchActivity extends AppCompatActivity {
         final IProfile profile2 = new ProfileDrawerItem().withName(TYPES[1])
                 .withEmail("trainer@github.com").withIcon(R.drawable.ic_trainer);
         final IProfile profile3 = new ProfileDrawerItem().withName(TYPES[2])
-                .withEmail("private_sector@outlook.com").withIcon(R.drawable.ic_private_sector);
+                .withEmail("training_partner@outlook.com").withIcon(R.drawable.ic_training_partner);
 
         item1 = new PrimaryDrawerItem().withName(R.string.drawer_item_search_courses).withIdentifier(1).withIcon(FontAwesome.Icon.faw_search);
         item2 = new PrimaryDrawerItem().withName(R.string.drawer_item_search_center).withIdentifier(2).withIcon(FontAwesome.Icon.faw_map);
@@ -127,13 +127,13 @@ public class SwitchActivity extends AppCompatActivity {
 
         PrimaryDrawerItem[] learnerItems = {item1, item2, item3, item4, item5, item6, item7};
         PrimaryDrawerItem[] trainerItems = {item11, item12, item13, item14, item15, item16};
-        PrimaryDrawerItem[] privateSectorItems = {item21, item22, item23, item24};
+        PrimaryDrawerItem[] trainingPartnerItems = {item21, item22, item23, item24};
         learnerItemList = new ArrayList<>();
         trainerItemList = new ArrayList<>();
-        privateSectorItemList = new ArrayList<>();
+        trainingPartnerItemList = new ArrayList<>();
         Collections.addAll(learnerItemList, learnerItems);
         Collections.addAll(trainerItemList, trainerItems);
-        Collections.addAll(privateSectorItemList, privateSectorItems);
+        Collections.addAll(trainingPartnerItemList, trainingPartnerItems);
 
         headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
@@ -142,23 +142,21 @@ public class SwitchActivity extends AppCompatActivity {
                 .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
                     @Override
                     public boolean onProfileChanged(View view, IProfile profile, boolean current) {
-                        Bundle bundle = new Bundle();
                         CURRENT_FRAGMENT = getString(R.string.dashboard);
                         switch (profile.getName().toString()) {
                             case "Learner":
                                 updateDrawerItems(learnerItemList);
-                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, TYPES[0]);
+                                switchFragment(new LearnerDashboardFragment(), getString(R.string.learner));
                                 break;
                             case "Trainer":
                                 updateDrawerItems(trainerItemList);
-                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, TYPES[1]);
+                                switchFragment(new TrainerDashboardFragment(), getString(R.string.trainer));
                                 break;
-                            case "Private Sector":
-                                updateDrawerItems(privateSectorItemList);
-                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, TYPES[2]);
+                            case "Training Partner":
+                                updateDrawerItems(trainingPartnerItemList);
+                                switchFragment(new TrainingPartnerDashboardFragment(), getString(R.string.training_partner));
                                 break;
                         }
-                        switchFragment(new LearnerDashboardFragment(), getString(R.string.dashboard));
                         return true;
                     }
                 })
@@ -200,7 +198,7 @@ public class SwitchActivity extends AppCompatActivity {
                                 break;
                             case 23:
                                 // TODO
-                                //switchFragment(new CsrFragment(), getString(R.string.drawer_item_contribute_csr));
+                                //switchFragment(new CsrActivity(), getString(R.string.drawer_item_contribute_csr));
                                 break;
                         }
                         return false;
@@ -211,7 +209,6 @@ public class SwitchActivity extends AppCompatActivity {
 
         drawer.deselect();
 
-        switchFragment(new LearnerDashboardFragment(), getString(R.string.dashboard));
         new LocalJSONSource(this);
 
         bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
@@ -219,13 +216,13 @@ public class SwitchActivity extends AppCompatActivity {
             public void onTabSelected(@IdRes int tabId) {
                 switch (tabId) {
                     case R.id.tab_learner:
-                        switchFragment(new LearnerDashboardFragment(), getString(R.string.dashboard));
+                        switchFragment(new LearnerDashboardFragment(), getString(R.string.learner));
                         break;
                     case R.id.tab_trainer:
-                        switchFragment(new TrainerDashboardFragment(), getString(R.string.dashboard));
+                        switchFragment(new TrainerDashboardFragment(), getString(R.string.trainer));
                         break;
-                    case R.id.tab_private_sector:
-                        switchFragment(new PrivateSectorDashboardFragment(), getString(R.string.dashboard));
+                    case R.id.tab_training_partner:
+                        switchFragment(new TrainingPartnerDashboardFragment(), getString(R.string.training_partner));
                         break;
                 }
             }
@@ -284,7 +281,9 @@ public class SwitchActivity extends AppCompatActivity {
         CURRENT_FRAGMENT = name;
         invalidateOptionsMenu();
 
-        if (CURRENT_FRAGMENT.equals(getString(R.string.dashboard)))
+        if (CURRENT_FRAGMENT.equals(getString(R.string.learner)) ||
+                CURRENT_FRAGMENT.equals(getString(R.string.trainer)) ||
+                CURRENT_FRAGMENT.equals(getString(R.string.training_partner)))
             bottomBar.setVisibility(View.VISIBLE);
         else bottomBar.setVisibility(View.GONE);
 
@@ -301,6 +300,14 @@ public class SwitchActivity extends AppCompatActivity {
     private void updateDrawerItems(List<PrimaryDrawerItem> items) {
         drawer.removeAllItems();
         for (PrimaryDrawerItem item : items) drawer.addItem(item);
+    }
+
+    public void webinarsOnClick(View view) {
+        switchFragment(new WebinarsFragment(), getString(R.string.drawer_item_webinars));
+    }
+
+    public void searchTrainingCenterOnClick(View view) {
+        switchFragment(new SearchTrainingCenterFragment(), getString(R.string.drawer_item_search_center));
     }
 
     public void scheduleOnClick(View view) {

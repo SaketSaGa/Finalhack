@@ -25,6 +25,9 @@
     <color name="lightGray">#DDDDDD</color>
     <color name="grayIconTint">#727272</color>
 
+    <color name="brown">#5D4037</color>
+    <color name="purple">#7B1FA2</color>
+
     <color name="skill_india_text">#323232</color>
     <color name="skill_india_text_dark">#000000</color>
     <color name="skill_india_text_light">#686E71</color>

@@ -43,7 +43,7 @@ public class IntroActivity extends AppIntro {
     @Override
     public void onDonePressed(Fragment currentFragment) {
         super.onDonePressed(currentFragment);
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, DashboardActivity.class));
     }
 
     @Override
