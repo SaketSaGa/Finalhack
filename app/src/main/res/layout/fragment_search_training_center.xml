@@ -27,6 +27,7 @@
         android:id="@+id/state_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         custom:labelText="@string/state_spinner_label"
         custom:widgetColor="@color/colorAccent" />
 
@@ -34,6 +35,7 @@
         android:id="@+id/district_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         custom:labelText="@string/district_spinner_label"
         custom:widgetColor="@color/colorAccent" />
 
@@ -41,6 +43,7 @@
         android:id="@+id/sector_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         custom:labelText="@string/sector_spinner_label"
         custom:widgetColor="@color/colorAccent" />
 

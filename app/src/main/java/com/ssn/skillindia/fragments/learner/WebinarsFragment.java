@@ -15,6 +15,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
+
 package com.ssn.skillindia.fragments.learner;
 
 import android.animation.Animator;
@@ -82,11 +83,9 @@ public final class WebinarsFragment extends android.support.v4.app.Fragment impl
      * The request code when calling startActivityForResult to recover from an API service error.
      */
     private static final int RECOVERY_DIALOG_REQUEST = 1;
-
+    private static View videoBox;
     private VideoListFragment listFragment;
     private VideoFragment videoFragment;
-
-    private static View videoBox;
     private View closeButton;
 
     private boolean isFullscreen;
@@ -253,7 +252,7 @@ public final class WebinarsFragment extends android.support.v4.app.Fragment impl
         @Override
         public void onViewCreated(View view, Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
-            
+
             getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
             setListAdapter(adapter);
         }

@@ -38,6 +38,7 @@ import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.ssn.skillindia.R;
+import com.ssn.skillindia.fragments.DashboardFragment;
 import com.ssn.skillindia.fragments.LearnerFragment;
 import com.ssn.skillindia.fragments.PrivateSectorFragment;
 import com.ssn.skillindia.fragments.TrainerFragment;
@@ -224,6 +225,7 @@ public class SwitchActivity extends AppCompatActivity {
 
         drawer.deselect();
 
+        switchFragment(new DashboardFragment(), new Bundle());
         new LocalJSONSource(this);
     }
 
