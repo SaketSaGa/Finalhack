@@ -40,8 +40,6 @@ import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.ssn.skillindia.R;
 import com.ssn.skillindia.fragments.DashboardFragment;
 import com.ssn.skillindia.fragments.LearnerFragment;
-import com.ssn.skillindia.fragments.PrivateSectorFragment;
-import com.ssn.skillindia.fragments.TrainerFragment;
 import com.ssn.skillindia.fragments.learner.CheckProgressFragment;
 import com.ssn.skillindia.fragments.learner.SearchTrainingCenterFragment;
 import com.ssn.skillindia.fragments.learner.WebinarsFragment;
@@ -143,27 +141,20 @@ public class SwitchActivity extends AppCompatActivity {
                         switch (profile.getName().toString()) {
                             case "Learner":
                                 updateDrawerItems(learnerItemList);
-
-                                fragment = new LearnerFragment();
                                 bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, types[0]);
                                 break;
                             case "Trainer":
                                 updateDrawerItems(trainerItemList);
-
-                                fragment = new TrainerFragment();
                                 bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, types[1]);
                                 break;
                             case "Private Sector":
                                 updateDrawerItems(privateSectorItemList);
-
-                                fragment = new PrivateSectorFragment();
                                 bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, types[2]);
                                 break;
 
                             default:
                                 fragment = new LearnerFragment();
                         }
-                        switchFragment(fragment, bundle);
                         return true;
                     }
                 })

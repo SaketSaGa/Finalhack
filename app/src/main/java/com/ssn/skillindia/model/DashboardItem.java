@@ -18,12 +18,14 @@
 
 package com.ssn.skillindia.model;
 
+import android.graphics.drawable.Drawable;
+
 public class DashboardItem {
 
     private final String name;
-    private final int icon;
+    private final Drawable icon;
 
-    public DashboardItem(String name, int icon) {
+    public DashboardItem(String name, Drawable icon) {
         this.name = name;
         this.icon = icon;
     }
@@ -32,7 +34,7 @@ public class DashboardItem {
         return name;
     }
 
-    public int getIcon() {
+    public Drawable getIcon() {
         return icon;
     }
 }

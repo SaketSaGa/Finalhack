@@ -25,7 +25,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.ssn.skillindia.R;
 import com.ssn.skillindia.model.DashboardItem;
 
@@ -56,9 +55,7 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.View
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         DashboardItem dashboardItem = data.get(position);
-        Glide.with(holder.itemView.getContext())
-                .load(dashboardItem.getIcon())
-                .into(holder.imageView);
+        holder.imageView.setImageDrawable(dashboardItem.getIcon());
         holder.textView.setText(dashboardItem.getName());
     }
 

@@ -22,6 +22,8 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="white">#FFFFFFFF</color>
+    <color name="lightGray">#DDDDDD</color>
+    <color name="grayIconTint">#727272</color>
 
     <color name="skill_india_text">#323232</color>
     <color name="skill_india_text_dark">#000000</color>

@@ -25,14 +25,16 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:background="@color/lightGray"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
             android:text="@string/learner"
-            android:textAppearance="?android:textAppearanceLarge" />
+            android:textAppearance="?android:textAppearanceMedium" />
 
         <com.yarolegovich.discretescrollview.DiscreteScrollView
             android:id="@+id/learner_picker"
@@ -49,9 +51,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
             android:text="@string/trainer"
-            android:textAppearance="?android:textAppearanceLarge" />
+            android:textAppearance="?android:textAppearanceMedium" />
 
         <com.yarolegovich.discretescrollview.DiscreteScrollView
             android:id="@+id/trainer_picker"
@@ -68,9 +71,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
             android:text="@string/private_sector"
-            android:textAppearance="?android:textAppearanceLarge" />
+            android:textAppearance="?android:textAppearanceMedium" />
 
         <com.yarolegovich.discretescrollview.DiscreteScrollView
             android:id="@+id/private_sector_picker"

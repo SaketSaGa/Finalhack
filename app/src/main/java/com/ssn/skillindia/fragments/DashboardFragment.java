@@ -18,6 +18,7 @@
 
 package com.ssn.skillindia.fragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -26,6 +27,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.mikepenz.fontawesome_typeface_library.FontAwesome;
+import com.mikepenz.iconics.IconicsDrawable;
 import com.ssn.skillindia.R;
 import com.ssn.skillindia.adapters.DashboardAdapter;
 import com.ssn.skillindia.model.DashboardItem;
@@ -51,21 +54,78 @@ public class DashboardFragment extends Fragment implements
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        int iconColor = getActivity().getResources().getColor(R.color.grayIconTint);
+
         List<DashboardItem> learnerItems = Arrays.asList(
-                new DashboardItem("Pisa", R.mipmap.ic_launcher),
-                new DashboardItem("Paris", R.mipmap.ic_launcher),
-                new DashboardItem("New York", R.mipmap.ic_launcher),
-                new DashboardItem("Rome", R.mipmap.ic_launcher),
-                new DashboardItem("London", R.mipmap.ic_launcher),
-                new DashboardItem("Washington", R.mipmap.ic_launcher));
+                new DashboardItem(getString(R.string.drawer_item_search_center),
+                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_map)
+                                .color(iconColor).sizeDp(48)),
+                new DashboardItem(getString(R.string.drawer_item_search_courses),
+                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_search)
+                                .color(iconColor).sizeDp(48)),
+                new DashboardItem(getString(R.string.drawer_item_world_competition),
+                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_globe)
+                                .color(iconColor).sizeDp(48)),
+                new DashboardItem(getString(R.string.drawer_item_check_progress),
+                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_tasks)
+                                .color(iconColor).sizeDp(48)),
+                new DashboardItem(getString(R.string.drawer_item_webinars),
+                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_youtube)
+                                .color(Color.parseColor("#FF0000")).sizeDp(48)),
+                new DashboardItem(getString(R.string.drawer_item_register_pmkvy),
+                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_sign_in)
+                                .color(iconColor).sizeDp(48)),
+                new DashboardItem(getString(R.string.drawer_item_report_issues),
+                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_bug)
+                                .color(iconColor).sizeDp(48)),
+                new DashboardItem(getString(R.string.drawer_item_contact),
+                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_phone)
+                                .color(iconColor).sizeDp(48)));
+
+        List<DashboardItem> trainerItems = Arrays.asList(
+                new DashboardItem(getString(R.string.drawer_item_search_center),
+                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_map)
+                                .color(iconColor).sizeDp(48)),
+                new DashboardItem(getString(R.string.drawer_item_world_competition),
+                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_globe)
+                                .color(iconColor).sizeDp(48)),
+                new DashboardItem(getString(R.string.drawer_item_register_nsdc),
+                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_sign_in)
+                                .color(iconColor).sizeDp(48)),
+                new DashboardItem(getString(R.string.drawer_item_upload_webinars),
+                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_upload)
+                                .color(iconColor).sizeDp(48)),
+                new DashboardItem(getString(R.string.drawer_item_report_issues),
+                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_bug)
+                                .color(iconColor).sizeDp(48)),
+                new DashboardItem(getString(R.string.drawer_item_contact),
+                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_phone)
+                                .color(iconColor).sizeDp(48)));
+
+        List<DashboardItem> privateSectorItems = Arrays.asList(
+                new DashboardItem(getString(R.string.drawer_item_register_nsdc),
+                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_map)
+                                .color(iconColor).sizeDp(48)),
+                new DashboardItem(getString(R.string.drawer_item_tenders),
+                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_search)
+                                .color(iconColor).sizeDp(48)),
+                new DashboardItem(getString(R.string.drawer_item_contribute_csr),
+                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_money)
+                                .color(iconColor).sizeDp(48)),
+                new DashboardItem(getString(R.string.drawer_item_report_issues),
+                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_bug)
+                                .color(iconColor).sizeDp(48)),
+                new DashboardItem(getString(R.string.drawer_item_contact),
+                        new IconicsDrawable(getActivity()).icon(FontAwesome.Icon.faw_phone)
+                                .color(iconColor).sizeDp(48)));
 
         learnerPicker = (DiscreteScrollView) view.findViewById(R.id.learner_picker);
         trainerPicker = (DiscreteScrollView) view.findViewById(R.id.trainer_picker);
         privateSectorPicker = (DiscreteScrollView) view.findViewById(R.id.private_sector_picker);
 
         setupDiscreteScrollView(learnerPicker, learnerItems);
-        setupDiscreteScrollView(trainerPicker, learnerItems);
-        setupDiscreteScrollView(privateSectorPicker, learnerItems);
+        setupDiscreteScrollView(trainerPicker, trainerItems);
+        setupDiscreteScrollView(privateSectorPicker, privateSectorItems);
     }
 
     @Override
