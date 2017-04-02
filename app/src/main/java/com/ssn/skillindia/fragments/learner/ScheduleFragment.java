@@ -18,6 +18,7 @@
 
 package com.ssn.skillindia.fragments.learner;
 
+import android.graphics.Color;
 import android.graphics.RectF;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -121,7 +122,7 @@ public class ScheduleFragment extends Fragment implements WeekView.EventClickLis
                 Calendar endTime = dateToCalendar(date);
                 WeekViewEvent weekViewEvent = new WeekViewEvent(event.getId(), event.getName(),
                         startTime, endTime);
-                weekViewEvent.setColor(getActivity().getResources().getColor(R.color.colorPrimary));
+                weekViewEvent.setColor(Color.parseColor(getColorForType("ELC")));
                 weekViewEvent.setLocation("\n" + event.getLocation());
                 events.add(weekViewEvent);
             } catch (Exception e) {

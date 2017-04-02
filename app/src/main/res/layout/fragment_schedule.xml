@@ -26,6 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:eventTextColor="#FFF"
+        app:eventTextSize="16sp"
         app:headerColumnBackground="#FFF"
         app:headerRowPadding="16dp"
         app:hourHeight="60dp" />

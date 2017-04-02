@@ -27,5 +27,6 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/ic_launcher_web" />
+        android:layout_margin="32dp"
+        android:src="@drawable/ic_toolbox" />
 </LinearLayout>

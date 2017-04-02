@@ -22,7 +22,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.ssn.skillindia.fragments.learner.CheckCourseProgressFragment;
+import com.ssn.skillindia.fragments.learner.Webinars2Fragment;
 import com.ssn.skillindia.fragments.learner.WebinarsFragment;
 
 public class WebinarsTabAdapter extends FragmentPagerAdapter {
@@ -36,8 +36,10 @@ public class WebinarsTabAdapter extends FragmentPagerAdapter {
         switch (position) {
             case 0:
                 return new WebinarsFragment();
+            case 1:
+                return new Webinars2Fragment();
             default:
-                return new CheckCourseProgressFragment();
+                return new Webinars2Fragment();
         }
     }
 

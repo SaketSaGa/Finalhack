@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             startActivityForResult(
                     AuthUI.getInstance()
                             .createSignInIntentBuilder()
-                            .setLogo(R.drawable.ic_launcher_web)
+                            .setLogo(R.drawable.toolbox)
                             .setIsSmartLockEnabled(!BuildConfig.DEBUG)
                             .setProviders(Arrays.asList(
                                     new AuthUI.IdpConfig.Builder(AuthUI.EMAIL_PROVIDER).build(),

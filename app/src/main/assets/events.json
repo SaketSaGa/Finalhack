@@ -144,19 +144,6 @@
       "contact2": ""
     },
     {
-      "id": 11,
-      "name": "Lawyer Up",
-      "startTime": "09-03-2017 11:00:00",
-      "endTime": "09-03-2017 13:00:00",
-      "location": "IT Seminar Hall",
-      "type": "ELC",
-      "description": "",
-      "rules": "",
-      "info": "",
-      "contact1": "",
-      "contact2": ""
-    },
-    {
       "id": 12,
       "name": "Fandom Quiz",
       "startTime": "09-03-2017 13:00:00",
@@ -440,32 +427,6 @@
       "rules": "A team can consist of maximum of two members.\n\nThe song must be traditional tamil song/music (no cine song).\n\nThe song should not exceed five minutes.\n\nEvery second of performance after the allocated five minutes will lead to reduction of marks.\n\nNo musical instruments are allowed.\n\nDecision of the judges will be the final one.",
       "info": "",
       "contact1": "Ganesh Kumar:9791736183",
-      "contact2": ""
-    },
-    {
-      "id": 34,
-      "name": "Jam Prelims",
-      "startTime": "10-03-2017 09:00:00",
-      "endTime": "10-03-2017 13:00:00",
-      "location": "Central Seminar Hall",
-      "type": "ELC",
-      "description": "An event for the Grammar Nazis to reign supreme. If you can make us laugh while speaking impeccable English, this one's for you.",
-      "rules": "Mod is God",
-      "info": "",
-      "contact1": "Jeevan Radhakrishnan:9941811110",
-      "contact2": ""
-    },
-    {
-      "id": 35,
-      "name": "Jam Finals",
-      "startTime": "10-03-2017 14:00:00",
-      "endTime": "10-03-2017 17:00:00",
-      "location": "Central Seminar Hall",
-      "type": "ELC",
-      "description": "An event for the Grammar Nazis to reign supreme. If you can make us laugh while speaking impeccable English, this one's for you.",
-      "rules": "Mod is God",
-      "info": "",
-      "contact1": "Jeevan Radhakrishnan:9941811110",
       "contact2": ""
     },
     {
