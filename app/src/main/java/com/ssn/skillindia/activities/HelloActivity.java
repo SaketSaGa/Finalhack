@@ -99,6 +99,12 @@ public class HelloActivity extends AppCompatActivity {
         initStartButton();
 
         populateProfile();
+
+        String type = getIntent().getStringExtra("type");
+        if (type != null) {
+            typeSpinner.getSpinner().setSelection(((ArrayAdapter<String>) typeSpinner.getSpinner()
+                    .getAdapter()).getPosition(type));
+        }
     }
 
     private void setSelection(final String label, final LabelledSpinner labelledSpinner) {

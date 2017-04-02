@@ -484,7 +484,7 @@ public class SwitchActivity extends AppCompatActivity implements MaterialIntroLi
     }
 
     public void setupOnClick(View view) {
-        startActivity(new Intent(this, HelloActivity.class));
+        startActivity(new Intent(this, HelloActivity.class).putExtra("type", CURRENT_FRAGMENT));
     }
 
     public void showIntro(View view, String id, String text, FocusGravity focusGravity) {
