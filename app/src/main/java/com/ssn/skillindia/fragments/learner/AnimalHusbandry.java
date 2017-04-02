@@ -28,10 +28,6 @@ import android.view.ViewGroup;
 import com.ramotion.foldingcell.FoldingCell;
 import com.ssn.skillindia.R;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
-import io.realm.Realm;
-
 public class AnimalHusbandry extends Fragment {
 
     @Nullable
