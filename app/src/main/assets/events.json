@@ -2,7 +2,7 @@
   "events": [
     {
       "id": 0,
-      "name": "Debate Prelims",
+      "name": "Machine Drawing",
       "startTime": "08-03-2017 09:00:00",
       "endTime": "08-03-2017 16:00:00",
       "location": "IT Classrooms",
@@ -80,7 +80,7 @@
     },
     {
       "id": 6,
-      "name": "Debate Semis",
+      "name": "Weaving Theory",
       "startTime": "09-03-2017 11:00:00",
       "endTime": "09-03-2017 13:00:00",
       "location": "Mini Auditorium",
@@ -93,7 +93,7 @@
     },
     {
       "id": 7,
-      "name": "Debate Finals",
+      "name": "Textile Calculation",
       "startTime": "09-03-2017 15:00:00",
       "endTime": "09-03-2017 17:00:00",
       "location": "Mini Auditorium",
@@ -340,7 +340,7 @@
     },
     {
       "id": 27,
-      "name": "Spoof It Up",
+      "name": "Weaving Practice",
       "startTime": "10-03-2017 09:00:00",
       "endTime": "10-03-2017 13:00:00",
       "location": "ECE Seminar Hall",
@@ -353,7 +353,7 @@
     },
     {
       "id": 28,
-      "name": "Pot Pourri",
+      "name": "Textile Design",
       "startTime": "10-03-2017 14:00:00",
       "endTime": "10-03-2017 17:00:00",
       "location": "ECE Seminar Hall",

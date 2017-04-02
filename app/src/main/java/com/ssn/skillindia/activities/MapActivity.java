@@ -48,6 +48,9 @@ import com.ssn.skillindia.model.TrainingCenter;
 import com.ssn.skillindia.utils.LogHelper;
 import com.ssn.skillindia.utils.RealmHelper;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import io.realm.Realm;
 import io.realm.RealmResults;
 
@@ -65,11 +68,14 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
     private GoogleMap googleMap;
     private Location location;
     private LatLng latLng = null;
+    private Map<LatLng, String> latLngStringMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
+
+        latLngStringMap = new HashMap<>();
 
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(map);
         mapFragment.getMapAsync(this);
@@ -111,10 +117,14 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
             try {
                 LatLng latLng = new LatLng(Double.parseDouble(realmResults.get(i).getLatitude()),
                         Double.parseDouble(realmResults.get(i).getLongitude()));
-                Marker marker = googleMap.addMarker(new MarkerOptions()
-                        .position(latLng)
-                        .title(realmResults.get(i).getCenterName()));
-                marker.setTag(realmResults.get(i));
+                if (latLngStringMap.containsValue(realmResults.get(i).getCenterName())) continue;
+                else {
+                    latLngStringMap.put(latLng, realmResults.get(i).getCenterName());
+                    Marker marker = googleMap.addMarker(new MarkerOptions()
+                            .position(latLng)
+                            .title(realmResults.get(i).getCenterName()));
+                    marker.setTag(realmResults.get(i));
+                }
             } catch (Exception e) {
                 LogHelper.e(TAG, e.toString());
             }
