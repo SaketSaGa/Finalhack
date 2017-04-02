@@ -64,6 +64,7 @@ public class ReportIssuesFragment extends Fragment {
     private DatabaseReference databaseReference;
 
     private Unbinder unbinder;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -79,7 +80,7 @@ public class ReportIssuesFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(getApplicationContext(),"Issue Reported", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Issue Reported", Toast.LENGTH_LONG).show();
 
                 IssueDetail issue = new IssueDetail(centerName.getText().toString(),
                         location.getText().toString(),

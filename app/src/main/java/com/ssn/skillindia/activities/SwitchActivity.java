@@ -319,6 +319,10 @@ public class SwitchActivity extends AppCompatActivity implements MaterialIntroLi
                 startActivity(new Intent(this, MapActivity.class));
                 break;
 
+            case R.id.action_search:
+                startActivity(new Intent(this, RealmSearchActivity.class));
+                break;
+
             case R.id.action_help:
                 View helpView = toolbar.findViewById(R.id.action_help);
                 showIntro(helpView, MENU_SEARCH_ID_TAG, getString(R.string.help_intro), FocusGravity.CENTER);

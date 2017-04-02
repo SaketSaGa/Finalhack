@@ -54,16 +54,16 @@ public class TrainingCenterDetailActivity extends TrainingCenterDetailBaseActivi
             items.add(new Contact(R.drawable.ic_call, trainingCenter.getContactName(),
                     trainingCenter.getContactNumber()));
         }
+        if (!trainingCenter.getAddress().equals("")) {
+            items.add(new Contact(R.drawable.ic_map, trainingCenter.getAddress(),
+                    trainingCenter.getAddress()));
+        }
         if (!trainingCenter.getCenterName().equals("")) {
             items.add(new Card("Center Name", trainingCenter.getCenterName(), null));
             items.add(new Line());
         }
         if (!trainingCenter.getPartnerName().equals("")) {
             items.add(new Card("Partner Name", trainingCenter.getPartnerName(), null));
-            items.add(new Line());
-        }
-        if (!trainingCenter.getAddress().equals("")) {
-            items.add(new Card("Address", trainingCenter.getAddress(), null));
             items.add(new Line());
         }
         if (!trainingCenter.getSector().equals("")) {
@@ -102,7 +102,10 @@ public class TrainingCenterDetailActivity extends TrainingCenterDetailBaseActivi
                 break;
 
             case R.drawable.ic_map:
-                startActivity(new Intent(TrainingCenterDetailActivity.this, MapActivity.class));
+                Intent intent = new Intent(this, MapActivity.class)
+                        .putExtra("lat", Double.valueOf(trainingCenter.getLatitude()))
+                        .putExtra("lng", Double.valueOf(trainingCenter.getLongitude()));
+                startActivity(intent);
                 break;
         }
     }

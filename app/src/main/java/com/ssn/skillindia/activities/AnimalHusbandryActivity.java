@@ -55,21 +55,21 @@ public class AnimalHusbandryActivity extends AppCompatActivity {
         courseDetailArrayList.add(new CourseDetail("AISECT TRAINING CENTER",
                 "AISECT", "25000", "Senior Dairy Manager", "8 weeks",
                 "25/53, AMmpa Nagar,Karna,Delhi", "5", "3", "9876543210"));
+        courseDetailArrayList.add(new CourseDetail("Achariya Technologies",
+                "Achariya", "35000", "Senior Dairy Manager", "8 weeks",
+                "226,TILAK KHAND,GIRI NAGAR,KALKAJ,delhi", "3", "6", "9876543210"));
         courseDetailArrayList.add(new CourseDetail("AISECT TRAINING CENTER",
-                "AISECT", "25000", "Senior Dairy Manager", "8 weeks",
-                "25/53, AMmpa Nagar,Karna,Delhi", "3", "3", "9876543210"));
+                "AISECT", "20000", "Senior Dairy Manager", "8 weeks",
+                "557/1, PANA UDHAIN, NARELA, NEW DELHI-110040", "2", "4", "9876543210"));
         courseDetailArrayList.add(new CourseDetail("AISECT TRAINING CENTER",
-                "AISECT", "25000", "Senior Dairy Manager", "8 weeks",
-                "25/53, AMmpa Nagar,Karna,Delhi", "2", "3", "9876543210"));
+                "AISECT", "30000", "Senior Dairy Manager", "8 weeks",
+                "25/53, AMmpa Nagar,Karna,Delhi", "4", "2", "9876543210"));
         courseDetailArrayList.add(new CourseDetail("AISECT TRAINING CENTER",
-                "AISECT", "25000", "Senior Dairy Manager", "8 weeks",
-                "25/53, AMmpa Nagar,Karna,Delhi", "4", "3", "9876543210"));
+                "AISECT", "35000", "Senior Dairy Manager", "8 weeks",
+                "25/53, AMmpa Nagar,Karna,Delhi", "5", "7", "9876543210"));
         courseDetailArrayList.add(new CourseDetail("AISECT TRAINING CENTER",
-                "AISECT", "25000", "Senior Dairy Manager", "8 weeks",
-                "25/53, AMmpa Nagar,Karna,Delhi", "5", "3", "9876543210"));
-        courseDetailArrayList.add(new CourseDetail("AISECT TRAINING CENTER",
-                "AISECT", "25000", "Senior Dairy Manager", "8 weeks",
-                "25/53, AMmpa Nagar,Karna,Delhi", "1", "3", "9876543210"));
+                "AISECT", "45000", "Senior Dairy Manager", "8 weeks",
+                "25/53, AMmpa Nagar,Karna,Delhi", "1", "5", "9876543210"));
 
         foldingCellAdapter = new FoldingCellAdapter(this, courseDetailArrayList);
         listView.setAdapter(foldingCellAdapter);
