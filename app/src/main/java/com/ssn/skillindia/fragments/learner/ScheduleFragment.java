@@ -160,22 +160,22 @@ public class ScheduleFragment extends Fragment implements WeekView.EventClickLis
     private String getColorForType(String type) {
         switch (type) {
             case "null":
-                return "#F2B300";
+                return "#16a085";
             case "ELC":
-                return "#CC66FF";
+                return "#16a085";
             case "Saaral":
-                return "#5B9BD5";
+                return "#16a085";
             case "Music":
-                return "#548235";
+                return "#16a085";
             case "Variety":
-                return "#3F51B5";
+                return "#16a085";
             case "Dance":
-                return "#FF6600";
+                return "#16a085";
             case "Quiz":
-                return "#C6E0B4";
+                return "#16a085";
 
             default:
-                return "#F2B300";
+                return "#16a085";
         }
     }
 }

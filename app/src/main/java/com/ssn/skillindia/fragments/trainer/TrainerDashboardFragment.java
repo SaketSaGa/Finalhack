@@ -47,7 +47,7 @@ public class TrainerDashboardFragment extends Fragment {
 
         try {
             TextView textView = (TextView) view.findViewById(R.id.setup_tv);
-            textView.setText(getString(R.string.trainer));
+            textView.setText("Enroll as a trainer");
         } catch (Exception e) {
             //
         }
