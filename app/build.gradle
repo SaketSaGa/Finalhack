@@ -83,6 +83,7 @@ dependencies {
     compile('io.fabric.sdk.android:fabric:1.3.10@aar') {
         transitive = true;
     }
+    compile 'com.ramotion.foldingcell:folding-cell:1.1.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

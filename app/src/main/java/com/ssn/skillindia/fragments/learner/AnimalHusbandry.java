@@ -25,6 +25,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.ramotion.foldingcell.FoldingCell;
 import com.ssn.skillindia.R;
 
 import butterknife.ButterKnife;
@@ -33,14 +34,18 @@ import io.realm.Realm;
 
 public class AnimalHusbandry extends Fragment {
 
-    private Unbinder unbinder;
-    private Realm realm;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_course_animalhusbandry, container, false);
-        unbinder = ButterKnife.bind(this, rootView);
+        View rootView = inflater.inflate(R.layout.fragment_course_animalhusbandry_cell, container, false);
+
+        final FoldingCell foldingCell = (FoldingCell) rootView.findViewById(R.id.folding_cell);
+        foldingCell.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                foldingCell.toggle(false);
+            }
+        });
         return rootView;
     }
 }
