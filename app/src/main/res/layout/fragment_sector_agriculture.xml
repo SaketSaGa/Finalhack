@@ -71,14 +71,13 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginRight="5dp"
-                            android:rotation="180"
-                            android:src="@drawable/ic_down_arrow" />
+                            android:src="@drawable/ic_up_arrow" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="20%"
-                            android:textColor="#FF0000" />
+                            android:text="50%"
+                            android:textColor="#48ad00" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -122,13 +121,14 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginRight="5dp"
-                            android:src="@drawable/ic_up_arrow" />
+                            android:rotation="180"
+                            android:src="@drawable/ic_down_arrow" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="50%"
-                            android:textColor="#48ad00" />
+                            android:text="20%"
+                            android:textColor="#FF0000" />
 
                     </LinearLayout>
 

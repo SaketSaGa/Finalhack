@@ -27,20 +27,11 @@ import android.view.ViewGroup;
 
 import com.ssn.skillindia.R;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
-import io.realm.Realm;
-
 public class AgricultureFragment extends Fragment {
-
-    private Unbinder unbinder;
-    private Realm realm;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_sector_agriculture, container, false);
-        unbinder = ButterKnife.bind(this, rootView);
-        return rootView;
+        return inflater.inflate(R.layout.fragment_sector_agriculture, container, false);
     }
 }

@@ -29,7 +29,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.ssn.skillindia.R;
+import com.ssn.skillindia.ui.detail.Card;
 import com.ssn.skillindia.ui.detail.Contact;
+import com.ssn.skillindia.ui.detail.Line;
 import com.ssn.skillindia.utils.LogHelper;
 
 import me.drakeet.multitype.Items;
@@ -51,6 +53,30 @@ public class TrainingCenterDetailActivity extends TrainingCenterDetailBaseActivi
         if (!trainingCenter.getContactName().equals("")) {
             items.add(new Contact(R.drawable.ic_call, trainingCenter.getContactName(),
                     trainingCenter.getContactNumber()));
+        }
+        if (!trainingCenter.getCenterName().equals("")) {
+            items.add(new Card("Center Name", trainingCenter.getCenterName(), null));
+            items.add(new Line());
+        }
+        if (!trainingCenter.getPartnerName().equals("")) {
+            items.add(new Card("Partner Name", trainingCenter.getPartnerName(), null));
+            items.add(new Line());
+        }
+        if (!trainingCenter.getAddress().equals("")) {
+            items.add(new Card("Address", trainingCenter.getAddress(), null));
+            items.add(new Line());
+        }
+        if (!trainingCenter.getSector().equals("")) {
+            items.add(new Card("Sector", trainingCenter.getSector(), null));
+            items.add(new Line());
+        }
+        if (!trainingCenter.getDistrict().equals("")) {
+            items.add(new Card("District", trainingCenter.getDistrict(), null));
+            items.add(new Line());
+        }
+        if (!trainingCenter.getState().equals("")) {
+            items.add(new Card("State", trainingCenter.getState(), null));
+            items.add(new Line());
         }
     }
 
