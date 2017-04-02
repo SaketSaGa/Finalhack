@@ -82,16 +82,16 @@ public class FoldingCellAdapter extends ArrayAdapter<CourseDetail> {
 
         viewHolder.centerName.setText(courseDetail.getCenterName());
         viewHolder.partnerName.setText(courseDetail.getPartnerName());
-        viewHolder.courseFee.setText(courseDetail.getCourseFee());
+        viewHolder.courseFee.setText("Course Fee: " + courseDetail.getCourseFee());
         viewHolder.jobRole.setText(courseDetail.getJobRole());
         viewHolder.courseDuration.setText(courseDetail.getCourseDuration());
         viewHolder.address.setText(courseDetail.getAddress());
         viewHolder.rating.setText(courseDetail.getRating());
 
         viewHolder.centerNameFolded.setText(courseDetail.getCenterName());
-        viewHolder.courseFeeFolded.setText(courseDetail.getCourseFee());
+        viewHolder.courseFeeFolded.setText("Course Fee: " + courseDetail.getCourseFee());
         viewHolder.ratingFolded.setText(courseDetail.getRating());
-        viewHolder.distanceFolded.setText(courseDetail.getDistance());
+        viewHolder.distanceFolded.setText(courseDetail.getDistance() + " km");
 
         viewHolder.contactBtn.setOnClickListener(new View.OnClickListener() {
             @Override

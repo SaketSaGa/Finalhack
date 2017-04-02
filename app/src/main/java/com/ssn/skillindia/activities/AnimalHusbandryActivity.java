@@ -53,34 +53,34 @@ public class AnimalHusbandryActivity extends AppCompatActivity {
 
         courseDetailArrayList = new ArrayList<>();
         courseDetailArrayList.add(new CourseDetail("AISECT TRAINING CENTER",
-                "Training Partner: AISECT", "Course Fee: 25000",
+                "Training Partner: AISECT", "25000",
                 "Job Role: Senior Dairy Manager", "Course Duration: 8 weeks",
-                "Address: 25/53, AMmpa Nagar,Karna,Delhi", "5", "3km",
+                "Address: 25/53, AMmpa Nagar,Karna,Delhi", "5", "3",
                 "9876543210"));
         courseDetailArrayList.add(new CourseDetail("AISECT TRAINING CENTER",
-                "Training Partner: AISECT", "Course Fee: 25000",
+                "Training Partner: AISECT", "25000",
                 "Job Role: Senior Dairy Manager", "Course Duration: 8 weeks",
-                "Address: 25/53, AMmpa Nagar,Karna,Delhi", "3", "3km",
+                "Address: 25/53, AMmpa Nagar,Karna,Delhi", "3", "3",
                 "9876543210"));
         courseDetailArrayList.add(new CourseDetail("AISECT TRAINING CENTER",
-                "Training Partner: AISECT", "Course Fee: 25000",
+                "Training Partner: AISECT", "25000",
                 "Job Role: Senior Dairy Manager", "Course Duration: 8 weeks",
-                "Address: 25/53, AMmpa Nagar,Karna,Delhi", "4", "3km",
+                "Address: 25/53, AMmpa Nagar,Karna,Delhi", "4", "3",
                 "9876543210"));
         courseDetailArrayList.add(new CourseDetail("AISECT TRAINING CENTER",
-                "Training Partner: AISECT", "Course Fee: 25000",
+                "Training Partner: AISECT", "25000",
                 "Job Role: Senior Dairy Manager", "Course Duration: 8 weeks",
-                "Address: 25/53, AMmpa Nagar,Karna,Delhi", "2", "3km",
+                "Address: 25/53, AMmpa Nagar,Karna,Delhi", "2", "3",
                 "9876543210"));
         courseDetailArrayList.add(new CourseDetail("AISECT TRAINING CENTER",
-                "Training Partner: AISECT", "Course Fee: 25000",
+                "Training Partner: AISECT", "25000",
                 "Job Role: Senior Dairy Manager", "Course Duration: 8 weeks",
-                "Address: 25/53, AMmpa Nagar,Karna,Delhi", "5", "3km",
+                "Address: 25/53, AMmpa Nagar,Karna,Delhi", "5", "3",
                 "9876543210"));
         courseDetailArrayList.add(new CourseDetail("AISECT TRAINING CENTER",
-                "Training Partner: AISECT", "Course Fee: 25000",
+                "Training Partner: AISECT", "25000",
                 "Job Role: Senior Dairy Manager", "Course Duration: 8 weeks",
-                "Address: 25/53, AMmpa Nagar,Karna,Delhi", "1", "3km",
+                "Address: 25/53, AMmpa Nagar,Karna,Delhi", "1", "3",
                 "9876543210"));
 
         foldingCellAdapter = new FoldingCellAdapter(this, courseDetailArrayList);
@@ -99,11 +99,35 @@ public class AnimalHusbandryActivity extends AppCompatActivity {
             case android.R.id.home:
                 onBackPressed();
                 break;
-            case R.id.action_sort:
+            case R.id.action_sort_rating:
                 Collections.sort(courseDetailArrayList, new Comparator<CourseDetail>() {
                     @Override
                     public int compare(CourseDetail lhs, CourseDetail rhs) {
                         if (Integer.valueOf(lhs.getRating()) > Integer.valueOf(rhs.getRating()))
+                            return -1;
+                        else return 1;
+                    }
+                });
+                foldingCellAdapter.notifyDataSetChanged();
+                break;
+
+            case R.id.action_sort_distance:
+                Collections.sort(courseDetailArrayList, new Comparator<CourseDetail>() {
+                    @Override
+                    public int compare(CourseDetail lhs, CourseDetail rhs) {
+                        if (Integer.valueOf(lhs.getDistance()) > Integer.valueOf(rhs.getDistance()))
+                            return -1;
+                        else return 1;
+                    }
+                });
+                foldingCellAdapter.notifyDataSetChanged();
+                break;
+
+            case R.id.action_sort_course_fee:
+                Collections.sort(courseDetailArrayList, new Comparator<CourseDetail>() {
+                    @Override
+                    public int compare(CourseDetail lhs, CourseDetail rhs) {
+                        if (Integer.valueOf(lhs.getCourseFee()) > Integer.valueOf(rhs.getCourseFee()))
                             return -1;
                         else return 1;
                     }

@@ -20,9 +20,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_sort"
-        android:icon="@drawable/ic_sort"
+        android:id="@+id/action_sort_rating"
         android:orderInCategory="100"
-        android:title="@string/menu_sort"
-        app:showAsAction="always" />
+        android:title="@string/menu_sort_rating"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_sort_distance"
+        android:orderInCategory="200"
+        android:title="@string/menu_sort_distance"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_sort_course_fee"
+        android:orderInCategory="300"
+        android:title="@string/menu_sort_course_fee"
+        app:showAsAction="never" />
 </menu>
