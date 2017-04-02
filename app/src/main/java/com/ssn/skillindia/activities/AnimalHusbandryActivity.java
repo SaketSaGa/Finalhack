@@ -22,6 +22,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ListView;
 
 import com.ssn.skillindia.R;
@@ -29,8 +31,13 @@ import com.ssn.skillindia.adapters.FoldingCellAdapter;
 import com.ssn.skillindia.model.CourseDetail;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class AnimalHusbandryActivity extends AppCompatActivity {
+
+    private ArrayList<CourseDetail> courseDetailArrayList;
+    private FoldingCellAdapter foldingCellAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,14 +47,30 @@ public class AnimalHusbandryActivity extends AppCompatActivity {
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(getString(R.string.course_animal_husbandry));
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ListView listView = (ListView) findViewById(R.id.animal_list_view);
 
-        final ArrayList<CourseDetail> courseDetailArrayList = new ArrayList<>();
+        courseDetailArrayList = new ArrayList<>();
         courseDetailArrayList.add(new CourseDetail("AISECT TRAINING CENTER",
                 "Training Partner: AISECT", "Course Fee: 25000",
                 "Job Role: Senior Dairy Manager", "Course Duration: 8 weeks",
                 "Address: 25/53, AMmpa Nagar,Karna,Delhi", "5", "3km",
+                "9876543210"));
+        courseDetailArrayList.add(new CourseDetail("AISECT TRAINING CENTER",
+                "Training Partner: AISECT", "Course Fee: 25000",
+                "Job Role: Senior Dairy Manager", "Course Duration: 8 weeks",
+                "Address: 25/53, AMmpa Nagar,Karna,Delhi", "3", "3km",
+                "9876543210"));
+        courseDetailArrayList.add(new CourseDetail("AISECT TRAINING CENTER",
+                "Training Partner: AISECT", "Course Fee: 25000",
+                "Job Role: Senior Dairy Manager", "Course Duration: 8 weeks",
+                "Address: 25/53, AMmpa Nagar,Karna,Delhi", "4", "3km",
+                "9876543210"));
+        courseDetailArrayList.add(new CourseDetail("AISECT TRAINING CENTER",
+                "Training Partner: AISECT", "Course Fee: 25000",
+                "Job Role: Senior Dairy Manager", "Course Duration: 8 weeks",
+                "Address: 25/53, AMmpa Nagar,Karna,Delhi", "2", "3km",
                 "9876543210"));
         courseDetailArrayList.add(new CourseDetail("AISECT TRAINING CENTER",
                 "Training Partner: AISECT", "Course Fee: 25000",
@@ -57,26 +80,38 @@ public class AnimalHusbandryActivity extends AppCompatActivity {
         courseDetailArrayList.add(new CourseDetail("AISECT TRAINING CENTER",
                 "Training Partner: AISECT", "Course Fee: 25000",
                 "Job Role: Senior Dairy Manager", "Course Duration: 8 weeks",
-                "Address: 25/53, AMmpa Nagar,Karna,Delhi", "5", "3km",
-                "9876543210"));
-        courseDetailArrayList.add(new CourseDetail("AISECT TRAINING CENTER",
-                "Training Partner: AISECT", "Course Fee: 25000",
-                "Job Role: Senior Dairy Manager", "Course Duration: 8 weeks",
-                "Address: 25/53, AMmpa Nagar,Karna,Delhi", "5", "3km",
-                "9876543210"));
-        courseDetailArrayList.add(new CourseDetail("AISECT TRAINING CENTER",
-                "Training Partner: AISECT", "Course Fee: 25000",
-                "Job Role: Senior Dairy Manager", "Course Duration: 8 weeks",
-                "Address: 25/53, AMmpa Nagar,Karna,Delhi", "5", "3km",
-                "9876543210"));
-        courseDetailArrayList.add(new CourseDetail("AISECT TRAINING CENTER",
-                "Training Partner: AISECT", "Course Fee: 25000",
-                "Job Role: Senior Dairy Manager", "Course Duration: 8 weeks",
-                "Address: 25/53, AMmpa Nagar,Karna,Delhi", "5", "3km",
+                "Address: 25/53, AMmpa Nagar,Karna,Delhi", "1", "3km",
                 "9876543210"));
 
+        foldingCellAdapter = new FoldingCellAdapter(this, courseDetailArrayList);
+        listView.setAdapter(foldingCellAdapter);
+    }
 
-        final FoldingCellAdapter adapter = new FoldingCellAdapter(this, courseDetailArrayList);
-        listView.setAdapter(adapter);
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_animal_husbandry, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                break;
+            case R.id.action_sort:
+                Collections.sort(courseDetailArrayList, new Comparator<CourseDetail>() {
+                    @Override
+                    public int compare(CourseDetail lhs, CourseDetail rhs) {
+                        if (Integer.valueOf(lhs.getRating()) > Integer.valueOf(rhs.getRating()))
+                            return -1;
+                        else return 1;
+                    }
+                });
+                foldingCellAdapter.notifyDataSetChanged();
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

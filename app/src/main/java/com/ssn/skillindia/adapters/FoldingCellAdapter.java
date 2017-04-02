@@ -60,8 +60,13 @@ public class FoldingCellAdapter extends ArrayAdapter<CourseDetail> {
             viewHolder.jobRole = (TextView) cell.findViewById(R.id.job_role);
             viewHolder.courseDuration = (TextView) cell.findViewById(R.id.course_duration);
             viewHolder.address = (TextView) cell.findViewById(R.id.address);
-            viewHolder.demandRating = (TextView) cell.findViewById(R.id.demand_rating);
-            viewHolder.distance = (TextView) cell.findViewById(R.id.distance);
+            viewHolder.rating = (TextView) cell.findViewById(R.id.demand_rating);
+
+            viewHolder.centerNameFolded = (TextView) cell.findViewById(R.id.training_center_folded);
+            viewHolder.courseFeeFolded = (TextView) cell.findViewById(R.id.course_fee_folded);
+            viewHolder.ratingFolded = (TextView) cell.findViewById(R.id.rating_folded);
+            viewHolder.distanceFolded = (TextView) cell.findViewById(R.id.distance_folded);
+
             viewHolder.contactBtn = (Button) cell.findViewById(R.id.contact_btn);
             cell.setTag(viewHolder);
         } else {
@@ -81,8 +86,12 @@ public class FoldingCellAdapter extends ArrayAdapter<CourseDetail> {
         viewHolder.jobRole.setText(courseDetail.getJobRole());
         viewHolder.courseDuration.setText(courseDetail.getCourseDuration());
         viewHolder.address.setText(courseDetail.getAddress());
-        viewHolder.demandRating.setText(courseDetail.getDemandRating());
-        viewHolder.distance.setText(courseDetail.getDistance());
+        viewHolder.rating.setText(courseDetail.getRating());
+
+        viewHolder.centerNameFolded.setText(courseDetail.getCenterName());
+        viewHolder.courseFeeFolded.setText(courseDetail.getCourseFee());
+        viewHolder.ratingFolded.setText(courseDetail.getRating());
+        viewHolder.distanceFolded.setText(courseDetail.getDistance());
 
         viewHolder.contactBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,14 +107,17 @@ public class FoldingCellAdapter extends ArrayAdapter<CourseDetail> {
     private static class ViewHolder {
         FoldingCell foldingCell;
 
+        TextView centerNameFolded;
+        TextView courseFeeFolded;
+        TextView ratingFolded;
+        TextView distanceFolded;
         TextView centerName;
         TextView partnerName;
         TextView courseFee;
         TextView jobRole;
         TextView courseDuration;
         TextView address;
-        TextView demandRating;
-        TextView distance;
+        TextView rating;
 
         Button contactBtn;
     }

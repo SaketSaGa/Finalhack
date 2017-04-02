@@ -99,7 +99,7 @@ public class CourseDetail {
         this.address = address;
     }
 
-    public String getDemandRating() {
+    public String getRating() {
         return demandRating;
     }
 
