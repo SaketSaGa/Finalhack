@@ -1,0 +1,161 @@
+<!--
+  ~ Skill India
+  ~ Copyright (C) 2017  e-LEMON-ators
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~  it under the terms of the GNU General Public License as published by
+  ~  the Free Software Foundation, either version 3 of the License, or
+  ~  (at your option) any later version.
+  ~
+  ~  This program is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  GNU General Public License for more details.
+  ~
+  ~  You should have received a copy of the GNU General Public License
+  ~  along with this program.  If not, see <http://www.gnu.org/licenses/>
+  -->
+
+<resources>
+    <string name="app_name">"திறன் இந்தியா"</string>
+
+    <string name="dashboard">"டாஷ்போர்டு"</string>
+    <string name="learner">"கற்பவர்"</string>
+    <string name="trainer">"பயிற்சி"</string>
+    <string name="training_partner">"பயிற்சி பார்ட்னர்"</string>
+
+    <string name="learner_description">"படிப்புகள் ஒரு பதிவுசெய்யவும் உங்கள் திறன்களை வளர்க்க"</string>
+    <string name="trainer_description">"படிப்புகள் ஒரு பதிவுசெய்யவும் உங்கள் திறன்களை வளர்க்க"</string>
+    <string name="training_partner_description">"படிப்புகள் ஒரு பதிவுசெய்யவும் உங்கள் திறன்களை வளர்க்க"</string>
+    <string name="contribute_csr_description">"படிப்புகள் ஒரு பதிவுசெய்யவும் உங்கள் திறன்களை வளர்க்க"</string>
+
+    <string name="dashboard_learner_setup">"ஒரு படிப்பாளி கணக்கை அமைக்கவும்"</string>
+    <string name="dashboard_trainer_setup">"ஒரு பயிற்சி கணக்கை அமைக்கவும்"</string>
+    <string name="dashboard_training_partner_setup">"ஒரு பயிற்சி பார்ட்னர் கணக்கை அமைக்கவும்"</string>
+    <string name="dashboard_setup_register">"பதிவு"</string>
+
+    <string name="drawer_item_log_out">"வெளியேறு"</string>
+
+    <string name="menu_help">"உதவி"</string>
+    <string name="menu_map">"வரைபடம்"</string>
+
+    <string name="intro2_heading">"நீங்கள் ஒரு சீரிய கற்பவர் வேண்டுமா?"</string>
+    <string name="intro2_description">"பின்னர், உங்கள் மீண்டும் கிடைத்துவிட்டது!"</string>
+
+    <string name="intro3_heading">"ஒரு மாற்றம் செய்ய விரும்புகிறீர்களா?"</string>
+    <string name="intro3_description">"எங்களுக்கு கை சேர வா!"</string>
+
+    <string name="login">"உள் நுழை"</string>
+    <string name="name">"பெயர்"</string>
+    <string name="aadhaar">"ஆதார் இல்லை"</string>
+    <string name="department">"துறை"</string>
+    <string name="year">"ஆண்டு"</string>
+    <string name="email">"மின்னஞ்சல்"</string>
+    <string name="mobile">"மொபைல்"</string>
+    <string name="password">"கடவுச்சொல்"</string>
+    <string name="forgot_your_password">"உங்கள் கடவுச்சொல்லை மறந்து விட்டீர்களா?"</string>
+    <string name="go">"கோ"</string>
+    <string name="repeat_password">"ரகசிய குறியீட்டை திரும்பச்சொல்"</string>
+    <string name="register">"பதிவுசெய்யவும்"</string>
+
+    <string name="state_spinner_label">"நிலை"</string>
+    <string name="district_spinner_label">"மாவட்ட"</string>
+    <string name="sector_spinner_label">"Sector"</string>
+
+    <string name="sign_in_cancelled">"ரத்து உள்நுழையவும்"</string>
+    <string name="no_internet_connection">"இணைய இணைப்பு"</string>
+    <string name="unknown_sign_in_response">"அங்கீகார உள்நுழைவு இருந்து தெரியாத பதில்"</string>
+    <string name="unknown_error">"அறியப்படாத பிழை ஏற்பட்டது"</string>
+
+    <string name="sign_out_failed">"வெளியேறு தோல்வி"</string>
+    <string name="delete_account_failed">"கணக்கை நீக்கவும் தோல்வி"</string>
+
+    <string name="title_activity_hello">"வணக்கம்."</string>
+    <string name="hello_activity_headline">"வணக்கம்."</string>
+    <string name="hello_activity_terms">"பயன்பாட்டு விதிமுறைகளை"</string>
+    <string name="hello_activity_subhead">"அதனை உங்களுக்கு தொடங்குவதற்கு முன் ஒரு சில விரைவான விஷயங்கள் வேண்டும்."</string>
+    <string name="hello_activity_type">"கணக்கு வகை"</string>
+    <string name="hello_activity_name">"பெயர்"</string>
+    <string name="hello_activity_mobile">"அலைபேசி எண்."</string>
+    <string name="hello_activity_address">"முகவரி"</string>
+    <string name="hello_activity_state">"நிலை"</string>
+    <string name="hello_activity_district">"மாவட்ட"</string>
+    <string name="hello_activity_gender">"பாலினம்"</string>
+    <string name="hello_activity_age">"வயது"</string>
+    <string name="hello_activity_email">"மின்னஞ்சல்"</string>
+    <string name="hello_activity_password">"கடவுச்சொல்"</string>
+    <string name="hello_activity_age_invalid">"தயவுசெய்து செல்லுபடியாகும் வயதை உள்ளிடவும்."</string>
+
+    <string name="hello_activity_share_data">"ஆராய்ச்சி அநாமதேய தரவைப் பகிர்ந்து கொள்க."</string>
+    <string name="hello_activity_hint_settings">"நீங்கள் பின்னர் அமைப்புகளில் இவர்களைச் மாற்ற முடியும்."</string>
+    <string name="hello_activity_button_next">"அடுத்த"</string>
+    <string name="hello_activity_textview_tos">"திறன் இந்தியா பயன்படுத்துவதன் மூலம், ஏற்கிறீர்கள்"</string>
+    <string name="hello_activity_button_start">"தொடங்குவதற்கு"</string>
+
+    <string name="title_activity_switch">"SwitchActivity"</string>
+    <string name="action_settings">"அமைப்புகள்"</string>
+
+    <string name="drawer_item_search_courses">"தேடுதல் பயிற்சி படிப்புகள்"</string>
+    <string name="drawer_item_search_center">"பயிற்சி மையத்தில் தேடுக"</string>
+    <string name="drawer_item_webinars">"இணையக்கல்விகள்"</string>
+    <string name="drawer_item_check_progress">"முன்னேற்றம் சரிபார்க்கவும்"</string>
+    <string name="drawer_item_schedule">"காண்க அட்டவணை"</string>
+    <string name="drawer_item_world_competition">"உலக திறன்கள் போட்டி"</string>
+    <string name="drawer_item_report_issues">"சிக்கல்களைப் புகாரளி"</string>
+    <string name="drawer_item_contact_trainer">"தொடர்பு பயிற்சி"</string>
+
+    <string name="drawer_item_upload_webinars">"பதிவேற்றம் இணையக்கல்விகள்"</string>
+    <string name="drawer_item_contact_training_center">"தொடர்பு பயிற்சி மையம்"</string>
+    <string name="drawer_item_update_skill_set">"புதுப்பிக்கப்பட்டது திறன் அமை"</string>
+
+    <string name="drawer_item_setup_training_center">"அமைப்பு பயிற்சி மையம்"</string>
+    <string name="drawer_item_manage_trainers">"பயிற்சி நிர்வகிக்கவும்"</string>
+    <string name="drawer_item_enroll_learner_pmkvy">"PMKVY கீழ் படிப்பாளி பதிவுசெய்யவும்"</string>
+    <string name="drawer_item_become_nsdc_partner">"ஒரு NSDC கூட்டாளராகுங்கள்"</string>
+
+    <string name="drawer_item_contribute_csr">"சிஎஸ்ஆர் நிதிகள் பங்களிக்க"</string>
+
+    <string name="search_no_training_centers">"எதுவும் காணப்படவில்லை பயிற்சி மையங்கள்"</string>
+
+    <string name="name_organization">"அமைப்பின் பெயர்"</string>
+    <string name="type_of_agreement">"ஒப்பந்தம் வகை"</string>
+    <string name="sector_targeted">"துறை குறிவைத்த"</string>
+    <string name="amount">"தொகை"</string>
+    <string name="EMAIL">"மின்னஞ்சல்"</string>
+    <string name="objective">"குறிக்கோள்"</string>
+    <string name="csr_submit">"சமர்ப்பி"</string>
+
+    <string-array name="type_of_agreement">
+        <item>"இரு பகுதிகள்"</item>
+        <item>"முத்தரப்பு"</item>
+    </string-array>
+
+    <string-array name="sector">
+        <item>"விவசாயம்"</item>
+        <item>"வங்கி மற்றும் நிதி"</item>
+    </string-array>
+
+    <string name="error_player">"YouTubePlayer ஐத் (துவக்குவதில் பிழை இருந்தது %1$s )"</string>
+
+    <string name="sector_agriculture">"விவசாயம்"</string>
+    <string name="sector_auto">"ஆட்டோ மற்றும் வாகன உதிரிபாகங்கள்"</string>
+    <string name="sector_furniture">"மரச்சாமான்கள் மற்றும் நாற்காலி மேஜைகள்"</string>
+    <string name="sector_gems">"இரத்தினங்கள் மற்றும் ஜூவல்லரி"</string>
+    <string name="sector_handloom">"கைத்தறி மற்றும் கைவினை"</string>
+    <string name="sector_media">"ஊடகம் மற்றும் பொழுதுபோக்கு"</string>
+    <string name="sector_plumbing">"குழாய்கள்"</string>
+    <string name="sector_softskill">"மென்மையான திறமை மற்றும் ஆங்கிலம் தொடர்பாடல்"</string>
+    <string name="sector_telecom">"தொலை தொடர்பு"</string>
+    <string name="sector_textile">"ஜவுளி மற்றும் ஆடை"</string>
+
+    <string name="course_animalhusbandry">"கால்நடை வளர்ப்பு"</string>
+    <string name="course_beekeeper">"தேனீ கீப்பர்"</string>
+    <string name="course_cottoncultivator">"பருத்தி விவசாயி"</string>
+    <string name="course_paddyfarmer">"நெல் விவசாயி"</string>
+    <string name="course_poultryfarming">"கோழிப்பண்ணை விவசாயம்"</string>
+    <string name="course_dairyworker">"பால் பணியாளர்"</string>
+
+    <string name="sector_agriculture_actionbar">"விவசாயம் பாடப்பிரிவுகள்"</string>
+    <string name="course_animalhusbandry_actionbar">"கால்நடை பராமரிப்புத்துறை கோர்ஸ்"</string>
+
+</resources>

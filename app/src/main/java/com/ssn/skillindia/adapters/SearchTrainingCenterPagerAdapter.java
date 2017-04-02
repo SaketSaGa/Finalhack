@@ -22,7 +22,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.ssn.skillindia.fragments.learner.MapFragment;
 import com.ssn.skillindia.fragments.learner.SearchTrainingCenterFragment;
 
 public class SearchTrainingCenterPagerAdapter extends FragmentPagerAdapter {
@@ -36,8 +35,6 @@ public class SearchTrainingCenterPagerAdapter extends FragmentPagerAdapter {
         switch (position) {
             case 0:
                 return new SearchTrainingCenterFragment();
-            case 1:
-                return new MapFragment();
             default:
                 return new SearchTrainingCenterFragment();
         }
