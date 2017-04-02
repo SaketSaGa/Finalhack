@@ -48,7 +48,6 @@ import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 import com.ssn.skillindia.R;
 import com.ssn.skillindia.fragments.learner.AgricultureFragment;
-import com.ssn.skillindia.fragments.learner.AnimalHusbandry;
 import com.ssn.skillindia.fragments.learner.CheckProgressFragment;
 import com.ssn.skillindia.fragments.learner.LearnerDashboardFragment;
 import com.ssn.skillindia.fragments.learner.ScheduleFragment;
@@ -419,7 +418,7 @@ public class SwitchActivity extends AppCompatActivity {
     }
 
     public void husbandryOnClick(View view) {
-        startActivity(new Intent(this, AnimalHusbandry.class));
+        startActivity(new Intent(this, AnimalHusbandryActivity.class));
     }
 
     private void setBottomBarDefaultTab() {

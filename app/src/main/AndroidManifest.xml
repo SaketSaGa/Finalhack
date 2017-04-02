@@ -47,7 +47,7 @@
             android:name=".activities.IntroActivity"
             android:theme="@style/SplashTheme" />
 
-        <activity android:name=".fragments.learner.AnimalHusbandry" />
+        <activity android:name=".activities.AnimalHusbandryActivity" />
 
         <activity
             android:name=".activities.HelloActivity"
