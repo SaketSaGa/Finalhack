@@ -20,28 +20,25 @@ package com.ssn.skillindia.fragments.learner;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.ramotion.foldingcell.FoldingCell;
 import com.ssn.skillindia.R;
 
-public class AnimalHusbandry extends Fragment {
+public class AnimalHusbandry extends AppCompatActivity {
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_course_animalhusbandry_cell, container, false);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_animalhusbandry_detail);
 
-        final FoldingCell foldingCell = (FoldingCell) rootView.findViewById(R.id.folding_cell);
+        final FoldingCell foldingCell = (FoldingCell) findViewById(R.id.folding_cell);
         foldingCell.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 foldingCell.toggle(false);
             }
         });
-        return rootView;
     }
 }

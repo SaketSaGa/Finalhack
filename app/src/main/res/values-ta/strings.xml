@@ -148,7 +148,7 @@
     <string name="sector_telecom">"தொலை தொடர்பு"</string>
     <string name="sector_textile">"ஜவுளி மற்றும் ஆடை"</string>
 
-    <string name="course_animalhusbandry">"கால்நடை வளர்ப்பு"</string>
+    <string name="course_animal_husbandry">"கால்நடை வளர்ப்பு"</string>
     <string name="course_beekeeper">"தேனீ கீப்பர்"</string>
     <string name="course_cottoncultivator">"பருத்தி விவசாயி"</string>
     <string name="course_paddyfarmer">"நெல் விவசாயி"</string>

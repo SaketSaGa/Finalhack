@@ -148,7 +148,7 @@
     <string name="sector_telecom">"दूरसंचार"</string>
     <string name="sector_textile">"वस्त्र और कपड़े"</string>
 
-    <string name="course_animalhusbandry">"पशु-पालन"</string>
+    <string name="course_animal_husbandry">"पशु-पालन"</string>
     <string name="course_beekeeper">"मधुमक्खी कीपर"</string>
     <string name="course_cottoncultivator">"कपास कल्टीवेटर"</string>
     <string name="course_paddyfarmer">"पैडी फ़ार्मर"</string>

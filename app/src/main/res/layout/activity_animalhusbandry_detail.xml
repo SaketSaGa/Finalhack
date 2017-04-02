@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Skill India
+  ~ Copyright (C) 2017  e-LEMON-ators
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~  it under the terms of the GNU General Public License as published by
+  ~  the Free Software Foundation, either version 3 of the License, or
+  ~  (at your option) any later version.
+  ~
+  ~  This program is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  GNU General Public License for more details.
+  ~
+  ~  You should have received a copy of the GNU General Public License
+  ~  along with this program.  If not, see <http://www.gnu.org/licenses/>
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:folding-cell="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout xmlns:app="http://schemas.android.com/tools"
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/appbar_padding_top"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:title="@string/course_animal_husbandry" />
+    </android.support.design.widget.AppBarLayout>
+
+    <com.ramotion.foldingcell.FoldingCell
+        android:id="@+id/folding_cell"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        folding-cell:additionalFlipsCount="2"
+        folding-cell:animationDuration="1300"
+        folding-cell:cameraHeight="30">
+
+        <!-- CONTENT     (UNFOLDED) LAYOUT (MUST BE AT LEAST 2x times BIGGER than content layout bellow)-->
+        <include layout="@layout/fragment_course_animalhusbandry_cell_content" />
+
+        <!-- TITLE (FOLDED) LAYOUT (MUST BE AT LEAST 2x times SMALLER than content layout above) -->
+        <include layout="@layout/fragment_course_animalhusbandry_cell_title" />
+    </com.ramotion.foldingcell.FoldingCell>
+</LinearLayout>

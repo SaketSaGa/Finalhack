@@ -148,7 +148,7 @@
     <string name="sector_telecom">Telecom</string>
     <string name="sector_textile">Textile and Clothing</string>
 
-    <string name="course_animalhusbandry">Animal Husbandry</string>
+    <string name="course_animal_husbandry">Animal Husbandry</string>
     <string name="course_beekeeper">Bee Keeper</string>
     <string name="course_cottoncultivator">Cotton Cultivator</string>
     <string name="course_paddyfarmer">Paddy Farmer</string>

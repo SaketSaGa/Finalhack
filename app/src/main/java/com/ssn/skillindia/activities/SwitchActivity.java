@@ -418,8 +418,8 @@ public class SwitchActivity extends AppCompatActivity {
         switchFragment(new AgricultureFragment(), getString(R.string.sector_agriculture_actionbar));
     }
 
-    public void husbandry(View view) {
-        switchFragment(new AnimalHusbandry(), getString(R.string.course_animalhusbandry_actionbar));
+    public void husbandryOnClick(View view) {
+        startActivity(new Intent(this, AnimalHusbandry.class));
     }
 
     private void setBottomBarDefaultTab() {
