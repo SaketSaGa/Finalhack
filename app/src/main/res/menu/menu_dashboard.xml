@@ -25,4 +25,25 @@
         android:orderInCategory="100"
         android:title="@string/menu_help"
         app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_englis"
+        android:icon="@drawable/ic_help_outline"
+        android:orderInCategory="100"
+        android:title="@string/menu_english"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_hindi"
+        android:icon="@drawable/ic_help_outline"
+        android:orderInCategory="200"
+        android:title="@string/menu_hindi"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_tamil"
+        android:icon="@drawable/ic_help_outline"
+        android:orderInCategory="300"
+        android:title="@string/menu_tamil"
+        app:showAsAction="never" />
 </menu>

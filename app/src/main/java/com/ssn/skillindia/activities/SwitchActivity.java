@@ -20,12 +20,14 @@ package com.ssn.skillindia.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -64,13 +66,19 @@ import com.ssn.skillindia.utils.LogHelper;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import co.mobiwise.materialintro.animation.MaterialIntroListener;
+import co.mobiwise.materialintro.shape.Focus;
+import co.mobiwise.materialintro.shape.FocusGravity;
+import co.mobiwise.materialintro.view.MaterialIntroView;
 
-public class SwitchActivity extends AppCompatActivity {
+public class SwitchActivity extends AppCompatActivity implements MaterialIntroListener {
 
     private static final String TAG = LogHelper.makeLogTag(SwitchActivity.class);
+    private static final String MENU_SEARCH_ID_TAG = "menuSearchIdTag";
     public static FirebaseAnalytics FIREBASE_ANALYTICS;
     public static String CURRENT_FRAGMENT;
     @BindView(R.id.toolbar)
@@ -303,9 +311,33 @@ public class SwitchActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        android.content.res.Configuration conf = res.getConfiguration();
         switch (item.getItemId()) {
             case R.id.action_map:
                 startActivity(new Intent(this, MapActivity.class));
+                break;
+
+            case R.id.action_help:
+                View helpView = toolbar.findViewById(R.id.action_help);
+                showIntro(helpView, MENU_SEARCH_ID_TAG, getString(R.string.help_intro), FocusGravity.CENTER);
+                break;
+
+            case R.id.action_englis:
+                conf.locale = new Locale("en");
+                res.updateConfiguration(conf, dm);
+                recreate();
+                break;
+            case R.id.action_hindi:
+                conf.locale = new Locale("hi");
+                res.updateConfiguration(conf, dm);
+                recreate();
+                break;
+            case R.id.action_tamil:
+                conf.locale = new Locale("ta");
+                res.updateConfiguration(conf, dm);
+                recreate();
                 break;
         }
 
@@ -317,11 +349,16 @@ public class SwitchActivity extends AppCompatActivity {
         menu.clear();
         switch (CURRENT_FRAGMENT) {
             case "Dashboard":
+            case "Learner":
+            case "Trainer":
+            case "Training Partner":
                 getMenuInflater().inflate(R.menu.menu_dashboard, menu);
                 break;
             case "Search Training Center":
                 getMenuInflater().inflate(R.menu.menu_training_center, menu);
                 break;
+            default:
+                getMenuInflater().inflate(R.menu.menu_dashboard, menu);
         }
 
         return super.onPrepareOptionsMenu(menu);
@@ -448,5 +485,24 @@ public class SwitchActivity extends AppCompatActivity {
 
     public void setupOnClick(View view) {
         startActivity(new Intent(this, HelloActivity.class));
+    }
+
+    public void showIntro(View view, String id, String text, FocusGravity focusGravity) {
+        new MaterialIntroView.Builder(this)
+                .enableDotAnimation(true)
+                .setFocusGravity(focusGravity)
+                .setFocusType(Focus.MINIMUM)
+                .setDelayMillis(100)
+                .enableFadeAnimation(true)
+                .performClick(true)
+                .setInfoText(text)
+                .setTarget(view)
+                .setListener(this)
+                .setUsageId(id)
+                .show();
+    }
+
+    @Override
+    public void onUserClicked(String s) {
     }
 }
