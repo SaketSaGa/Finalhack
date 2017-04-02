@@ -22,7 +22,7 @@
     <string name="dashboard">Dashboard</string>
     <string name="learner">Learner</string>
     <string name="trainer">Trainer</string>
-    <string name="training_partner">Enroll as a training Partner</string>
+    <string name="training_partner">Training Partner</string>
 
     <string name="learner_description">Enroll into courses and develop your skills</string>
     <string name="trainer_description">Enroll into courses and develop your skills</string>

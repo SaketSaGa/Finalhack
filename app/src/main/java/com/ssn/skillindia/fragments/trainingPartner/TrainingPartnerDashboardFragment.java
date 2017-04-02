@@ -50,7 +50,7 @@ public class TrainingPartnerDashboardFragment extends Fragment {
             TextView textView = (TextView) view.findViewById(R.id.setup_tv);
             ImageView imgview = (ImageView) view.findViewById(R.id.imageView);
             imgview.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.ic_dashboard_training_partner));
-            textView.setText(getString(R.string.training_partner));
+            textView.setText("Enroll as a training partner");
         } catch (Exception e) {
             //
         }

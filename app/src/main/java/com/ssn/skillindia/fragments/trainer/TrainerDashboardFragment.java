@@ -26,6 +26,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ssn.skillindia.R;
@@ -48,6 +49,8 @@ public class TrainerDashboardFragment extends Fragment {
         try {
             TextView textView = (TextView) view.findViewById(R.id.setup_tv);
             textView.setText("Enroll as a trainer");
+            ImageView imgview = (ImageView) view.findViewById(R.id.imageView);
+            imgview.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.ic_dashboard_trainer));
         } catch (Exception e) {
             //
         }
