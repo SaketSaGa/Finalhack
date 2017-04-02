@@ -29,6 +29,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.TextView;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.ssn.skillindia.R;
 import com.ssn.skillindia.SkillIndiaApplication;
 import com.ssn.skillindia.adapters.TrainingCenterAdapter;
@@ -47,6 +48,8 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import io.realm.Realm;
 import io.realm.RealmResults;
+
+import static com.ssn.skillindia.activities.SwitchActivity.FIREBASE_ANALYTICS;
 
 public class SearchTrainingCenterFragment extends Fragment {
 
@@ -134,6 +137,13 @@ public class SearchTrainingCenterFragment extends Fragment {
                 .equalTo("district", districtSpinner.getSpinner().getSelectedItem().toString())
                 .equalTo("sector", sectorSpinner.getSpinner().getSelectedItem().toString())
                 .findAll();
+
+        Bundle bundle = new Bundle();
+        bundle.putString(FirebaseAnalytics.Param.SEARCH_TERM,
+                stateSpinner.getSpinner().getSelectedItem().toString() + "," +
+                        districtSpinner.getSpinner().getSelectedItem().toString() + "," +
+                        sectorSpinner.getSpinner().getSelectedItem().toString());
+        FIREBASE_ANALYTICS.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
 
         if (centerRealmResults.size() == 0) {
             trainingCentersRV.setVisibility(View.GONE);

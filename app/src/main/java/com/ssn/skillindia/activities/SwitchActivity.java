@@ -54,7 +54,7 @@ import com.ssn.skillindia.fragments.learner.LearnerDashboardFragment;
 import com.ssn.skillindia.fragments.learner.ScheduleFragment;
 import com.ssn.skillindia.fragments.learner.SearchTrainingCenterFragment;
 import com.ssn.skillindia.fragments.learner.SearchTrainingCourseFragment;
-import com.ssn.skillindia.fragments.learner.WebinarsFragment;
+import com.ssn.skillindia.fragments.learner.WebinarsTabFragment;
 import com.ssn.skillindia.fragments.trainer.TrainerDashboardFragment;
 import com.ssn.skillindia.fragments.trainingPartner.EnrollPmkvyFragment;
 import com.ssn.skillindia.fragments.trainingPartner.TrainingPartnerDashboardFragment;
@@ -214,7 +214,7 @@ public class SwitchActivity extends AppCompatActivity {
                                         getString(R.string.drawer_item_search_center));
                                 break;
                             case 3:
-                                switchFragment(new WebinarsFragment(),
+                                switchFragment(new WebinarsTabFragment(),
                                         getString(R.string.drawer_item_webinars));
                                 break;
                             case 4:
@@ -391,7 +391,7 @@ public class SwitchActivity extends AppCompatActivity {
     }
 
     public void webinarsOnClick(View view) {
-        switchFragment(new WebinarsFragment(), getString(R.string.drawer_item_webinars));
+        switchFragment(new WebinarsTabFragment(), getString(R.string.drawer_item_webinars));
     }
 
     public void searchTrainingCenterOnClick(View view) {

@@ -23,6 +23,6 @@
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@drawable/ic_launcher_web" />
+            android:src="@drawable/toolbox" />
     </item>
 </layer-list>

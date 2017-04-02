@@ -19,9 +19,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="95dp"
+    android:layout_margin="16dp"
     android:background="?android:attr/activatedBackgroundIndicator"
     android:gravity="center"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:padding="16dp">
 
     <com.google.android.youtube.player.YouTubeThumbnailView
         android:id="@+id/thumbnail"
@@ -36,9 +38,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginLeft="5dp"
+        android:layout_marginLeft="16dp"
         android:layout_weight="1"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#fff" />
-
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 </LinearLayout>
