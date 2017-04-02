@@ -42,7 +42,7 @@
             android:paddingLeft="24dp"
             android:paddingRight="24dp"
             android:scaleType="fitCenter"
-            tools:src="@drawable/ic_bug" />
+            tools:src="@drawable/ic_question" />
 
         <TextView
             android:id="@+id/item_name"

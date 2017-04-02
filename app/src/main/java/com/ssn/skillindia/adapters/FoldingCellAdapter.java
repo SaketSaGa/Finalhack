@@ -60,7 +60,7 @@ public class FoldingCellAdapter extends ArrayAdapter<CourseDetail> {
             viewHolder.jobRole = (TextView) cell.findViewById(R.id.job_role);
             viewHolder.courseDuration = (TextView) cell.findViewById(R.id.course_duration);
             viewHolder.address = (TextView) cell.findViewById(R.id.address);
-            viewHolder.rating = (TextView) cell.findViewById(R.id.demand_rating);
+            viewHolder.rating = (TextView) cell.findViewById(R.id.rating);
 
             viewHolder.centerNameFolded = (TextView) cell.findViewById(R.id.training_center_folded);
             viewHolder.courseFeeFolded = (TextView) cell.findViewById(R.id.course_fee_folded);
@@ -82,17 +82,18 @@ public class FoldingCellAdapter extends ArrayAdapter<CourseDetail> {
 
         viewHolder.centerName.setText(courseDetail.getCenterName());
         viewHolder.partnerName.setText(courseDetail.getPartnerName());
-        viewHolder.courseFee.setText("Course Fee: " + courseDetail.getCourseFee());
+        viewHolder.courseFee.setText(courseDetail.getCourseFee());
         viewHolder.jobRole.setText(courseDetail.getJobRole());
         viewHolder.courseDuration.setText(courseDetail.getCourseDuration());
         viewHolder.address.setText(courseDetail.getAddress());
         viewHolder.rating.setText(courseDetail.getRating());
 
         viewHolder.centerNameFolded.setText(courseDetail.getCenterName());
-        viewHolder.courseFeeFolded.setText("Course Fee: " + courseDetail.getCourseFee());
+        viewHolder.courseFeeFolded.setText(courseDetail.getCourseFee());
         viewHolder.ratingFolded.setText(courseDetail.getRating());
         viewHolder.distanceFolded.setText(courseDetail.getDistance() + " km");
 
+        viewHolder.contactBtn.setText(courseDetail.getContactNo());
         viewHolder.contactBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

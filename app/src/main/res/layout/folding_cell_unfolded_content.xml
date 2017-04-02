@@ -27,48 +27,53 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="16dp">
-        <!-- content header line -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingBottom="7dp"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp"
-                android:paddingTop="7dp">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/training_center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_weight="1"
+                    android:padding="10dp"
                     android:textSize="20sp"
                     tools:text="AISECT TRAINING CENTER" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="66dp"
+                    android:layout_height="match_parent"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="10dp">
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:foregroundGravity="center"
+                        android:paddingRight="5dp"
                         android:src="@drawable/ic_rating" />
 
                     <TextView
-                        android:id="@+id/demand_rating"
+                        android:id="@+id/rating"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="20sp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="22dp"
                         tools:text="5" />
                 </LinearLayout>
-            </RelativeLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -80,18 +85,23 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <ImageView
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:padding="16dp"
-                        android:src="@drawable/ic_trainingpartner2" />
+                        android:gravity="center_vertical"
+                        android:paddingBottom="4dp"
+                        android:paddingLeft="12dp"
+                        android:paddingTop="4dp"
+                        android:text="Training Partner: " />
 
                     <TextView
                         android:id="@+id/training_partner"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center|start"
-                        tools:text="Training Partner: AISECT" />
+                        android:gravity="center_vertical|start"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        tools:text="AISECT" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -99,18 +109,23 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <ImageView
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:padding="16dp"
-                        android:src="@drawable/ic_rupee" />
+                        android:gravity="center_vertical"
+                        android:paddingBottom="4dp"
+                        android:paddingLeft="12dp"
+                        android:paddingTop="4dp"
+                        android:text="Course Fee: " />
 
                     <TextView
                         android:id="@+id/course_fee"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center|start"
-                        tools:text="Course Fee: 25000" />
+                        android:gravity="center_vertical|start"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        tools:text="25000" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -118,56 +133,71 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <ImageView
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:padding="16dp"
-                        android:src="@drawable/ic_briefcase" />
+                        android:gravity="center_vertical"
+                        android:paddingBottom="4dp"
+                        android:paddingLeft="12dp"
+                        android:paddingTop="4dp"
+                        android:text="Job Role: " />
 
                     <TextView
                         android:id="@+id/job_role"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center|start"
-                        tools:text="Job Role: Senior Dairy Manager" />
+                        android:gravity="center_vertical|start"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        tools:text="Senior Dairy Manager" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <ImageView
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:padding="16dp"
-                        android:src="@drawable/ic_calendar" />
+                        android:gravity="center_vertical"
+                        android:paddingBottom="4dp"
+                        android:paddingLeft="12dp"
+                        android:paddingTop="4dp"
+                        android:text="Course Duration: " />
 
                     <TextView
                         android:id="@+id/course_duration"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center|start"
-                        tools:text="Course Duration: 8 weeks" />
+                        android:gravity="center_vertical|start"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        tools:text="8 weeks" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <ImageView
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:padding="16dp"
-                        android:src="@drawable/ic_sign" />
+                        android:gravity="center_vertical"
+                        android:paddingBottom="4dp"
+                        android:paddingLeft="12dp"
+                        android:paddingTop="4dp"
+                        android:text="Address: " />
 
                     <TextView
                         android:id="@+id/address"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center|start"
-                        tools:text="Address: 25/53, AMmpa Nagar,Karna,Delhi" />
+                        android:gravity="center_vertical|start"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        tools:text="25/53, AMmpa Nagar,Karna,Delhi" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -189,7 +219,7 @@
                         android:layout_height="match_parent"
                         android:background="?selectableItemBackground"
                         android:gravity="center|start"
-                        android:textColor="@color/primary"
+                        android:textColor="@color/colorPrimary"
                         tools:text="CONTACT"
                         tools:textStyle="bold" />
                 </LinearLayout>

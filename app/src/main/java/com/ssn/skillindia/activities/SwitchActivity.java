@@ -54,6 +54,7 @@ import com.ssn.skillindia.fragments.learner.ScheduleFragment;
 import com.ssn.skillindia.fragments.learner.SearchTrainingCenterFragment;
 import com.ssn.skillindia.fragments.learner.SearchTrainingCourseFragment;
 import com.ssn.skillindia.fragments.learner.WebinarsTabFragment;
+import com.ssn.skillindia.fragments.trainer.ReportIssuesFragment;
 import com.ssn.skillindia.fragments.trainer.TrainerDashboardFragment;
 import com.ssn.skillindia.fragments.trainingPartner.EnrollPmkvyFragment;
 import com.ssn.skillindia.fragments.trainingPartner.TrainingPartnerDashboardFragment;
@@ -227,6 +228,9 @@ public class SwitchActivity extends AppCompatActivity {
                                         getString(R.string.drawer_item_check_progress));
                                 break;
                             case 7:
+                            case 16:
+                                switchFragment(new ReportIssuesFragment(),
+                                        getString(R.string.drawer_item_report_issues));
                                 break;
                             case 8:
                                 break;
@@ -419,6 +423,10 @@ public class SwitchActivity extends AppCompatActivity {
 
     public void husbandryOnClick(View view) {
         startActivity(new Intent(this, AnimalHusbandryActivity.class));
+    }
+
+    public void reportIssuesOnClick(View view) {
+        switchFragment(new ReportIssuesFragment(), getString(R.string.drawer_item_report_issues));
     }
 
     private void setBottomBarDefaultTab() {

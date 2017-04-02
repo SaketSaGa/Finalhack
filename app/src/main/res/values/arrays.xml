@@ -40,4 +40,13 @@
         <item>Female</item>
         <item>Other</item>
     </string-array>
+
+    <string-array name="issues">
+        <item>Maintennce issue</item>
+        <item>Discrimination</item>
+        <item>Harrasment</item>
+        <item>Sexual Misconduct</item>
+        <item>Alcohol/Drug Concern</item>
+        <item>Others</item>
+    </string-array>
 </resources>
