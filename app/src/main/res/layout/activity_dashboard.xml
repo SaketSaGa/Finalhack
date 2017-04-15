@@ -82,7 +82,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="8dp"
-                    android:text="@string/learner_description"
+                    android:text="Enroll as a learner and get certified"
                     android:textAppearance="?android:textAppearanceMedium" />
             </LinearLayout>
         </LinearLayout>
@@ -131,7 +131,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="8dp"
-                    android:text="@string/learner_description"
+                    android:text="Enroll as a trainer and help the youth of India"
                     android:textAppearance="?android:textAppearanceMedium" />
             </LinearLayout>
         </LinearLayout>
@@ -180,14 +180,14 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="8dp"
-                    android:text="@string/learner_description"
+                    android:text="Collaborate with other training centers"
                     android:textAppearance="?android:textAppearanceMedium" />
             </LinearLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/csr_card"
+        android:id="@+id/aadhaar_card"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="8dp"
@@ -206,7 +206,7 @@
                 android:layout_margin="16dp"
                 android:layout_weight="1"
                 android:scaleType="fitCenter"
-                android:src="@drawable/ic_dashboard_csr" />
+                android:src="@drawable/ic_forms" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -221,7 +221,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:layout_marginLeft="8dp"
-                    android:text="@string/drawer_item_contribute_csr"
+                    android:text="Link your Aadhaar Card"
                     android:textAppearance="?android:textAppearanceLarge" />
 
                 <TextView
@@ -229,7 +229,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="8dp"
-                    android:text="@string/learner_description"
+                    android:text="Get your Aadhaar card linked"
                     android:textAppearance="?android:textAppearanceMedium" />
             </LinearLayout>
         </LinearLayout>

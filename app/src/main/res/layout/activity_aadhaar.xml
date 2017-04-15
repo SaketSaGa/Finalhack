@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Skill India
+  ~ Copyright (C) 2017  e-LEMON-ators
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~  it under the terms of the GNU General Public License as published by
+  ~  the Free Software Foundation, either version 3 of the License, or
+  ~  (at your option) any later version.
+  ~
+  ~  This program is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  GNU General Public License for more details.
+  ~
+  ~  You should have received a copy of the GNU General Public License
+  ~  along with this program.  If not, see <http://www.gnu.org/licenses/>
+  -->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="32dp"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="32dp"
+            android:text="Add Aadhaar Card"
+            android:textColor="@color/skill_india_text_dark"
+            android:textSize="@dimen/abc_text_size_display_1_material"
+            android:id="@+id/textView" />
+
+        <ImageView
+            android:layout_width="321dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_forms"
+            android:scaleType="fitCenter"
+            android:layout_weight="0.17" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/aadhaar_no"
+            android:hint="xxxx-xxxx-xxxx-xxxx"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_marginTop="120dp"/>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/submit_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableEnd="@drawable/ic_navigate_next_accent"
+            android:drawableRight="@drawable/ic_navigate_next_accent"
+            android:padding="8dp"
+            android:text="@string/csr_submit"
+            android:onClick="notification"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            android:layout_margin="100dp"/>
+    </LinearLayout>
+</ScrollView>

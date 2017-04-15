@@ -38,8 +38,8 @@ public class DashboardActivity extends AppCompatActivity {
     CardView trainerCard;
     @BindView(R.id.training_partner_card)
     CardView trainingPartnerCard;
-    @BindView(R.id.csr_card)
-    CardView csrCard;
+    @BindView(R.id.aadhaar_card)
+    CardView aadhaarCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,10 +74,10 @@ public class DashboardActivity extends AppCompatActivity {
                 startActivity(new Intent(DashboardActivity.this, MainActivity.class));
             }
         });
-        csrCard.setOnClickListener(new View.OnClickListener() {
+        aadhaarCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DashboardActivity.this, CsrActivity.class));
+                startActivity(new Intent(DashboardActivity.this, AadhaarActivity.class));
             }
         });
     }
